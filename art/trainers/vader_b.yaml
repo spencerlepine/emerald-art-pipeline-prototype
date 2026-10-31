@@ -1,0 +1,140 @@
+name: vader_b
+kit: trainer64
+replaces: graphics/trainers/front_pics/magma_leader_maxie.png
+# Darth Vader replaces Maxie (emerald-sw-db swap_map: character:maxie -> VADER).
+# Variant B: Force choke, arm raised; saber hilt unlit.
+palette:
+  - [115, 197, 164]  # 0 transparent
+  - [16, 16, 24]     # K outline
+  - [32, 32, 48]     # c deepest shadow (inside the cape)
+  - [48, 56, 80]     # d armour shadow
+  - [64, 80, 112]    # m armour base
+  - [104, 128, 168]  # h highlight
+  - [168, 192, 224]  # s sheen
+  - [96, 96, 112]    # g metal dark
+  - [168, 168, 184]  # G metal light
+  - [56, 24, 40]     # l lens
+  - [216, 48, 40]    # r red light
+  - [72, 200, 96]    # e green light
+  - [64, 128, 232]   # b blue light
+  - [248, 64, 48]    # R saber glow
+  - [248, 240, 240]  # W saber core
+legend: {'.': 0, K: 1, c: 2, d: 3, m: 4, h: 5, s: 6, g: 7, G: 8, l: 9, r: 10, e: 11, b: 12, R: 13, W: 14}
+frames:
+  front:
+    mirror_shade: "h:m m:d s:h"
+    half: |
+        KKKK
+        KKhhmm
+        Khhmmmm
+        Khmmmmmm
+        Khmmmmmm
+        Khmhhhmh
+        KhKKKKKm
+        KmKsllKd
+        KmdKllKg
+        KhmdgKgG
+        KhmmdgKgG
+        KKhmmmmdKgG
+        KhhmmmmmdKKK
+        KKKKKKKKKccc
+        KKKKKKccKhmmm
+        KKshhmdKshmmmm
+        KcKhmmddKhmmmmm
+        KcKhmmddKhmmmmm
+        KcKKmmddKhmmmmm
+        KcKhmdKdKhmmmmm
+        KcKhmdKdKhmmmmm
+        KcKhmdKdKhmmmmm
+        KcKhmdKdKdmmmmm
+        KdcKhmdKdKdmmmmm
+        KdcKhmdKdKdmmmmm
+        KdcKhmdKdKdmmmmm
+        KdcKhmdKdKdmmmmm
+        KdcKhmdKdKKKKKKK
+        KdcKhmdKdKgGgGGg
+        KdcKhmdKdKgGgGGg
+        KdcKmmdKdKKKKKKK
+        KdcKddKKdKhmmmdc
+        KdcKKKKcdKhmmmdc
+        KdcccccccdKhmmmdc
+        KdcccccccdKhmmmdc
+        KdcccccccdKhmmmdc
+        KdccccccccKhmmdKc
+        KdccccccccKhmmdKc
+        KdccccccccKhmmdKc
+        KdccccccccKhmmdKc
+        KdccccccccKhmmdKc
+        KdccccccccKhmmdKc
+        KdccccccccKshmdKc
+        KdcccccccccKshmdKc
+        KdcccccccccKhmmdKc
+        KdcccccccccKhmmdKc
+        KdcccccccccKhmmdKc
+        KdcccccccccKhmmdKc
+        KdcccccccccKhmmdKc
+        KdcccccccccKhhmdKc
+        KdcccccccccKshmdKc
+        KdcccccccccKhhmdKc
+        KdcccccccccKhhmdKc
+        KddcccccccccKhhmdKc
+        KddcccccccccKhhmdKc
+        KddcccccccccKhhmdKc
+        KddccccccccKhhmmmdK
+        KddccccccccKhhmmmdK
+        KddccccccccKhhmmmdK
+        KddccccccccKhhmmmdK
+        KKKKKKKKKKKKKKKKKKK
+    patches:
+      - x: 28
+        y: 19
+        rows: |
+          KKKKKKKK
+          KGGGGGgK
+          KrKeKbgK
+          KGGGGGgK
+          KKbKrKgK
+          KggggggK
+          KKKKKKKK
+      - x: 29
+        y: 30
+        rows: |
+          KKKKKK
+          KGsGGK
+          KGGGgK
+          KKKKKK
+      - x: 39
+        y: 9
+        rows: |
+          ______________KKKK_
+          _____________KhhmmK
+          _____________KhmmdK
+          _____________KmmddK
+          ____________KKKdKdK
+          ____________KKKKKK_
+          __________KKhhh____
+          ________KKhhmmm____
+          ______KKhhmmddd____
+          ____KKhhmmddKKK____
+          __KKhhmmddKK_______
+          __hhmmddKK_________
+          __mmddKK___________
+          dcddKK_____________
+          dcKKcc_____________
+          dccccc_____________
+          dccccc_____________
+          dccccc_____________
+          dccccc_____________
+          dccccc_____________
+          dccccc_____________
+          dccccc_____________
+          dccccc_____________
+          dccccc_____________
+          dccccc_____________
+          dccccc_____________
+          dccccc_____________
+      - x: 20
+        y: 36
+        rows: |
+          KGK
+          KgK

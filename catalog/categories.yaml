@@ -17,8 +17,10 @@ tools:
     guide: pipelines/walker/README.md
     note: "Vader approved (helmet variant A). Other walker kits (32x32, 16x16, special sheets: bike, surf, fishing, field move) are TODO inside this tool."
   trainer-front:
-    status: TODO-NEED-TO-BUILD
+    status: IN-REVIEW
     covers: "64x64 trainer battle pics with their own 16-colour palette"
+    guide: pipelines/trainer-front/README.md
+    note: "Vader mockups (3 poses) with the owner."
   trainer-back:
     status: TODO-NEED-TO-BUILD
     covers: "Player/partner battle back sprites (4-5 frame throw sheets)"

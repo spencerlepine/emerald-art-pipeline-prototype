@@ -153,3 +153,25 @@ spec's folder, so names only need to be unique per category). All tools stay in 
 verify, previews and lint; each new art type adds a *kit* (frame size, frame order, palette
 rule, corpus) rather than a new program. Tool status lives in `catalog/categories.yaml`:
 TODO-NEED-TO-BUILD -> IN-REVIEW (mockups with the owner) -> READY (approved; use at scale).
+
+## D11. Trainer pics: inline palette, mirrored halves, battle-scene preview (2026-10-31)
+
+Trainer front pics (kit `trainer64`) carry their own 16-colour palette in the PNG, because
+pokeemerald builds the `.gbapal` from the PNG itself. So the spec's `palette:` may be an
+inline list instead of a shared file. A 64x64 grid is 4,096 cells, too many to place one by
+one reliably, and front poses are near-symmetric: a frame can be written as its left half
+(`half:`), mirrored, darkened one ramp step on the right (`mirror_shade`, keeps light from the
+upper left), then corrected with `patches:` for everything asymmetric. Lint compares against
+the 93 vanilla pics (`corpus/trainer64.json`). The deciding preview is `battle.png`: the pic in
+a rendered Emerald battle (real tall-grass background, player back pic, text box) next to the
+vanilla pic it replaces, at 1x and 2x.
+
+## Trainer prototype 1: Vader battle pic (2026-10-31)
+
+Replaces `magma_leader_maxie.png` (matches the Vader walker that replaces Maxie's). Three pose
+variants on one body: A saber lit and held down at his side, B Force choke with the arm raised,
+C two-handed guard with the blade raised. Sheet: `output/trainers/vader-pose-variants.png`.
+All three round-trip through gbagfx (2048 bytes + 32-byte palette). A first draft with a
+tent-shaped cape and a 50 px wide helmet was discarded before review: it read as a box. Known
+gaps: still bulkier than vanilla (area 1,822 vs p95 1,534, cape) and fewer single-pixel
+highlights than Emerald artists use.

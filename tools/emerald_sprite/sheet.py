@@ -12,6 +12,10 @@ PALETTE_DIR = Path(__file__).resolve().parents[2] / "palettes"
 
 
 def spec_palette(spec: Spec) -> list[tuple[int, int, int]]:
+    """16 colours: a shared palette file, or the spec's inline list padded with black."""
+    if isinstance(spec.palette, list):
+        cols = [tuple(int(v) for v in c) for c in spec.palette]
+        return cols + [(0, 0, 0)] * (16 - len(cols))
     return pal.load_jasc(PALETTE_DIR / f"{spec.palette}.pal")
 
 

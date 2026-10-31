@@ -26,7 +26,7 @@ from pathlib import Path
 
 from . import audit as audit_mod
 from . import lint as lint_mod
-from . import preview, sheet, spec as spec_mod
+from . import preview, sheet, spec as spec_mod, trainer
 
 REPO = Path(__file__).resolve().parents[2]
 OUT = REPO / "output"
@@ -45,9 +45,9 @@ def emerald_dir() -> Path:
     return Path(os.environ.get("EMERALD_DIR", REPO.parent / "pokeemerald")).resolve()
 
 
-def report(errors, warnings, m) -> str:
+def report(errors, warnings, m, corpus=None) -> str:
     lines = [f"ERROR   {e}" for e in errors] + [f"warning {w}" for w in warnings]
-    corpus = lint_mod.load_corpus()
+    corpus = corpus if corpus is not None else lint_mod.load_corpus()
     lines.append("")
     lines.append(f"{'metric':<14}{'this':>8}{'Emerald p5':>12}{'median':>8}{'p95':>8}")
     for k, v in m["summary"].items():
@@ -58,6 +58,25 @@ def report(errors, warnings, m) -> str:
     return "\n".join(lines)
 
 
+def build_trainer(s, out: Path, png: Path) -> int:
+    colours = sheet.spec_palette(s)
+    g = s.frames["front"]
+    errors, warnings, m = trainer.lint(g, colours)
+    trainer.zoom(g, colours, out / "preview" / "zoom.png")
+    em = emerald_dir()
+    if (em / "graphics/battle_environment").exists():
+        trainer.battle(g, colours, out / "preview" / "battle.png", em, s.replaces)
+    else:
+        print(f"note: no pokeemerald at {em}; skipped battle.png (set EMERALD_DIR)")
+    trainer.showcase(out / "preview")
+    text = report(errors, warnings, {"summary": m}, trainer.load_corpus() or {})
+    (out / "lint.txt").write_text(text + "\n")
+    (out / "metrics.json").write_text(json.dumps(m, indent=1))
+    print(f"wrote {png.relative_to(REPO)} and previews in {(out / 'preview').relative_to(REPO)}")
+    print(text)
+    return 1 if errors else 0
+
+
 def cmd_build(a) -> int:
     s = spec_mod.load(a.spec)
     out = out_dir(s)
@@ -65,6 +84,8 @@ def cmd_build(a) -> int:
     im = sheet.build_sheet(s)
     png = out / f"{s.name}.png"
     im.save(png, optimize=False)
+    if s.kit == "trainer64":
+        return build_trainer(s, out, png)
     colours = sheet.spec_palette(s)
     errors, warnings, m = lint_mod.lint(s.frames, colours, s.kit)
     preview.zoom_sheet(s.frames, colours, s.kit, out / "preview" / "zoom.png")
@@ -92,10 +113,11 @@ def cmd_lint(a) -> int:
 
 
 def cmd_corpus(a) -> int:
-    c = lint_mod.build_corpus(emerald_dir())
-    print(f"measured {c['count']} vanilla walkers -> {lint_mod.CORPUS_FILE.relative_to(REPO)}")
-    for k in c["median"]:
-        print(f"  {k:<14} p5 {c['p5'][k]:>7}  median {c['median'][k]:>7}  p95 {c['p95'][k]:>7}")
+    for what, mod in (("vanilla walkers", lint_mod), ("vanilla trainer pics", trainer)):
+        c = mod.build_corpus(emerald_dir())
+        print(f"measured {c['count']} {what} -> {mod.CORPUS_FILE.relative_to(REPO)}")
+        for k in c["median"]:
+            print(f"  {k:<14} p5 {c['p5'][k]:>7}  median {c['median'][k]:>7}  p95 {c['p95'][k]:>7}")
     return 0
 
 
@@ -111,6 +133,8 @@ def cmd_verify(a) -> int:
     s = spec_mod.load(a.spec)
     png = out_dir(s) / f"{s.name}.png"
     g = _gbagfx()
+    if s.kit == "trainer64":
+        return verify_trainer(g, png)
     with tempfile.TemporaryDirectory() as t:
         bpp = Path(t) / "x.4bpp"
         back = Path(t) / "back.png"
@@ -128,6 +152,22 @@ def cmd_verify(a) -> int:
     expect = 9 * 256
     print(f"gbagfx: {png.name} -> {size} bytes of 4bpp (expect {expect} = 9 frames x .size 256); round-trip {'identical' if ok else 'DIFFERS'}")
     return 0 if ok and size == expect else 1
+
+
+def verify_trainer(g: Path, png: Path) -> int:
+    """As src/data/graphics/trainers.h: png -> .4bpp (no metatile args) and png -> .gbapal."""
+    with tempfile.TemporaryDirectory() as t:
+        bpp, gpal, back = Path(t) / "x.4bpp", Path(t) / "x.gbapal", Path(t) / "back.png"
+        subprocess.run([str(g), str(png), str(bpp)], check=True)
+        subprocess.run([str(g), str(png), str(gpal)], check=True)
+        subprocess.run([str(g), str(bpp), str(back), "-width", "8", "-palette", str(gpal)], check=True)
+        a_g, a_c = trainer.read_pic(png)
+        b_g, b_c = trainer.read_pic(back)
+        size, psize = bpp.stat().st_size, gpal.stat().st_size
+    ok = a_g == b_g and [tuple(x >> 3 for x in c) for c in a_c] == [tuple(x >> 3 for x in c) for c in b_c]
+    print(f"gbagfx: {png.name} -> {size} bytes of 4bpp (expect 2048) + {psize}-byte palette (expect 32); "
+          f"round-trip {'identical' if ok else 'DIFFERS'}")
+    return 0 if ok and size == 2048 and psize == 32 else 1
 
 
 def png_w(p: Path) -> int:
@@ -164,6 +204,10 @@ def cmd_compare(a) -> int:
     """Side-by-side review sheet for variants: python -m emerald_sprite compare out.png a.yaml b.yaml ..."""
     specs = [spec_mod.load(p) for p in a.specs]
     em = emerald_dir()
+    if specs[0].kit == "trainer64":
+        trainer.compare(specs, Path(a.out), em if (em / "graphics/battle_environment").exists() else None, sheet.spec_palette)
+        print(f"wrote {a.out}")
+        return 0
     preview.compare(specs, Path(a.out), em if (em / "data/tilesets").exists() else None)
     print(f"wrote {a.out}")
     return 0

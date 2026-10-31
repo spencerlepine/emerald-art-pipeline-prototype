@@ -17,6 +17,18 @@ Step frames are usually derived, not redrawn (a step is ~20% of the pixels):
         ...
     down_b:
       mirror_of: down_a # horizontal mirror of another frame
+
+Front-facing art is mostly symmetric, so a frame can be drawn as its left half and mirrored:
+
+    front:
+      half: |           # lines are right-aligned to the centre line and may be shorter than
+        ....KKKK        #   w/2 (missing pixels on the left are transparent)
+      mirror_shade: "h:m m:d"  # optional: recolour the mirrored half (light from the left)
+      patches:          # then redraw the asymmetric parts; `_` keeps the pixel underneath
+        - {x: 20, y: 30, rows: "KK_K"}
+
+`palette:` is either the name of a file in palettes/ (shared palettes) or an inline list of up
+to 16 [r, g, b] colours (own-palette art such as trainer pics); index 0 is transparent.
 """
 from __future__ import annotations
 
@@ -39,6 +51,14 @@ KITS = {
             "left": ["left_a", "left", "left_b", "left"],
         },
     },
+    # Trainer battle pic: one 64x64 frame (src/data/trainer_graphics/front_pic_anims.h plays
+    # frame 0 only). The palette is the PNG's own (INCGFX ".gbapal" reads it from the PNG).
+    "trainer64": {
+        "frame": (64, 64),
+        "order": ["front"],
+        "stand": ["front"],
+        "walk": {},
+    },
 }
 
 Grid = list[list[int]]
@@ -48,7 +68,7 @@ Grid = list[list[int]]
 class Spec:
     name: str
     kit: str
-    palette: str
+    palette: str | list
     legend: dict[str, int]
     frames: dict[str, Grid]
     path: Path
@@ -84,6 +104,13 @@ def _parse_rows(text: str, legend: dict[str, int], w: int, where: str) -> Grid:
     return rows
 
 
+def _transparent(legend: dict[str, int]) -> str:
+    for ch, idx in legend.items():
+        if idx == 0:
+            return ch
+    raise SpecError("legend needs a character for index 0 (transparent)")
+
+
 def _bottom_anchor(rows: Grid, w: int, h: int, where: str) -> Grid:
     if len(rows) > h:
         raise SpecError(f"{where}: {len(rows)} rows, frame is {h} tall")
@@ -102,6 +129,9 @@ def load(path: str | Path) -> Spec:
         if len(ch) != 1 or not 0 <= idx <= 15:
             raise SpecError(f"legend entry {ch!r}: {idx} must be one character -> index 0..15")
 
+    if isinstance(d["palette"], list):
+        if not 2 <= len(d["palette"]) <= 16 or any(len(c) != 3 or not all(0 <= v <= 255 for v in c) for c in d["palette"]):
+            raise SpecError("inline palette: 2-16 entries of [r, g, b], 0-255")
     raw = d["frames"]
     frames: dict[str, Grid] = {}
 
@@ -116,6 +146,21 @@ def load(path: str | Path) -> Spec:
         where = f"frame {name}"
         if isinstance(f, str):
             g = _bottom_anchor(_parse_rows(f, legend, w, where), w, h, where)
+        elif "half" in f:
+            lines = [ln.rstrip() for ln in f["half"].strip("\n").split("\n")]
+            half = w // 2
+            if any(len(ln.strip()) > half for ln in lines):
+                raise SpecError(f"{where}: a `half` line is wider than {half}")
+            left = _parse_rows("\n".join(ln.strip().rjust(half, _transparent(legend)) for ln in lines), legend, half, where)
+            # `mirror_shade` recolours the mirrored (right) half, e.g. "h:m m:d", so light
+            # can come from the upper left even though the shape is mirrored.
+            shade = {}
+            for pair in str(f.get("mirror_shade", "")).split():
+                a_, b_ = pair.split(":")
+                if a_ not in legend or b_ not in legend:
+                    raise SpecError(f"{where}: mirror_shade {pair!r} uses a character not in the legend")
+                shade[legend[a_]] = legend[b_]
+            g = _bottom_anchor([row + [shade.get(v, v) for v in row[::-1]] for row in left], w, h, where)
         elif "mirror_of" in f:
             g = [row[::-1] for row in resolve(f["mirror_of"], stack + (name,))]
         elif "base" in f:
@@ -133,7 +178,19 @@ def load(path: str | Path) -> Spec:
                 for i, row in enumerate(patch):
                     g[py + i] = row
         else:
-            raise SpecError(f"{where}: give a grid, `base:` or `mirror_of:`")
+            raise SpecError(f"{where}: give a grid, `half:`, `base:` or `mirror_of:`")
+        if isinstance(f, dict):
+            for i, pt in enumerate(f.get("patches") or []):
+                px, py = int(pt["x"]), int(pt["y"])
+                for dy, ln in enumerate(pt["rows"].strip("\n").split("\n")):
+                    for dx, ch in enumerate(ln.strip()):
+                        if ch == "_":
+                            continue
+                        if ch not in legend:
+                            raise SpecError(f"{where}: patch {i}: character {ch!r} is not in the legend")
+                        if not (0 <= px + dx < w and 0 <= py + dy < h):
+                            raise SpecError(f"{where}: patch {i} runs outside the frame at ({px + dx}, {py + dy})")
+                        g[py + dy][px + dx] = legend[ch]
         frames[name] = g
         return g
 
