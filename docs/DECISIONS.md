@@ -275,3 +275,15 @@ after their Pokémon (BULBASAUR -> SPROUTLIZ "lizard with a seed bulb on its bac
 splice/repaint fits those; the 193 canon/databank creatures (Rancor, Bantha, Tauntaun, droids)
 need new shapes. D1's trigger for an image model ("64x64 categories fail review with option 1")
 is met for the second group.
+
+## D15. Creatures are drawn by an image model; the build waits on a GPU (2026-10-31)
+
+After round 1 the owner chose an image model for every creature ("we're gonna need stable
+diffusion"), over hand-drawing and over a repaint/model hybrid. Reasons: hand-drawing reached
+~60% at best; repaints don't fit new shapes; D1's revisit trigger (64x64 categories failing
+review) is met. The plan reuses the owner's Black `spritegen` design (SDXL + a LoRA trained on
+the game's own sprites + a deterministic finisher), adapted in
+`pipelines/creature/research/EMERALD-PLAN.md`; our `creature` tool is its exporter and checker.
+There is no GPU in the agent containers and the owner's machine is an M1 Mac, so the tool is
+**PENDING**: research-only until a GPU (rented or owned) is available. All research, old and
+new, lives in `pipelines/creature/research/`.

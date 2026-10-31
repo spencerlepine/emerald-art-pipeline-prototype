@@ -1,7 +1,9 @@
 # Tool: `creature` (creature battle sprites)
 
-**Status: IN-REVIEW.** The tool builds, verifies and installs every file a species needs; the
-*drawing method* is not settled (see Round 1 below). Categories A1 (front + 2nd frame, normal and
+**Status: PENDING (needs a GPU).** The tool builds, verifies and installs every file a species
+needs. The drawing will be done by an image model (D15); the research and the build plan are in
+**[research/](research/README.md)** (start with `research/EMERALD-PLAN.md`). Nothing below the
+format section draws final art yet. Categories A1 (front + 2nd frame, normal and
 shiny palettes) and A2 (back).
 
 Mockups: `art/creatures/rancor_drawn.yaml` (replaces Rhydon), `mynock_drawn.yaml` (Zubat).
@@ -15,7 +17,7 @@ Per species, `graphics/pokemon/<species>/` (built by `src/data/graphics/pokemon.
 | --- | --- |
 | `anim_front.png` | 64x128: front frame on top, 2nd animation frame below (battle intro, Pokédex) |
 | `front.png` | 64x64: identical to the top frame (the still front) |
-| `back.png` | 64x64: player-side sprite, drawn larger and cut off by the bottom edge |
+| `back.png` | 64x64: player-side sprite, drawn larger (median 1.22x the front's area; 3% touch the bottom edge) |
 | `normal.pal`, `shiny.pal` | JASC palettes, 16 entries; the PNGs' own colours are ignored |
 
 Placement: `front_pic_coordinates.h` / `back_pic_coordinates.h` hold `y_offset` = empty rows
@@ -69,7 +71,7 @@ LLM, no vanilla pixels, no shapes.
 - **Mynock** (Zubat's slot): one pass. Wings came out as flat triangles with dotted ribs, not
   membranes; body is a ball. ~35%.
 
-Finding: the LLM places a readable silhouette and features, but cannot render form the way
+Finding (details in `research/ROUND1-HAND-DRAWN.md`): the LLM places a readable silhouette and features, but cannot render form the way
 Emerald's artists do (clustered light, selective outlines, texture). That is the same gap D13
 found for trainers, and here there is no vanilla figure to borrow it from.
 Fronts only; `front2` and `back` in both specs are placeholders.
