@@ -2,10 +2,10 @@
  "top": 1,
  "feet": 63,
  "height": 63,
- "width": 36,
- "area": 1095,
- "dark_outline": 0.962,
- "orphans": 0.042,
- "colours": 12,
- "symmetry": 0.197
+ "width": 37,
+ "area": 1167,
+ "dark_outline": 0.925,
+ "orphans": 0.095,
+ "colours": 14,
+ "symmetry": 0.224
 }

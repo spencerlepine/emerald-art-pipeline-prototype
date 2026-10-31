@@ -222,3 +222,31 @@ there, before held props. P4 and P4c removed. To confirm the style generalises b
 the tool READY: Boba Fett (replaces `aqua_admin_m`, Matt), Leia (`steven`), Obi-Wan
 (`champion_wallace`), all 3/4 with profile + toe-on feet and sloped bands, symmetry 0.15-0.20.
 Sheet: `output/trainers/style-check-r4.png`.
+
+## D13. Trainer pics are repaints of vanilla pics, not drawings from scratch (2026-10-31)
+
+Round 4 (rig drawings) was judged "about 70%... still looks really bad". The rig output fell
+short of vanilla for reasons a better rig would not fix: capsule-and-ellipse mannequins with
+black outlines all round, no cloth folds, no selective outlines, generic hands and faces, and
+bulky proportions next to Emerald's slim figures. Those are the things vanilla's artists drew by
+hand, and an LLM placing shapes does not reproduce them. So a trainer pic now starts from the
+vanilla pic whose pose and costume are closest to the character (`repaint:` in the spec):
+every vanilla palette index is remapped to one of our colours (which keeps all of its
+shading, folds and anti-aliasing), then rig layers kitbash it: `erase` removes the old head or
+prop, `recolour` swaps materials inside a region (sleeves vs chest), shaded shapes and
+`pixels` layers add the helmet, buns or saber, `behind: true` tucks a part behind the figure,
+and `shape: edge` adds selective outline. `inspect` shows which index is which material.
+Trade-offs accepted: poses are limited to the 93 vanilla pics plus what kitbashing can change,
+and each pic is visibly a derivative of one vanilla pic (the bases are recorded in the spec).
+If the owner needs poses vanilla does not have, that is the case for an image model (see the
+round 5 assessment) rather than more rig work.
+
+## Trainer prototype 1: round 5, repaint tool (2026-10-31)
+
+All four redrawn as repaints: Vader from Drake (coat -> cape, hat -> helmet, red saber low),
+Boba Fett from Pyramid King Brandon (fatigues -> green chest armour and grey flight suit,
+T-visor helmet, rangefinder, jetpack behind), Leia from Glacia (gown -> white, side buns,
+silver belt, ball -> blaster), Obi-Wan from Expert M (robes -> beige tunic and brown robe,
+blue saber). Sheets: `output/trainers/style-check-r5.png`, `repaint-bases-r5.png` (base next to
+result). Each spec takes 10-20 layers and a handful of builds; all verify. The old rig specs are
+not kept (git history has them).

@@ -84,6 +84,11 @@ drawn that way." What vanilla does instead (study Steven, Norman, Maxie, Drake a
 
 ## 4. How to draw one (with the tool)
 
+Repaint a vanilla base first (see `README.md`, D13): the base supplies the pose, perspective
+and pixel craft below, and you only change materials, heads and props. Check the result against
+this guide all the same: kitbashed parts (helmets, props) must follow sections 2 and 3. The
+steps below are for the rare pic drawn from scratch with a rig.
+
 1. Write a one-line **pose brief** in the spec comment: facing, weight, gesture, prop, mood.
 2. Block the pose with a `rig:` (joints + layered shapes): place hips, feet, shoulders and
    head first, then the arms. Order layers back to front: cape/hair behind, far leg, far arm
@@ -131,7 +136,11 @@ drawn that way." What vanilla does instead (study Steven, Norman, Maxie, Drake a
   pass *in front of* the face/helmet, so faces are `pixels` layers inside the rig, drawn
   before the prop, never `patches` (patches always land on top).
 - **2026-10-31, style check round 4**: Vader 4b (saber over the helmet) plus Boba Fett, Leia
-  and Obi-Wan in the same style, to confirm it generalises. Awaiting review.
+  and Obi-Wan in the same style. Owner: "about 70% there, but it still looks really bad...
+  rethink this from the ground up." Lesson: shape-built figures lack vanilla's folds,
+  selective outlines, hands, faces and slim proportions; led to the repaint tool (D13).
+- **2026-10-31, round 5 (repaint)**: Vader from Drake, Boba Fett from Pyramid King Brandon,
+  Leia from Glacia, Obi-Wan from Expert M. Awaiting the owner's final assessment.
 
 ## Contact sheet of the vanilla pics
 

@@ -20,7 +20,7 @@ tools:
     status: IN-REVIEW
     covers: "64x64 trainer battle pics with their own 16-colour palette"
     guide: pipelines/trainer-front/README.md
-    note: "Style picked (Vader 4b); round 4 style check on Boba Fett, Leia, Obi-Wan with the owner."
+    note: "Rebuilt as a repaint tool (D13); round 5 (Vader, Boba Fett, Leia, Obi-Wan) with the owner for the final assessment."
   trainer-back:
     status: TODO-NEED-TO-BUILD
     covers: "Player/partner battle back sprites (4-5 frame throw sheets)"

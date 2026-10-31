@@ -20,7 +20,9 @@ the weight, which arm is near the camera) and like a pixel artist second (patche
 
 Repaint helpers (used on top of a `repaint:` vanilla base): `erase: true` on any shape cuts it
 out; `recolour: "a:b c:d"` on any shape swaps characters inside it; `shape: edge` with
-`chars: "jk"` and `to: d` darkens silhouette pixels of those characters (selective outline).
+`chars: "jk"` and `to: d` darkens silhouette pixels of those characters (selective outline);
+`behind: true` on a shaded shape paints only still-transparent pixels, so it tucks behind the
+base figure (a jetpack over the shoulder, a cape, hair buns behind the head).
 
 Shapes: `pixels` (x, y, rows: hand-placed pixels, `_` keeps; use it for details that must sit
 *under* a later layer, e.g. a face the lightsaber passes in front of), `capsule` (from, to, r: [r_from, r_to]), `ellipse` (at, r: [rx, ry], angle: degrees
@@ -167,6 +169,8 @@ def render(rig: dict, legend: dict[str, int], w: int, h: int, where: str, base=N
         elif outline not in legend:
             raise RigError(f"{lw}: outline {outline!r} not in the legend")
         m = _mask(layer, joints, w, h, lw)
+        behind = bool(layer.get("behind"))  # only fill pixels that are still transparent
+        snap = [list(r) for r in g] if behind else None
         hl = int(layer.get("highlight", 1))  # px of lit edge
         sh = int(layer.get("shadow", 2))  # px of shaded edge
         shadow, base = ramp[0], ramp[min(1, len(ramp) - 1)]
@@ -185,6 +189,6 @@ def render(rig: dict, legend: dict[str, int], w: int, h: int, where: str, base=N
                     ch = shadow
                 else:
                     ch = base
-            if 0 <= x < w and 0 <= y < h:
+            if 0 <= x < w and 0 <= y < h and not (behind and snap[y][x] != 0):
                 g[y][x] = legend[ch]
     return g
