@@ -1,10 +1,13 @@
 """emerald_sprite CLI.
 
-    python -m emerald_sprite build   sprites/people/vader.yaml      # PNG + previews + lint report
-    python -m emerald_sprite lint    path/to/any_sheet.png           # lint an existing sheet
-    python -m emerald_sprite corpus                                  # re-measure vanilla walkers
-    python -m emerald_sprite verify  sprites/people/vader.yaml       # round-trip through pokeemerald's gbagfx
-    python -m emerald_sprite install sprites/people/vader.yaml       # copy into a pokeemerald checkout
+    python -m emerald_sprite build   ../art/walkers/vader.yaml      # PNG + previews + lint report
+    python -m emerald_sprite lint    path/to/any_sheet.png          # lint an existing sheet
+    python -m emerald_sprite corpus                                 # re-measure vanilla walkers
+    python -m emerald_sprite verify  ../art/walkers/vader.yaml      # round-trip through pokeemerald's gbagfx
+    python -m emerald_sprite install ../art/walkers/vader.yaml      # copy into a pokeemerald checkout
+    python -m emerald_sprite audit [--write]                        # asset categories -> CHECKLIST.md
+
+Outputs go to output/<category>/<name>/, where <category> is the spec's folder under art/.
 
 EMERALD_DIR (default ../pokeemerald next to this repo) points at a pokeemerald checkout; it is
 read for the style corpus, scene previews and gbagfx, and written only by `install`.
@@ -21,6 +24,7 @@ import sys
 import tempfile
 from pathlib import Path
 
+from . import audit as audit_mod
 from . import lint as lint_mod
 from . import preview, sheet, spec as spec_mod
 
@@ -31,6 +35,10 @@ SCENE_NEIGHBOURS = [  # vanilla walkers shown beside ours, same palette family w
     "graphics/object_events/pics/people/team_aqua/aqua_member_m.png",
     "graphics/object_events/pics/people/expert_m.png",
 ]
+
+
+def out_dir(s) -> Path:
+    return OUT / s.path.resolve().parent.name / s.name
 
 
 def emerald_dir() -> Path:
@@ -52,7 +60,7 @@ def report(errors, warnings, m) -> str:
 
 def cmd_build(a) -> int:
     s = spec_mod.load(a.spec)
-    out = OUT / s.name
+    out = out_dir(s)
     (out / "preview").mkdir(parents=True, exist_ok=True)
     im = sheet.build_sheet(s)
     png = out / f"{s.name}.png"
@@ -101,7 +109,7 @@ def _gbagfx() -> Path:
 def cmd_verify(a) -> int:
     """PNG -> .4bpp exactly as pokeemerald's build does, then back to PNG; indices must match."""
     s = spec_mod.load(a.spec)
-    png = OUT / s.name / f"{s.name}.png"
+    png = out_dir(s) / f"{s.name}.png"
     g = _gbagfx()
     with tempfile.TemporaryDirectory() as t:
         bpp = Path(t) / "x.4bpp"
@@ -135,7 +143,7 @@ def cmd_install(a) -> int:
         print("spec has no `replaces:`")
         return 1
     em = emerald_dir()
-    shutil.copyfile(OUT / s.name / f"{s.name}.png", em / s.replaces)
+    shutil.copyfile(out_dir(s) / f"{s.name}.png", em / s.replaces)
     print(f"copied -> {em / s.replaces}")
     if s.palette_tag:
         gi = em / "src/data/object_events/object_event_graphics_info.h"
@@ -161,6 +169,15 @@ def cmd_compare(a) -> int:
     return 0
 
 
+def cmd_audit(a) -> int:
+    r = audit_mod.run(emerald_dir())
+    audit_mod.print_report(r)
+    if a.write:
+        audit_mod.write_checklist(r)
+        print(f"rewrote the generated tables in {audit_mod.CHECKLIST.relative_to(REPO)}")
+    return 1 if r["unassigned"] else 0
+
+
 def main(argv=None) -> int:
     p = argparse.ArgumentParser(prog="emerald_sprite")
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -174,6 +191,9 @@ def main(argv=None) -> int:
         sp.add_argument(arg)
         sp.set_defaults(fn=fn)
     sub.add_parser("corpus").set_defaults(fn=cmd_corpus)
+    ap = sub.add_parser("audit")
+    ap.add_argument("--write", action="store_true")
+    ap.set_defaults(fn=cmd_audit)
     cp = sub.add_parser("compare")
     cp.add_argument("out")
     cp.add_argument("specs", nargs="+")

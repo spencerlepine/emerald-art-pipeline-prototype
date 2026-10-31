@@ -4,7 +4,7 @@ kit: person16x32
 replaces: graphics/object_events/pics/people/team_magma/maxie.png
 graphics_info: Maxie
 # Maxie ships on NPC_2 (reds/oranges). Vader needs blacks and greys, which NPC_4 already has,
-# so he moves palettes instead of adding one (see output-analysis/DECISIONS.md, D4).
+# so he moves palettes instead of adding one (see docs/DECISIONS.md, D4).
 palette: npc_4
 palette_tag: OBJ_EVENT_PAL_TAG_NPC_4
 
