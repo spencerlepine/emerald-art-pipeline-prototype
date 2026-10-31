@@ -100,7 +100,7 @@ Known gaps, by the linter and by eye:
 - Step frames change 40% of pixels vs Emerald's ~70%: arms barely swing under the cape.
 - Up view is a plain dome + cape with little detail.
 
-Waiting on owner feedback before the next iteration.
+Owner reviewed it as about 90% there; the helmet was redrawn (next section).
 
 ## Helmet variants (2026-10-31)
 
@@ -117,6 +117,11 @@ Review sheet: `output/vader-helmet-variants.png` (`python -m emerald_sprite comp
 
 A first pass of A (pointed dome) and B (whole face plate in grey) was discarded before review:
 the cone read as a hood and the grey plate as one big ring.
+
+**Picked: A** (owner, 2026-10-31). `sprites/people/vader.yaml` is now variant A; B and C
+were removed from the repo (they live in git history and in the comparison sheet). For later
+helmeted characters, start from A's shape language: round dome, pinch at the temples, flare
+past the shoulders, big dark lenses, grey grill.
 
 ## D8. The tool enforces; a human judges likeness (2026-10-31)
 

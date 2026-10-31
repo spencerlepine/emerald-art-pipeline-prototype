@@ -1,5 +1,5 @@
 name: vader
-description: Darth Vader overworld walker (replaces Maxie, the Team Magma boss).
+description: "Darth Vader overworld walker (replaces Maxie, the Team Magma boss). Helmet: Round dome with a pinch at the temples and a skirt that flares out past the shoulders; big angled lenses, grey grill."
 kit: person16x32
 replaces: graphics/object_events/pics/people/team_magma/maxie.png
 graphics_info: Maxie
@@ -27,15 +27,15 @@ legend:
 frames:
   down: |
     .....KKKKKK.....
-    ...KKbhhbbbKK...
-    ..KbhhbbbbbbsK..
-    ..KhbbbbbbbbsK..
-    .KbbbbbbbbbbbsK.
-    .KbsKKKbbKKKssK.
-    .KbKKKKbbKKKKsK.
-    KbbsKKbbbsKKsssK
-    KbbssKgGGgKssssK
-    KKbssKKggKKsssKK
+    ....KbhhbbbK....
+    ...KbhbbbbbsK...
+    ...KhbbbbbbsK...
+    ...KbKKbbKKsK...
+    ..KbKKKbbKKKsK..
+    ..KbsKKhhKKssK..
+    .KbbsbKggKbssbK.
+    KhbbssKGgKsssbsK
+    KKbssKKggKKssbKK
     .KKKKKKKKKKKKKK.
     .KhbKsgpgrsKbsK.
     .KbsKsrbgbsKssK.
@@ -50,15 +50,15 @@ frames:
     ................
   up: |
     .....KKKKKK.....
-    ...KKbhhbbbKK...
-    ..KbhhbbbbbbsK..
-    ..KhbbbbbbbbsK..
-    .KbbbbbbbbbbbsK.
-    .KbbbbbbbbbbbsK.
-    .KbbbbbbbbbbssK.
-    KbbbbbbbbbbbsssK
-    KhbbbbbbbbbbsssK
-    KKhbbbbbbbbsssKK
+    ....KbhhbbbK....
+    ...KbhbbbbbsK...
+    ...KhbbbbbbsK...
+    ...KbbbbbbbsK...
+    ..KbbbbbbbbbsK..
+    ..KbbbbbbbbbsK..
+    .KhbbbbbbbbbssK.
+    KhbbbbbbbbbbbssK
+    KKhbbbbbbbbbsbKK
     .KKKKKKKKKKKKKK.
     .KbbbbbbbbbsssK.
     .KbbbsbbbbssssK.
@@ -73,15 +73,15 @@ frames:
     ................
   left: |
     ......KKKKKK....
-    ....KKhhbbbbKK..
-    ...KhhbbbbbbbsK.
-    ..KhbbbbbbbbbsK.
-    ..KbbbbbbbbbbssK
-    .KKKKbbbbbbbbssK
-    .KKKKhbbbbbbbssK
-    KgKbhbbbbbbbsssK
-    KGgKbbbbbbbbsssK
-    .KgKsbbbbbbsssKK
+    .....KbhhbbbK...
+    ....KbhbbbbbsK..
+    ....KhbbbbbbsK..
+    ...KKKbbbbbbbsK.
+    ..KKKKbbbbbbbsK.
+    ..KKKhbbbbbbbssK
+    .KgKbbbbbbbbbssK
+    KGgKbbbbbbbbbssK
+    .KgKKbbbbbbbbsKK
     ..KKKKKKKKKKKKK.
     ...KsgpKbbbsssK.
     ...KsrsKbbbsssK.
