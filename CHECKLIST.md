@@ -30,7 +30,7 @@ as the work.
 | `walker` | **READY** | 16x32 people walkers (9-frame standard sheet) | A6, B3, C4 | 207 | 1 | [pipelines/walker/README.md](pipelines/walker/README.md) |
 | `trainer-front` | **READY** | 64x64 trainer battle pics with their own 16-colour palette | B1, B4 | 95 | 4 | [pipelines/trainer-front/README.md](pipelines/trainer-front/README.md) |
 | `trainer-back` | **TODO-NEED-TO-BUILD** | Player/partner battle back sprites (4-5 frame throw sheets) | B2 | 8 | 0 | - |
-| `creature` | **TODO-NEED-TO-BUILD** | Creature (Pokémon) battle front + 2nd anim frame, back, normal/shiny palettes | A1, A2, A5 | 1262 | 0 | - |
+| `creature` | **IN-REVIEW** | Creature (Pokémon) battle front + 2nd anim frame, back, normal/shiny palettes | A1, A2, A5 | 1262 | 0 | [pipelines/creature/README.md](pipelines/creature/README.md) |
 | `icon` | **TODO-NEED-TO-BUILD** | Small fixed-size stills: item icons, berries, decorations, balls, type labels, creature party icons, footprints | A3, A4, C1, C2, C3, C5, C6 | 1144 | 0 | - |
 | `obj-anim` | **TODO-NEED-TO-BUILD** | Small multi-frame OBJ sprite sheets: field effects, door anims, field objects, weather, battle-anim particles | D3, D4, D5, D6, E3, E4 | 513 | 0 | - |
 | `tileset` | **TODO-NEED-TO-BUILD** | Overworld biome/building tile sheets, their palettes, metatiles and tile animations; battle backgrounds | D1, D2, E1 | 247 | 0 | - |
@@ -49,11 +49,11 @@ as the work.
 
 | # | Category | Where it shows | Format | PNGs | .pal | Drawn | Tool | Tool status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| A1 | Creature battle front (2 frames) | Battle (opponent side), Pokédex, summary | front.png 64x64 + anim_front.png 64x128 (2 frames), own palette | 838 | 783 | 0 | `creature` | TODO-NEED-TO-BUILD |
-| A2 | Creature battle back | Battle (your side) | back.png 64x64, same palette as the front | 418 |  | 0 | `creature` | TODO-NEED-TO-BUILD |
+| A1 | Creature battle front (2 frames) | Battle (opponent side), Pokédex, summary | front.png 64x64 + anim_front.png 64x128 (2 frames), own palette | 838 | 783 | 0 | `creature` | IN-REVIEW |
+| A2 | Creature battle back | Battle (your side) | back.png 64x64, same palette as the front | 418 |  | 0 | `creature` | IN-REVIEW |
 | A3 | Creature party/PC icons | Party menu, PC boxes | icon.png 32x64 (2-frame wiggle), one of 3 shared icon palettes | 417 | 3 | 0 | `icon` | TODO-NEED-TO-BUILD |
 | A4 | Creature footprints | Pokédex | 16x16, 1 colour | 387 |  | 0 | `icon` | TODO-NEED-TO-BUILD |
-| A5 | Eggs, hatching and special-form extras | Daycare egg, hatch scene, Spinda spots, Unown/Castform/Deoxys forms | egg hatch/shard sheets, spot masks, per-form folders | 6 |  | 0 | `creature` | TODO-NEED-TO-BUILD |
+| A5 | Eggs, hatching and special-form extras | Daycare egg, hatch scene, Spinda spots, Unown/Castform/Deoxys forms | egg hatch/shard sheets, spot masks, per-form folders | 6 |  | 0 | `creature` | IN-REVIEW |
 | A6 | Overworld creature walkers | Overworld (legendaries, follower-style NPC creatures) | 16x16 to 64x64 frames, shared NPC palettes | 23 |  | 0 | `walker` | TODO-NEED-TO-BUILD |
 
 ### B. People

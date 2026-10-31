@@ -260,3 +260,18 @@ tool ships art built that way. Shapes may still be used inside a repaint to add 
 (a saber blade, a bun), but whole figures are either repaints of vanilla art (D13) or drawn
 by other means. Creatures cannot be repainted (Star Wars creatures do not share Pokémon
 shapes), so the `creature` tool needs its own drawing approach, decided before mockups.
+
+## Creature prototype round 1: hand-drawn (2026-10-31)
+
+The `creature` tool (kit `creature64`) writes all five species files (`anim_front.png`,
+`front.png`, `back.png`, `normal.pal`, `shiny.pal`), computes the `y_offset`s and round-trips
+through gbagfx. Per D14 and the owner's note that Star Wars creatures do not share Pokémon
+shapes, round 1 drew two creatures pixel by pixel with no vanilla pixels: Rancor (Rhydon's slot,
+~60%: reads at 1x but flat, clay-like rendering) and Mynock (Zubat's slot, ~35%: geometric
+wings). Sheet: `output/creatures/creature-drawn-r1.png`; details in
+`pipelines/creature/README.md`. The method for this category is open with the owner. Evidence
+for that choice: in `emerald-sw-db` 193 of the 386 species map to "original" creatures written
+after their Pokémon (BULBASAUR -> SPROUTLIZ "lizard with a seed bulb on its back"), so a
+splice/repaint fits those; the 193 canon/databank creatures (Rancor, Bantha, Tauntaun, droids)
+need new shapes. D1's trigger for an image model ("64x64 categories fail review with option 1")
+is met for the second group.

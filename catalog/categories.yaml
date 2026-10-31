@@ -25,8 +25,10 @@ tools:
     status: TODO-NEED-TO-BUILD
     covers: "Player/partner battle back sprites (4-5 frame throw sheets)"
   creature:
-    status: TODO-NEED-TO-BUILD
+    status: IN-REVIEW
     covers: "Creature (Pokémon) battle front + 2nd anim frame, back, normal/shiny palettes"
+    guide: pipelines/creature/README.md
+    note: "Tool builds, verifies and installs all five species files. Round 1: hand-drawn Rancor (~60%) and Mynock (~35%) fall short of vanilla; drawing method undecided (owner choice pending)."
   icon:
     status: TODO-NEED-TO-BUILD
     covers: "Small fixed-size stills: item icons, berries, decorations, balls, type labels, creature party icons, footprints"

@@ -1,0 +1,13 @@
+{
+ "feet": 62,
+ "height": 59,
+ "width": 59,
+ "area": 2544,
+ "dark_outline": 0.96,
+ "orphans": 0.064,
+ "colours": 11,
+ "symmetry": 0.278,
+ "front2_change": 0.366,
+ "y_offset_front": 1,
+ "y_offset_back": 1
+}

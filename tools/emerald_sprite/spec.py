@@ -255,6 +255,47 @@ def _splice(parts: list, remaps: dict, legend: dict[str, int], w: int, h: int, w
     return g
 
 
+def _sketch(f: dict, legend: dict[str, int], w: int, h: int, where: str) -> Grid:
+    """A frame hand-drawn at half size, then doubled: the pixel artist's "sketch small, refine
+    big". The LLM can reason about a 32x32 figure (1,024 cells) far better than a 64x64 one,
+    and fixes the 64x64 detail afterwards with `patches:`.
+
+        front:
+          sketch: |          # w/2 x h/2 grid, bottom-anchored like any grid
+            ....KKKK....
+          outline: K         # the outline character (default K)
+          patches: [...]     # then refine at full size
+
+    Doubling turns 1 px outlines into 2 px; they are thinned back to 1 px: on the silhouette
+    the inner pixel goes, on interior lines the pixel nearer the light (upper left) goes, so
+    lines sit on the shadow side of a form as Emerald draws them.
+    """
+    small = _bottom_anchor(_parse_rows(f["sketch"], legend, w // 2, where), w // 2, h // 2, where)
+    g = [[small[y // 2][x // 2] for x in range(w)] for y in range(h)]
+    k = legend.get(str(f.get("outline", "K")))
+    if k is None:
+        return g
+    snap = [list(r) for r in g]
+
+    def at(x, y):
+        return snap[y][x] if 0 <= x < w and 0 <= y < h else 0
+
+    n4 = ((1, 0), (-1, 0), (0, 1), (0, -1))
+    for y in range(h):
+        for x in range(w):
+            if snap[y][x] != k or any(at(x + dx, y + dy) == 0 for dx, dy in n4):
+                continue
+            fills = [at(x + dx, y + dy) for dx, dy in n4 if at(x + dx, y + dy) not in (0, k)]
+            if not fills:
+                continue
+            touches_edge = any(at(x + dx, y + dy) == k and any(at(x + dx + ex, y + dy + ey) == 0 for ex, ey in n4)
+                               for dx, dy in n4)
+            lit_side = at(x - 1, y) not in (0, k) or at(x, y - 1) not in (0, k)
+            if touches_edge or lit_side:
+                g[y][x] = max(set(fills), key=fills.count)
+    return g
+
+
 def _transparent(legend: dict[str, int]) -> str:
     for ch, idx in legend.items():
         if idx == 0:
@@ -297,6 +338,8 @@ def load(path: str | Path) -> Spec:
         where = f"frame {name}"
         if isinstance(f, str):
             g = _bottom_anchor(_parse_rows(f, legend, w, where), w, h, where)
+        elif "sketch" in f:
+            g = _sketch(f, legend, w, h, where)
         elif "splice" in f:
             g = _splice(f["splice"], d.get("remaps") or {}, legend, w, h, where)
             if "rig" in f:
