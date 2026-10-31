@@ -251,3 +251,12 @@ blue saber). Sheets: `output/trainers/style-check-r5.png`, `repaint-bases-r5.png
 result). Each spec takes 10-20 layers and a handful of builds; all verify. The old rig specs are
 not kept (git history has them). Owner: "those are perfect. You nailed it. Ship that tool!"
 The tool is READY, and this category needs no image model.
+
+## D14. No shape-based drawing for final art (2026-10-31)
+
+Owner, after round 5: "the overall finding is that we shouldn't use shape based drawing." Rig
+output (capsules, ellipses, polys shaded and outlined by the tool) is not Emerald quality, so no
+tool ships art built that way. Shapes may still be used inside a repaint to add a small part
+(a saber blade, a bun), but whole figures are either repaints of vanilla art (D13) or drawn
+by other means. Creatures cannot be repainted (Star Wars creatures do not share Pokémon
+shapes), so the `creature` tool needs its own drawing approach, decided before mockups.
