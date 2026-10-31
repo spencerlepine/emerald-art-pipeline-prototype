@@ -15,7 +15,7 @@ and renders previews to iterate on with the owner.
 2. Find the asset's category in **[CHECKLIST.md](CHECKLIST.md)**. It lists every category of
    art in the game, the tool that draws it, and that tool's status.
 3. Follow the tool's guide in `pipelines/<tool>/README.md`. Only tools marked **READY** may be
-   used at scale; **IN-REVIEW** tools are still being iterated with the owner;
+   used at scale; **PENDING** tools have a researched design waiting on an outside dependency; **IN-REVIEW** tools are still being iterated with the owner;
    **TODO-NEED-TO-BUILD** tools don't exist yet.
 4. The per-file mapping (which vanilla file becomes which Star Wars character) is in
    `emerald-sw-db/database/pending_art.csv`.
@@ -24,7 +24,7 @@ and renders previews to iterate on with the owner.
 | --- | --- | --- | --- |
 | An overworld walker (16x32 person) | B3 | [pipelines/walker](pipelines/walker/README.md) | READY |
 | A trainer battle pic (64x64) | B1 | [pipelines/trainer-front](pipelines/trainer-front/README.md) | READY |
-| A creature battle sprite (64x64 front, 2nd frame, back, shiny) | A1, A2 | [pipelines/creature](pipelines/creature/README.md) | IN-REVIEW |
+| A creature battle sprite (64x64 front, 2nd frame, back, shiny) | A1, A2 | [pipelines/creature](pipelines/creature/README.md) | PENDING (image model, needs a GPU) |
 | Anything else | see [CHECKLIST.md](CHECKLIST.md) | - | TODO-NEED-TO-BUILD |
 
 ## Layout

@@ -7,7 +7,7 @@
 # rewrites the generated tables in CHECKLIST.md.
 #
 # Globs are relative to the pokeemerald root; `**` matches any number of directories.
-# Status of a tool: TODO-NEED-TO-BUILD | IN-REVIEW | READY  (meaning in CHECKLIST.md). A category
+# Status of a tool: TODO-NEED-TO-BUILD | PENDING | IN-REVIEW | READY  (meaning in CHECKLIST.md). A category
 # may override its tool's status with `status:` when only part of the tool covers it.
 
 tools:
@@ -25,10 +25,10 @@ tools:
     status: TODO-NEED-TO-BUILD
     covers: "Player/partner battle back sprites (4-5 frame throw sheets)"
   creature:
-    status: IN-REVIEW
+    status: PENDING
     covers: "Creature (Pokémon) battle front + 2nd anim frame, back, normal/shiny palettes"
     guide: pipelines/creature/README.md
-    note: "Tool builds, verifies and installs all five species files. Round 1: hand-drawn Rancor (~60%) and Mynock (~35%) fall short of vanilla; drawing method undecided (owner choice pending)."
+    note: "D15: drawn by an image model (Stable Diffusion family + LoRA trained on vanilla sprites), our tool as finisher. Waits on a GPU; research and design in pipelines/creature/research/. Round 1 hand-drawing fell short."
   icon:
     status: TODO-NEED-TO-BUILD
     covers: "Small fixed-size stills: item icons, berries, decorations, balls, type labels, creature party icons, footprints"
