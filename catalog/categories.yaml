@@ -20,7 +20,7 @@ tools:
     status: IN-REVIEW
     covers: "64x64 trainer battle pics with their own 16-colour palette"
     guide: pipelines/trainer-front/README.md
-    note: "Vader round 3 (salute with perspective cues) with the owner; rounds 1-2 reviewed."
+    note: "Style picked (Vader 4b); round 4 style check on Boba Fett, Leia, Obi-Wan with the owner."
   trainer-back:
     status: TODO-NEED-TO-BUILD
     covers: "Player/partner battle back sprites (4-5 frame throw sheets)"

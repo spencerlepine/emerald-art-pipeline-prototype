@@ -1,15 +1,16 @@
 # Tool: `trainer-front` (trainer battle pics)
 
-**Status: IN-REVIEW.** Vader round 3 (the picked salute pose redrawn with perspective) is with the owner. Category B1
+**Status: IN-REVIEW.** Style picked (Vader 4b); round 4 checks it on Boba Fett, Leia and
+Obi-Wan before marking READY. Category B1
 (93 pics) and B4 (professor portrait).
 
 **Read [STYLE-GUIDE.md](STYLE-GUIDE.md) first**: pose, perspective and pixel rules from the 93
 vanilla pics, a review checklist, and the owner's feedback log. Getting the pose right is the
 hard part of this category; the format is handled by the tool.
 
-Reference: `art/trainers/vader_p4b.yaml` and `vader_p4c.yaml` (round 3) next to `vader_p4.yaml`
-(round 2 pick); review sheets `output/trainers/vader-poses-r3.png` (current), `-r2.png`,
-`-r1.png` (rejected: front-on).
+Reference specs (picked style): `art/trainers/vader_p4b.yaml`, `boba.yaml`, `leia.yaml`,
+`obiwan.yaml`; review sheets `output/trainers/style-check-r4.png` (current), `vader-poses-r3.png`,
+`-r2.png`, `-r1.png` (rejected: front-on).
 
 ## Format (what the game needs)
 
@@ -29,7 +30,7 @@ edges, plenty of single-pixel highlights (orphans 11-23%).
 
 1. Find the asset in `emerald-sw-db/database/pending_art.csv` (`kind = trainers`) and the
    Star Wars character in `swap_map.csv`.
-2. Write `art/trainers/<name>.yaml` (copy `vader_p1.yaml`): `name`, `kit: trainer64`,
+2. Write `art/trainers/<name>.yaml` (copy `leia.yaml` or `boba.yaml`): `name`, `kit: trainer64`,
    `replaces`, inline `palette` (outline, 3-4 step ramp per material, accents), `legend`.
 3. Write a one-line pose brief (STYLE-GUIDE section 1), then block the pose with a `rig:`:
    named joints plus layered `capsule`/`ellipse`/`poly` shapes, back to front, each with a

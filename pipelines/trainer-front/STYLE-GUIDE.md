@@ -91,7 +91,10 @@ drawn that way." What vanilla does instead (study Steven, Norman, Maxie, Drake a
    layers use the darker ramp.
 3. Build and look at `zoom.png` and `battle.png`. Fix the *pose* by moving joints until the
    silhouette alone (squint at the 1x battle view) says who it is and what they are doing.
-4. Only then add `patches:` for identity details: face, emblems, buttons, glints, folds.
+4. Then add identity details: faces, visors and emblems as `shape: pixels` layers at the right
+   depth in the rig (so a prop held in front can cover them), and only top-most accents
+   (glints, folds) as `patches:`.
+   Watch YAML: a ramp like `no`, `yes`, `on`, `off` parses as a boolean; pick other letters.
 5. Check lint: `symmetry` must be in range; explain any other accepted warning in the spec.
 6. Draw 3-4 **genuinely different** poses (not the same pose with a different arm) and send
    a `compare` sheet. Ask the owner a specific question, not "do you like it?".
@@ -122,7 +125,13 @@ drawn that way." What vanilla does instead (study Steven, Norman, Maxie, Drake a
   identical boots and a horizontal belt were the giveaways.
 - **2026-10-31, Vader round 3** (salute redrawn with perspective cues): 4b subtle (far boot in
   profile and higher, near boot toe-on, sloped belt and helmet brim, curved cape hem), 4c
-  stepping in (near leg forward, far leg trailing). Awaiting review.
+  stepping in (near leg forward, far leg trailing). Owner: "4b is okay, that's closer to what
+  I'm thinking. Make sure the saber goes over his helmet... get the layering right." Lessons:
+  4b is the reference style (subtle 3/4, profile + toe-on feet, sloped bands); held props
+  pass *in front of* the face/helmet, so faces are `pixels` layers inside the rig, drawn
+  before the prop, never `patches` (patches always land on top).
+- **2026-10-31, style check round 4**: Vader 4b (saber over the helmet) plus Boba Fett, Leia
+  and Obi-Wan in the same style, to confirm it generalises. Awaiting review.
 
 ## Contact sheet of the vanilla pics
 

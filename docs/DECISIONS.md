@@ -212,3 +212,13 @@ one toe-on), sloped and curved bands (belt, brim, hem), a centre line pushed to 
 and overlaps. Recorded as perspective cues in the style guide. The rig's ellipse gained
 `angle`. Round 3: 4b (subtle) and 4c (mid-stride toward the player), with 4 for reference.
 P1-P3 removed. Sheet: `output/trainers/vader-poses-r3.png`.
+
+## Trainer prototype 1: round 4, style check (2026-10-31)
+
+Owner: "4b is okay, closer to what I'm thinking. Make sure the saber goes over his helmet... get
+the layering right." Patches are always applied after the rig, so the face patch had covered
+the blade. Rig layers can now be `shape: pixels` (hand-placed pixels at a depth), and faces go
+there, before held props. P4 and P4c removed. To confirm the style generalises before marking
+the tool READY: Boba Fett (replaces `aqua_admin_m`, Matt), Leia (`steven`), Obi-Wan
+(`champion_wallace`), all 3/4 with profile + toe-on feet and sloped bands, symmetry 0.15-0.20.
+Sheet: `output/trainers/style-check-r4.png`.

@@ -40,7 +40,8 @@ frames:
       layers:
         - {name: cape, shape: poly, pts: [[20, 18], [26, 18], [24, 34], [19, 40], [15, 34]], ramp: PQ}
         - {name: jetpack, shape: poly, pts: [[31, 14], [40, 13], [43, 30], [38, 33], [33, 30]], ramp: def}
-        - {name: rocket, shape: ellipse, at: [41, 12], r: [2.5, 3], ramp: abc}
+        - {name: rocket, shape: capsule, from: [41, 8], to: [41, 14], r: [2, 2.5], ramp: def}
+        - {name: rocket tip, shape: pixels, x: 40, y: 6, rows: "KK\nrr"}
         - {name: far thigh, shape: capsule, from: hip_far, to: kn_far, r: [4, 3], ramp: dee}
         - {name: far shin, shape: capsule, from: kn_far, to: ank_far, r: [3, 2.5], ramp: abb}
         - {name: far boot, shape: poly, pts: [[45, 51], [46, 56], [44, 57], [36, 57], [35, 55], [38, 53], [41, 52]], ramp: dde}

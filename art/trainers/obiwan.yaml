@@ -1,0 +1,72 @@
+name: obiwan
+kit: trainer64
+replaces: graphics/trainers/front_pics/champion_wallace.png
+# Obi-Wan replaces Wallace (emerald-sw-db swap_map: character:wallace -> OBI-WAN).
+# Pose brief: 3/4 toward the player, stepping in (near leg forward, boot toe-on and lowest; far
+# leg back, boot in profile and higher). Far hand reaches out palm-first (Force push), near hand
+# holds the blue saber low across the body, blade angled up in front of the torso. Brown cloak
+# swept back behind him, beige tunic with darker tabards, sloped belt.
+palette:
+  - [115, 197, 164]  # 0 transparent
+  - [24, 16, 16]     # K outline
+  - [72, 48, 32]     # a cloak shadow
+  - [112, 80, 48]    # b cloak base
+  - [160, 120, 80]   # c cloak highlight
+  - [152, 128, 96]   # d tunic shadow
+  - [200, 176, 136]  # e tunic base
+  - [240, 224, 192]  # f tunic highlight
+  - [184, 120, 96]   # g skin shadow
+  - [232, 176, 136]  # h skin base
+  - [248, 216, 184]  # i skin highlight
+  - [176, 128, 96]   # j beard
+  - [112, 112, 120]  # k hilt
+  - [72, 144, 248]   # l blade glow
+  - [232, 248, 248]  # m blade core
+legend: {'.': 0, K: 1, a: 2, b: 3, c: 4, d: 5, e: 6, f: 7, g: 8, h: 9, i: 10, j: 11, k: 12, l: 13, m: 14}
+frames:
+  front:
+    rig:
+      joints:
+        head: [27, 10]
+        sh_far: [23, 20]
+        sh_near: [36, 21]
+        el_far: [16, 23]
+        hand_far: [10, 20]
+        el_near: [40, 30]
+        hand_near: [33, 36]
+        hip_far: [30, 39]
+        hip_near: [32, 40]
+        kn_far: [37, 48]
+        ank_far: [42, 55]
+        kn_near: [26, 50]
+        ank_near: [23, 58]
+      layers:
+        - {name: cloak, shape: poly, pts: [[21, 17], [38, 17], [47, 28], [54, 44], [58, 58], [50, 61], [41, 58], [34, 50], [24, 44], [18, 32]], ramp: abc}
+        - {name: far thigh, shape: capsule, from: hip_far, to: kn_far, r: [4, 3], ramp: dde}
+        - {name: far shin, shape: capsule, from: kn_far, to: ank_far, r: [3, 2.5], ramp: dde}
+        - {name: far boot, shape: poly, pts: [[45, 52], [46, 57], [44, 58], [36, 58], [35, 56], [38, 54], [41, 53]], ramp: aab}
+        - {name: near thigh, shape: capsule, from: hip_near, to: kn_near, r: [4.5, 3.5], ramp: def}
+        - {name: near shin, shape: capsule, from: kn_near, to: ank_near, r: [3.5, 3], ramp: def}
+        - {name: near boot, shape: ellipse, at: [22, 61], r: [5, 2.5], angle: -20, ramp: abc}
+        - {name: tunic, shape: poly, pts: [[22, 18], [37, 19], [38, 30], [37, 41], [25, 40], [24, 29]], ramp: def}
+        - {name: tabard, shape: poly, pts: [[25, 20], [30, 21], [30, 40], [26, 40]], ramp: dde}
+        - {name: belt, shape: poly, pts: [[24, 31], [30, 32], [38, 34], [38, 37], [30, 35], [24, 34]], ramp: abb}
+        - {name: neck, shape: capsule, from: [29, 15], to: [29, 19], r: [2, 2], ramp: ggh}
+        - {name: hood fold, shape: poly, pts: [[22, 17], [28, 20], [36, 18], [38, 21], [30, 23], [21, 20]], ramp: abc}
+        - {name: head, shape: ellipse, at: head, r: [5, 6], angle: -8, ramp: ghi}
+        - {name: hair, shape: poly, pts: [[22, 9], [23, 5], [28, 3], [33, 5], [34, 11], [33, 14], [30, 9], [26, 7], [23, 11]], ramp: ajc}
+        - {name: beard, shape: poly, pts: [[22, 13], [26, 14], [30, 13], [31, 16], [28, 19], [24, 18], [22, 16]], ramp: ajj}
+        - {name: face, shape: pixels, x: 23, y: 10, rows: "K___KK\nK___Ki\n_g____\n__hh__"}
+        - {name: near arm, shape: capsule, from: sh_near, to: el_near, r: [4, 3.5], ramp: abc}
+        - {name: near sleeve, shape: capsule, from: el_near, to: hand_near, r: [3.5, 3], ramp: abc}
+        - {name: near hand, shape: ellipse, at: hand_near, r: [2.2, 2.2], ramp: ghi}
+        - {name: hilt, shape: capsule, from: [34, 38], to: [31, 33], r: [1, 1], ramp: k}
+        - {name: blade, shape: capsule, from: [30, 31], to: [17, 6], r: [1.5, 1.5], ramp: m, outline: l}
+        - {name: far arm, shape: capsule, from: sh_far, to: el_far, r: [3.5, 3], ramp: abb}
+        - {name: far sleeve, shape: capsule, from: el_far, to: [12, 21], r: [3, 3.5], ramp: abb}
+        - {name: far hand, shape: pixels, x: 6, y: 16, rows: "_K_K__\nKhKhK_\nKhhhhK\nKhihhK\n_KhhK_\n__KK__"}
+    patches:
+      - {x: 30, y: 6, rows: "c"}
+      - {x: 25, y: 47, rows: "f"}
+      - {x: 20, y: 60, rows: "c"}
+      - {x: 50, y: 45, rows: "a\n_\na\na"}
