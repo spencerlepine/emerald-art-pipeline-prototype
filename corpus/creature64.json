@@ -1,0 +1,3875 @@
+{
+ "count": 384,
+ "p5": {
+  "feet": 45,
+  "height": 30,
+  "width": 28,
+  "area": 566,
+  "dark_outline": 0.503,
+  "orphans": 0.092,
+  "colours": 10,
+  "symmetry": 0.083
+ },
+ "median": {
+  "feet": 55.0,
+  "height": 47.5,
+  "width": 48.0,
+  "area": 1205.5,
+  "dark_outline": 0.796,
+  "orphans": 0.145,
+  "colours": 13.0,
+  "symmetry": 0.159
+ },
+ "p95": {
+  "feet": 63,
+  "height": 64,
+  "width": 64,
+  "area": 2346,
+  "dark_outline": 0.957,
+  "orphans": 0.215,
+  "colours": 15,
+  "symmetry": 0.307
+ },
+ "sprites": {
+  "abra": {
+   "feet": 52,
+   "height": 40,
+   "width": 42,
+   "area": 906,
+   "dark_outline": 0.922,
+   "orphans": 0.178,
+   "colours": 9,
+   "symmetry": 0.263
+  },
+  "absol": {
+   "feet": 63,
+   "height": 63,
+   "width": 46,
+   "area": 1539,
+   "dark_outline": 0.831,
+   "orphans": 0.188,
+   "colours": 11,
+   "symmetry": 0.122
+  },
+  "aerodactyl": {
+   "feet": 62,
+   "height": 63,
+   "width": 64,
+   "area": 1940,
+   "dark_outline": 0.95,
+   "orphans": 0.113,
+   "colours": 12,
+   "symmetry": 0.155
+  },
+  "aggron": {
+   "feet": 63,
+   "height": 62,
+   "width": 62,
+   "area": 2429,
+   "dark_outline": 0.633,
+   "orphans": 0.136,
+   "colours": 13,
+   "symmetry": 0.133
+  },
+  "aipom": {
+   "feet": 60,
+   "height": 56,
+   "width": 32,
+   "area": 856,
+   "dark_outline": 0.696,
+   "orphans": 0.19,
+   "colours": 12,
+   "symmetry": 0.107
+  },
+  "alakazam": {
+   "feet": 59,
+   "height": 56,
+   "width": 57,
+   "area": 1388,
+   "dark_outline": 0.955,
+   "orphans": 0.156,
+   "colours": 13,
+   "symmetry": 0.081
+  },
+  "altaria": {
+   "feet": 61,
+   "height": 59,
+   "width": 60,
+   "area": 1893,
+   "dark_outline": 0.512,
+   "orphans": 0.112,
+   "colours": 12,
+   "symmetry": 0.133
+  },
+  "ampharos": {
+   "feet": 58,
+   "height": 53,
+   "width": 52,
+   "area": 1174,
+   "dark_outline": 0.865,
+   "orphans": 0.156,
+   "colours": 13,
+   "symmetry": 0.136
+  },
+  "anorith": {
+   "feet": 55,
+   "height": 48,
+   "width": 45,
+   "area": 1013,
+   "dark_outline": 0.684,
+   "orphans": 0.143,
+   "colours": 14,
+   "symmetry": 0.177
+  },
+  "arbok": {
+   "feet": 61,
+   "height": 60,
+   "width": 57,
+   "area": 1965,
+   "dark_outline": 0.891,
+   "orphans": 0.128,
+   "colours": 11,
+   "symmetry": 0.136
+  },
+  "arcanine": {
+   "feet": 61,
+   "height": 59,
+   "width": 57,
+   "area": 2453,
+   "dark_outline": 0.585,
+   "orphans": 0.101,
+   "colours": 15,
+   "symmetry": 0.187
+  },
+  "ariados": {
+   "feet": 58,
+   "height": 54,
+   "width": 58,
+   "area": 1279,
+   "dark_outline": 0.658,
+   "orphans": 0.176,
+   "colours": 15,
+   "symmetry": 0.117
+  },
+  "armaldo": {
+   "feet": 63,
+   "height": 64,
+   "width": 59,
+   "area": 2323,
+   "dark_outline": 0.918,
+   "orphans": 0.103,
+   "colours": 14,
+   "symmetry": 0.119
+  },
+  "aron": {
+   "feet": 43,
+   "height": 23,
+   "width": 27,
+   "area": 420,
+   "dark_outline": 0.716,
+   "orphans": 0.152,
+   "colours": 10,
+   "symmetry": 0.248
+  },
+  "articuno": {
+   "feet": 60,
+   "height": 59,
+   "width": 64,
+   "area": 2006,
+   "dark_outline": 0.983,
+   "orphans": 0.153,
+   "colours": 13,
+   "symmetry": 0.136
+  },
+  "azumarill": {
+   "feet": 54,
+   "height": 45,
+   "width": 52,
+   "area": 1041,
+   "dark_outline": 0.643,
+   "orphans": 0.122,
+   "colours": 11,
+   "symmetry": 0.133
+  },
+  "azurill": {
+   "feet": 48,
+   "height": 37,
+   "width": 39,
+   "area": 850,
+   "dark_outline": 0.955,
+   "orphans": 0.174,
+   "colours": 11,
+   "symmetry": 0.131
+  },
+  "bagon": {
+   "feet": 52,
+   "height": 40,
+   "width": 33,
+   "area": 763,
+   "dark_outline": 0.719,
+   "orphans": 0.122,
+   "colours": 11,
+   "symmetry": 0.156
+  },
+  "baltoy": {
+   "feet": 47,
+   "height": 35,
+   "width": 39,
+   "area": 516,
+   "dark_outline": 0.827,
+   "orphans": 0.11,
+   "colours": 7,
+   "symmetry": 0.2
+  },
+  "banette": {
+   "feet": 51,
+   "height": 40,
+   "width": 34,
+   "area": 799,
+   "dark_outline": 0.805,
+   "orphans": 0.191,
+   "colours": 12,
+   "symmetry": 0.185
+  },
+  "barboach": {
+   "feet": 52,
+   "height": 42,
+   "width": 32,
+   "area": 638,
+   "dark_outline": 0.617,
+   "orphans": 0.219,
+   "colours": 13,
+   "symmetry": 0.135
+  },
+  "bayleef": {
+   "feet": 59,
+   "height": 54,
+   "width": 55,
+   "area": 1429,
+   "dark_outline": 0.8,
+   "orphans": 0.164,
+   "colours": 15,
+   "symmetry": 0.086
+  },
+  "beautifly": {
+   "feet": 54,
+   "height": 47,
+   "width": 56,
+   "area": 1241,
+   "dark_outline": 0.76,
+   "orphans": 0.089,
+   "colours": 13,
+   "symmetry": 0.14
+  },
+  "beedrill": {
+   "feet": 54,
+   "height": 46,
+   "width": 57,
+   "area": 1424,
+   "dark_outline": 0.842,
+   "orphans": 0.181,
+   "colours": 14,
+   "symmetry": 0.183
+  },
+  "beldum": {
+   "feet": 48,
+   "height": 34,
+   "width": 33,
+   "area": 672,
+   "dark_outline": 0.719,
+   "orphans": 0.173,
+   "colours": 12,
+   "symmetry": 0.15
+  },
+  "bellossom": {
+   "feet": 49,
+   "height": 35,
+   "width": 31,
+   "area": 682,
+   "dark_outline": 0.83,
+   "orphans": 0.167,
+   "colours": 14,
+   "symmetry": 0.229
+  },
+  "bellsprout": {
+   "feet": 48,
+   "height": 34,
+   "width": 45,
+   "area": 609,
+   "dark_outline": 0.829,
+   "orphans": 0.227,
+   "colours": 14,
+   "symmetry": 0.046
+  },
+  "blastoise": {
+   "feet": 63,
+   "height": 55,
+   "width": 62,
+   "area": 2265,
+   "dark_outline": 0.806,
+   "orphans": 0.094,
+   "colours": 15,
+   "symmetry": 0.102
+  },
+  "blaziken": {
+   "feet": 63,
+   "height": 63,
+   "width": 59,
+   "area": 1737,
+   "dark_outline": 0.789,
+   "orphans": 0.173,
+   "colours": 14,
+   "symmetry": 0.205
+  },
+  "blissey": {
+   "feet": 57,
+   "height": 51,
+   "width": 52,
+   "area": 1924,
+   "dark_outline": 0.489,
+   "orphans": 0.081,
+   "colours": 12,
+   "symmetry": 0.218
+  },
+  "breloom": {
+   "feet": 59,
+   "height": 54,
+   "width": 51,
+   "area": 1357,
+   "dark_outline": 0.9,
+   "orphans": 0.149,
+   "colours": 15,
+   "symmetry": 0.105
+  },
+  "bulbasaur": {
+   "feet": 49,
+   "height": 36,
+   "width": 31,
+   "area": 732,
+   "dark_outline": 0.72,
+   "orphans": 0.169,
+   "colours": 14,
+   "symmetry": 0.169
+  },
+  "butterfree": {
+   "feet": 54,
+   "height": 43,
+   "width": 55,
+   "area": 1175,
+   "dark_outline": 0.877,
+   "orphans": 0.175,
+   "colours": 14,
+   "symmetry": 0.132
+  },
+  "cacnea": {
+   "feet": 47,
+   "height": 32,
+   "width": 53,
+   "area": 915,
+   "dark_outline": 0.844,
+   "orphans": 0.215,
+   "colours": 15,
+   "symmetry": 0.186
+  },
+  "cacturne": {
+   "feet": 63,
+   "height": 63,
+   "width": 59,
+   "area": 1600,
+   "dark_outline": 0.896,
+   "orphans": 0.233,
+   "colours": 13,
+   "symmetry": 0.276
+  },
+  "camerupt": {
+   "feet": 54,
+   "height": 50,
+   "width": 61,
+   "area": 2039,
+   "dark_outline": 0.889,
+   "orphans": 0.092,
+   "colours": 13,
+   "symmetry": 0.191
+  },
+  "carvanha": {
+   "feet": 57,
+   "height": 54,
+   "width": 40,
+   "area": 1089,
+   "dark_outline": 0.943,
+   "orphans": 0.151,
+   "colours": 13,
+   "symmetry": 0.112
+  },
+  "cascoon": {
+   "feet": 47,
+   "height": 31,
+   "width": 46,
+   "area": 747,
+   "dark_outline": 0.286,
+   "orphans": 0.163,
+   "colours": 12,
+   "symmetry": 0.455
+  },
+  "caterpie": {
+   "feet": 47,
+   "height": 33,
+   "width": 27,
+   "area": 566,
+   "dark_outline": 0.642,
+   "orphans": 0.177,
+   "colours": 13,
+   "symmetry": 0.145
+  },
+  "celebi": {
+   "feet": 49,
+   "height": 36,
+   "width": 36,
+   "area": 658,
+   "dark_outline": 0.756,
+   "orphans": 0.134,
+   "colours": 13,
+   "symmetry": 0.14
+  },
+  "chansey": {
+   "feet": 54,
+   "height": 46,
+   "width": 53,
+   "area": 1566,
+   "dark_outline": 0.919,
+   "orphans": 0.096,
+   "colours": 11,
+   "symmetry": 0.298
+  },
+  "charizard": {
+   "feet": 62,
+   "height": 62,
+   "width": 64,
+   "area": 2405,
+   "dark_outline": 0.941,
+   "orphans": 0.135,
+   "colours": 15,
+   "symmetry": 0.145
+  },
+  "charmander": {
+   "feet": 51,
+   "height": 40,
+   "width": 37,
+   "area": 779,
+   "dark_outline": 0.695,
+   "orphans": 0.171,
+   "colours": 14,
+   "symmetry": 0.085
+  },
+  "charmeleon": {
+   "feet": 54,
+   "height": 46,
+   "width": 48,
+   "area": 1306,
+   "dark_outline": 0.69,
+   "orphans": 0.142,
+   "colours": 13,
+   "symmetry": 0.181
+  },
+  "chikorita": {
+   "feet": 50,
+   "height": 37,
+   "width": 40,
+   "area": 745,
+   "dark_outline": 0.915,
+   "orphans": 0.111,
+   "colours": 15,
+   "symmetry": 0.048
+  },
+  "chimecho": {
+   "feet": 57,
+   "height": 53,
+   "width": 24,
+   "area": 554,
+   "dark_outline": 0.71,
+   "orphans": 0.134,
+   "colours": 13,
+   "symmetry": 0.314
+  },
+  "chinchou": {
+   "feet": 47,
+   "height": 33,
+   "width": 56,
+   "area": 761,
+   "dark_outline": 0.702,
+   "orphans": 0.184,
+   "colours": 15,
+   "symmetry": 0.286
+  },
+  "clamperl": {
+   "feet": 49,
+   "height": 35,
+   "width": 36,
+   "area": 1010,
+   "dark_outline": 1.0,
+   "orphans": 0.145,
+   "colours": 14,
+   "symmetry": 0.865
+  },
+  "claydol": {
+   "feet": 57,
+   "height": 55,
+   "width": 47,
+   "area": 1721,
+   "dark_outline": 0.758,
+   "orphans": 0.076,
+   "colours": 12,
+   "symmetry": 0.503
+  },
+  "clefable": {
+   "feet": 55,
+   "height": 47,
+   "width": 45,
+   "area": 1359,
+   "dark_outline": 0.894,
+   "orphans": 0.1,
+   "colours": 13,
+   "symmetry": 0.293
+  },
+  "clefairy": {
+   "feet": 47,
+   "height": 33,
+   "width": 36,
+   "area": 881,
+   "dark_outline": 0.651,
+   "orphans": 0.104,
+   "colours": 14,
+   "symmetry": 0.17
+  },
+  "cleffa": {
+   "feet": 43,
+   "height": 25,
+   "width": 27,
+   "area": 454,
+   "dark_outline": 0.689,
+   "orphans": 0.165,
+   "colours": 12,
+   "symmetry": 0.267
+  },
+  "cloyster": {
+   "feet": 58,
+   "height": 53,
+   "width": 60,
+   "area": 1714,
+   "dark_outline": 0.984,
+   "orphans": 0.145,
+   "colours": 10,
+   "symmetry": 0.106
+  },
+  "combusken": {
+   "feet": 62,
+   "height": 57,
+   "width": 60,
+   "area": 1384,
+   "dark_outline": 0.731,
+   "orphans": 0.156,
+   "colours": 15,
+   "symmetry": 0.123
+  },
+  "corphish": {
+   "feet": 51,
+   "height": 41,
+   "width": 43,
+   "area": 1047,
+   "dark_outline": 0.67,
+   "orphans": 0.163,
+   "colours": 13,
+   "symmetry": 0.197
+  },
+  "corsola": {
+   "feet": 51,
+   "height": 39,
+   "width": 43,
+   "area": 935,
+   "dark_outline": 0.68,
+   "orphans": 0.16,
+   "colours": 11,
+   "symmetry": 0.236
+  },
+  "cradily": {
+   "feet": 63,
+   "height": 63,
+   "width": 50,
+   "area": 1721,
+   "dark_outline": 0.677,
+   "orphans": 0.107,
+   "colours": 12,
+   "symmetry": 0.106
+  },
+  "crawdaunt": {
+   "feet": 62,
+   "height": 61,
+   "width": 59,
+   "area": 1792,
+   "dark_outline": 0.825,
+   "orphans": 0.152,
+   "colours": 15,
+   "symmetry": 0.116
+  },
+  "crobat": {
+   "feet": 63,
+   "height": 63,
+   "width": 63,
+   "area": 1233,
+   "dark_outline": 0.862,
+   "orphans": 0.198,
+   "colours": 13,
+   "symmetry": 0.113
+  },
+  "croconaw": {
+   "feet": 57,
+   "height": 52,
+   "width": 42,
+   "area": 1184,
+   "dark_outline": 0.912,
+   "orphans": 0.142,
+   "colours": 15,
+   "symmetry": 0.103
+  },
+  "cubone": {
+   "feet": 48,
+   "height": 36,
+   "width": 39,
+   "area": 818,
+   "dark_outline": 0.818,
+   "orphans": 0.176,
+   "colours": 13,
+   "symmetry": 0.17
+  },
+  "cyndaquil": {
+   "feet": 49,
+   "height": 36,
+   "width": 39,
+   "area": 819,
+   "dark_outline": 0.862,
+   "orphans": 0.099,
+   "colours": 14,
+   "symmetry": 0.088
+  },
+  "delcatty": {
+   "feet": 55,
+   "height": 48,
+   "width": 42,
+   "area": 1102,
+   "dark_outline": 0.701,
+   "orphans": 0.194,
+   "colours": 15,
+   "symmetry": 0.116
+  },
+  "delibird": {
+   "feet": 55,
+   "height": 48,
+   "width": 40,
+   "area": 1171,
+   "dark_outline": 0.671,
+   "orphans": 0.154,
+   "colours": 14,
+   "symmetry": 0.137
+  },
+  "deoxys": {
+   "feet": 62,
+   "height": 61,
+   "width": 62,
+   "area": 1274,
+   "dark_outline": 0.87,
+   "orphans": 0.176,
+   "colours": 13,
+   "symmetry": 0.044
+  },
+  "dewgong": {
+   "feet": 56,
+   "height": 50,
+   "width": 64,
+   "area": 1977,
+   "dark_outline": 0.787,
+   "orphans": 0.098,
+   "colours": 8,
+   "symmetry": 0.301
+  },
+  "diglett": {
+   "feet": 45,
+   "height": 27,
+   "width": 38,
+   "area": 566,
+   "dark_outline": 0.546,
+   "orphans": 0.115,
+   "colours": 13,
+   "symmetry": 0.307
+  },
+  "ditto": {
+   "feet": 46,
+   "height": 30,
+   "width": 35,
+   "area": 691,
+   "dark_outline": 0.548,
+   "orphans": 0.103,
+   "colours": 6,
+   "symmetry": 0.498
+  },
+  "dodrio": {
+   "feet": 63,
+   "height": 63,
+   "width": 63,
+   "area": 1706,
+   "dark_outline": 0.849,
+   "orphans": 0.221,
+   "colours": 15,
+   "symmetry": 0.101
+  },
+  "doduo": {
+   "feet": 58,
+   "height": 53,
+   "width": 38,
+   "area": 949,
+   "dark_outline": 0.494,
+   "orphans": 0.288,
+   "colours": 10,
+   "symmetry": 0.095
+  },
+  "donphan": {
+   "feet": 55,
+   "height": 48,
+   "width": 64,
+   "area": 2096,
+   "dark_outline": 0.765,
+   "orphans": 0.072,
+   "colours": 14,
+   "symmetry": 0.102
+  },
+  "dragonair": {
+   "feet": 57,
+   "height": 51,
+   "width": 62,
+   "area": 1302,
+   "dark_outline": 0.655,
+   "orphans": 0.157,
+   "colours": 13,
+   "symmetry": 0.063
+  },
+  "dragonite": {
+   "feet": 63,
+   "height": 64,
+   "width": 64,
+   "area": 2704,
+   "dark_outline": 0.834,
+   "orphans": 0.12,
+   "colours": 14,
+   "symmetry": 0.17
+  },
+  "dratini": {
+   "feet": 49,
+   "height": 36,
+   "width": 52,
+   "area": 907,
+   "dark_outline": 0.797,
+   "orphans": 0.106,
+   "colours": 10,
+   "symmetry": 0.176
+  },
+  "drowzee": {
+   "feet": 56,
+   "height": 50,
+   "width": 55,
+   "area": 1486,
+   "dark_outline": 0.585,
+   "orphans": 0.129,
+   "colours": 10,
+   "symmetry": 0.166
+  },
+  "dugtrio": {
+   "feet": 50,
+   "height": 39,
+   "width": 49,
+   "area": 1157,
+   "dark_outline": 0.497,
+   "orphans": 0.098,
+   "colours": 13,
+   "symmetry": 0.187
+  },
+  "dunsparce": {
+   "feet": 46,
+   "height": 30,
+   "width": 49,
+   "area": 963,
+   "dark_outline": 0.821,
+   "orphans": 0.143,
+   "colours": 14,
+   "symmetry": 0.211
+  },
+  "dusclops": {
+   "feet": 58,
+   "height": 53,
+   "width": 52,
+   "area": 1374,
+   "dark_outline": 0.935,
+   "orphans": 0.128,
+   "colours": 11,
+   "symmetry": 0.179
+  },
+  "duskull": {
+   "feet": 53,
+   "height": 46,
+   "width": 39,
+   "area": 1062,
+   "dark_outline": 0.806,
+   "orphans": 0.16,
+   "colours": 13,
+   "symmetry": 0.113
+  },
+  "dustox": {
+   "feet": 48,
+   "height": 40,
+   "width": 57,
+   "area": 1343,
+   "dark_outline": 0.659,
+   "orphans": 0.106,
+   "colours": 14,
+   "symmetry": 0.116
+  },
+  "eevee": {
+   "feet": 54,
+   "height": 44,
+   "width": 33,
+   "area": 748,
+   "dark_outline": 0.759,
+   "orphans": 0.221,
+   "colours": 10,
+   "symmetry": 0.246
+  },
+  "ekans": {
+   "feet": 51,
+   "height": 40,
+   "width": 43,
+   "area": 984,
+   "dark_outline": 0.958,
+   "orphans": 0.147,
+   "colours": 13,
+   "symmetry": 0.132
+  },
+  "electabuzz": {
+   "feet": 61,
+   "height": 58,
+   "width": 52,
+   "area": 1818,
+   "dark_outline": 0.94,
+   "orphans": 0.127,
+   "colours": 11,
+   "symmetry": 0.197
+  },
+  "electrike": {
+   "feet": 45,
+   "height": 27,
+   "width": 45,
+   "area": 828,
+   "dark_outline": 0.69,
+   "orphans": 0.13,
+   "colours": 12,
+   "symmetry": 0.213
+  },
+  "electrode": {
+   "feet": 49,
+   "height": 36,
+   "width": 36,
+   "area": 1012,
+   "dark_outline": 0.61,
+   "orphans": 0.121,
+   "colours": 11,
+   "symmetry": 0.37
+  },
+  "elekid": {
+   "feet": 53,
+   "height": 44,
+   "width": 49,
+   "area": 944,
+   "dark_outline": 0.59,
+   "orphans": 0.138,
+   "colours": 12,
+   "symmetry": 0.161
+  },
+  "entei": {
+   "feet": 63,
+   "height": 64,
+   "width": 63,
+   "area": 2674,
+   "dark_outline": 0.762,
+   "orphans": 0.142,
+   "colours": 15,
+   "symmetry": 0.108
+  },
+  "espeon": {
+   "feet": 55,
+   "height": 48,
+   "width": 42,
+   "area": 1101,
+   "dark_outline": 0.734,
+   "orphans": 0.139,
+   "colours": 11,
+   "symmetry": 0.191
+  },
+  "exeggcute": {
+   "feet": 56,
+   "height": 50,
+   "width": 57,
+   "area": 1762,
+   "dark_outline": 0.925,
+   "orphans": 0.117,
+   "colours": 10,
+   "symmetry": 0.141
+  },
+  "exeggutor": {
+   "feet": 63,
+   "height": 64,
+   "width": 57,
+   "area": 1935,
+   "dark_outline": 0.855,
+   "orphans": 0.151,
+   "colours": 15,
+   "symmetry": 0.146
+  },
+  "exploud": {
+   "feet": 62,
+   "height": 62,
+   "width": 64,
+   "area": 2508,
+   "dark_outline": 0.693,
+   "orphans": 0.092,
+   "colours": 15,
+   "symmetry": 0.066
+  },
+  "farfetchd": {
+   "feet": 54,
+   "height": 46,
+   "width": 48,
+   "area": 1223,
+   "dark_outline": 0.847,
+   "orphans": 0.139,
+   "colours": 15,
+   "symmetry": 0.111
+  },
+  "fearow": {
+   "feet": 63,
+   "height": 64,
+   "width": 55,
+   "area": 1735,
+   "dark_outline": 0.908,
+   "orphans": 0.163,
+   "colours": 14,
+   "symmetry": 0.119
+  },
+  "feebas": {
+   "feet": 50,
+   "height": 42,
+   "width": 31,
+   "area": 767,
+   "dark_outline": 0.572,
+   "orphans": 0.121,
+   "colours": 13,
+   "symmetry": 0.278
+  },
+  "feraligatr": {
+   "feet": 63,
+   "height": 64,
+   "width": 63,
+   "area": 2417,
+   "dark_outline": 0.939,
+   "orphans": 0.145,
+   "colours": 15,
+   "symmetry": 0.161
+  },
+  "flaaffy": {
+   "feet": 53,
+   "height": 44,
+   "width": 35,
+   "area": 885,
+   "dark_outline": 0.723,
+   "orphans": 0.183,
+   "colours": 14,
+   "symmetry": 0.11
+  },
+  "flareon": {
+   "feet": 53,
+   "height": 45,
+   "width": 43,
+   "area": 1209,
+   "dark_outline": 0.637,
+   "orphans": 0.139,
+   "colours": 11,
+   "symmetry": 0.165
+  },
+  "flygon": {
+   "feet": 62,
+   "height": 62,
+   "width": 64,
+   "area": 1900,
+   "dark_outline": 0.813,
+   "orphans": 0.175,
+   "colours": 15,
+   "symmetry": 0.044
+  },
+  "forretress": {
+   "feet": 54,
+   "height": 46,
+   "width": 54,
+   "area": 1786,
+   "dark_outline": 0.795,
+   "orphans": 0.078,
+   "colours": 11,
+   "symmetry": 0.171
+  },
+  "furret": {
+   "feet": 56,
+   "height": 50,
+   "width": 41,
+   "area": 1191,
+   "dark_outline": 0.711,
+   "orphans": 0.134,
+   "colours": 13,
+   "symmetry": 0.206
+  },
+  "gardevoir": {
+   "feet": 62,
+   "height": 63,
+   "width": 56,
+   "area": 1525,
+   "dark_outline": 0.737,
+   "orphans": 0.139,
+   "colours": 13,
+   "symmetry": 0.115
+  },
+  "gastly": {
+   "feet": 57,
+   "height": 51,
+   "width": 49,
+   "area": 1658,
+   "dark_outline": 0.0,
+   "orphans": 0.136,
+   "colours": 11,
+   "symmetry": 0.255
+  },
+  "gengar": {
+   "feet": 58,
+   "height": 51,
+   "width": 54,
+   "area": 1911,
+   "dark_outline": 0.986,
+   "orphans": 0.086,
+   "colours": 11,
+   "symmetry": 0.34
+  },
+  "geodude": {
+   "feet": 45,
+   "height": 29,
+   "width": 40,
+   "area": 620,
+   "dark_outline": 0.839,
+   "orphans": 0.232,
+   "colours": 7,
+   "symmetry": 0.197
+  },
+  "girafarig": {
+   "feet": 60,
+   "height": 59,
+   "width": 58,
+   "area": 1517,
+   "dark_outline": 0.671,
+   "orphans": 0.115,
+   "colours": 14,
+   "symmetry": 0.096
+  },
+  "glalie": {
+   "feet": 53,
+   "height": 45,
+   "width": 49,
+   "area": 1470,
+   "dark_outline": 0.857,
+   "orphans": 0.149,
+   "colours": 13,
+   "symmetry": 0.244
+  },
+  "gligar": {
+   "feet": 60,
+   "height": 55,
+   "width": 53,
+   "area": 1611,
+   "dark_outline": 0.725,
+   "orphans": 0.137,
+   "colours": 15,
+   "symmetry": 0.272
+  },
+  "gloom": {
+   "feet": 53,
+   "height": 44,
+   "width": 44,
+   "area": 1097,
+   "dark_outline": 0.948,
+   "orphans": 0.138,
+   "colours": 15,
+   "symmetry": 0.222
+  },
+  "golbat": {
+   "feet": 60,
+   "height": 58,
+   "width": 58,
+   "area": 1326,
+   "dark_outline": 0.947,
+   "orphans": 0.179,
+   "colours": 11,
+   "symmetry": 0.281
+  },
+  "goldeen": {
+   "feet": 53,
+   "height": 44,
+   "width": 48,
+   "area": 1184,
+   "dark_outline": 0.78,
+   "orphans": 0.151,
+   "colours": 14,
+   "symmetry": 0.159
+  },
+  "golduck": {
+   "feet": 61,
+   "height": 58,
+   "width": 51,
+   "area": 1495,
+   "dark_outline": 0.711,
+   "orphans": 0.176,
+   "colours": 14,
+   "symmetry": 0.14
+  },
+  "golem": {
+   "feet": 58,
+   "height": 54,
+   "width": 54,
+   "area": 1943,
+   "dark_outline": 0.763,
+   "orphans": 0.101,
+   "colours": 13,
+   "symmetry": 0.197
+  },
+  "gorebyss": {
+   "feet": 52,
+   "height": 45,
+   "width": 61,
+   "area": 1131,
+   "dark_outline": 0.887,
+   "orphans": 0.164,
+   "colours": 13,
+   "symmetry": 0.149
+  },
+  "granbull": {
+   "feet": 57,
+   "height": 52,
+   "width": 38,
+   "area": 1405,
+   "dark_outline": 0.781,
+   "orphans": 0.115,
+   "colours": 12,
+   "symmetry": 0.191
+  },
+  "graveler": {
+   "feet": 59,
+   "height": 55,
+   "width": 62,
+   "area": 1767,
+   "dark_outline": 0.834,
+   "orphans": 0.092,
+   "colours": 8,
+   "symmetry": 0.35
+  },
+  "grimer": {
+   "feet": 51,
+   "height": 40,
+   "width": 42,
+   "area": 1098,
+   "dark_outline": 0.823,
+   "orphans": 0.122,
+   "colours": 11,
+   "symmetry": 0.288
+  },
+  "groudon": {
+   "feet": 62,
+   "height": 60,
+   "width": 64,
+   "area": 2361,
+   "dark_outline": 0.859,
+   "orphans": 0.194,
+   "colours": 15,
+   "symmetry": 0.087
+  },
+  "grovyle": {
+   "feet": 59,
+   "height": 56,
+   "width": 62,
+   "area": 1693,
+   "dark_outline": 0.872,
+   "orphans": 0.196,
+   "colours": 14,
+   "symmetry": 0.066
+  },
+  "growlithe": {
+   "feet": 52,
+   "height": 41,
+   "width": 42,
+   "area": 1088,
+   "dark_outline": 0.845,
+   "orphans": 0.15,
+   "colours": 12,
+   "symmetry": 0.114
+  },
+  "grumpig": {
+   "feet": 58,
+   "height": 55,
+   "width": 49,
+   "area": 1435,
+   "dark_outline": 0.668,
+   "orphans": 0.14,
+   "colours": 15,
+   "symmetry": 0.144
+  },
+  "gulpin": {
+   "feet": 45,
+   "height": 34,
+   "width": 37,
+   "area": 709,
+   "dark_outline": 0.771,
+   "orphans": 0.111,
+   "colours": 11,
+   "symmetry": 0.412
+  },
+  "gyarados": {
+   "feet": 55,
+   "height": 56,
+   "width": 64,
+   "area": 2125,
+   "dark_outline": 0.729,
+   "orphans": 0.125,
+   "colours": 15,
+   "symmetry": 0.11
+  },
+  "hariyama": {
+   "feet": 62,
+   "height": 61,
+   "width": 63,
+   "area": 2440,
+   "dark_outline": 0.912,
+   "orphans": 0.099,
+   "colours": 15,
+   "symmetry": 0.091
+  },
+  "haunter": {
+   "feet": 58,
+   "height": 54,
+   "width": 51,
+   "area": 1562,
+   "dark_outline": 0.864,
+   "orphans": 0.175,
+   "colours": 11,
+   "symmetry": 0.211
+  },
+  "heracross": {
+   "feet": 60,
+   "height": 57,
+   "width": 63,
+   "area": 1454,
+   "dark_outline": 0.823,
+   "orphans": 0.141,
+   "colours": 12,
+   "symmetry": 0.157
+  },
+  "hitmonchan": {
+   "feet": 59,
+   "height": 56,
+   "width": 43,
+   "area": 1058,
+   "dark_outline": 0.949,
+   "orphans": 0.141,
+   "colours": 14,
+   "symmetry": 0.137
+  },
+  "hitmonlee": {
+   "feet": 59,
+   "height": 55,
+   "width": 59,
+   "area": 1534,
+   "dark_outline": 0.72,
+   "orphans": 0.167,
+   "colours": 12,
+   "symmetry": 0.062
+  },
+  "hitmontop": {
+   "feet": 58,
+   "height": 53,
+   "width": 48,
+   "area": 1177,
+   "dark_outline": 0.796,
+   "orphans": 0.158,
+   "colours": 13,
+   "symmetry": 0.121
+  },
+  "ho_oh": {
+   "feet": 63,
+   "height": 64,
+   "width": 64,
+   "area": 2724,
+   "dark_outline": 0.641,
+   "orphans": 0.15,
+   "colours": 14,
+   "symmetry": 0.235
+  },
+  "hoothoot": {
+   "feet": 50,
+   "height": 37,
+   "width": 36,
+   "area": 704,
+   "dark_outline": 0.806,
+   "orphans": 0.141,
+   "colours": 14,
+   "symmetry": 0.236
+  },
+  "hoppip": {
+   "feet": 53,
+   "height": 43,
+   "width": 40,
+   "area": 811,
+   "dark_outline": 0.773,
+   "orphans": 0.123,
+   "colours": 11,
+   "symmetry": 0.104
+  },
+  "horsea": {
+   "feet": 48,
+   "height": 33,
+   "width": 31,
+   "area": 631,
+   "dark_outline": 0.719,
+   "orphans": 0.201,
+   "colours": 11,
+   "symmetry": 0.168
+  },
+  "houndoom": {
+   "feet": 58,
+   "height": 54,
+   "width": 54,
+   "area": 1477,
+   "dark_outline": 0.915,
+   "orphans": 0.114,
+   "colours": 13,
+   "symmetry": 0.079
+  },
+  "houndour": {
+   "feet": 52,
+   "height": 41,
+   "width": 34,
+   "area": 825,
+   "dark_outline": 0.976,
+   "orphans": 0.168,
+   "colours": 11,
+   "symmetry": 0.15
+  },
+  "huntail": {
+   "feet": 60,
+   "height": 56,
+   "width": 51,
+   "area": 1394,
+   "dark_outline": 0.643,
+   "orphans": 0.164,
+   "colours": 14,
+   "symmetry": 0.137
+  },
+  "hypno": {
+   "feet": 59,
+   "height": 56,
+   "width": 54,
+   "area": 1685,
+   "dark_outline": 0.902,
+   "orphans": 0.151,
+   "colours": 10,
+   "symmetry": 0.211
+  },
+  "igglybuff": {
+   "feet": 45,
+   "height": 29,
+   "width": 25,
+   "area": 463,
+   "dark_outline": 0.493,
+   "orphans": 0.168,
+   "colours": 10,
+   "symmetry": 0.404
+  },
+  "illumise": {
+   "feet": 55,
+   "height": 46,
+   "width": 37,
+   "area": 1148,
+   "dark_outline": 0.587,
+   "orphans": 0.152,
+   "colours": 15,
+   "symmetry": 0.226
+  },
+  "ivysaur": {
+   "feet": 53,
+   "height": 44,
+   "width": 40,
+   "area": 1193,
+   "dark_outline": 0.684,
+   "orphans": 0.124,
+   "colours": 15,
+   "symmetry": 0.171
+  },
+  "jigglypuff": {
+   "feet": 47,
+   "height": 33,
+   "width": 32,
+   "area": 747,
+   "dark_outline": 0.82,
+   "orphans": 0.134,
+   "colours": 13,
+   "symmetry": 0.252
+  },
+  "jirachi": {
+   "feet": 50,
+   "height": 42,
+   "width": 45,
+   "area": 1030,
+   "dark_outline": 0.408,
+   "orphans": 0.119,
+   "colours": 12,
+   "symmetry": 0.244
+  },
+  "jolteon": {
+   "feet": 54,
+   "height": 46,
+   "width": 53,
+   "area": 1253,
+   "dark_outline": 0.819,
+   "orphans": 0.17,
+   "colours": 12,
+   "symmetry": 0.097
+  },
+  "jumpluff": {
+   "feet": 56,
+   "height": 50,
+   "width": 53,
+   "area": 1305,
+   "dark_outline": 0.28,
+   "orphans": 0.203,
+   "colours": 15,
+   "symmetry": 0.166
+  },
+  "jynx": {
+   "feet": 59,
+   "height": 54,
+   "width": 56,
+   "area": 1978,
+   "dark_outline": 0.684,
+   "orphans": 0.124,
+   "colours": 15,
+   "symmetry": 0.263
+  },
+  "kabuto": {
+   "feet": 46,
+   "height": 29,
+   "width": 34,
+   "area": 796,
+   "dark_outline": 0.87,
+   "orphans": 0.094,
+   "colours": 12,
+   "symmetry": 0.271
+  },
+  "kabutops": {
+   "feet": 60,
+   "height": 57,
+   "width": 57,
+   "area": 1424,
+   "dark_outline": 0.74,
+   "orphans": 0.197,
+   "colours": 10,
+   "symmetry": 0.166
+  },
+  "kadabra": {
+   "feet": 58,
+   "height": 53,
+   "width": 53,
+   "area": 1629,
+   "dark_outline": 0.934,
+   "orphans": 0.169,
+   "colours": 15,
+   "symmetry": 0.169
+  },
+  "kakuna": {
+   "feet": 49,
+   "height": 37,
+   "width": 27,
+   "area": 659,
+   "dark_outline": 0.729,
+   "orphans": 0.17,
+   "colours": 9,
+   "symmetry": 0.168
+  },
+  "kangaskhan": {
+   "feet": 63,
+   "height": 63,
+   "width": 61,
+   "area": 2169,
+   "dark_outline": 0.816,
+   "orphans": 0.113,
+   "colours": 15,
+   "symmetry": 0.19
+  },
+  "kecleon": {
+   "feet": 56,
+   "height": 51,
+   "width": 42,
+   "area": 1198,
+   "dark_outline": 0.552,
+   "orphans": 0.164,
+   "colours": 15,
+   "symmetry": 0.135
+  },
+  "kingdra": {
+   "feet": 59,
+   "height": 59,
+   "width": 54,
+   "area": 1596,
+   "dark_outline": 0.751,
+   "orphans": 0.13,
+   "colours": 13,
+   "symmetry": 0.089
+  },
+  "kingler": {
+   "feet": 60,
+   "height": 60,
+   "width": 64,
+   "area": 2270,
+   "dark_outline": 0.872,
+   "orphans": 0.133,
+   "colours": 11,
+   "symmetry": 0.181
+  },
+  "kirlia": {
+   "feet": 57,
+   "height": 50,
+   "width": 31,
+   "area": 955,
+   "dark_outline": 0.738,
+   "orphans": 0.13,
+   "colours": 14,
+   "symmetry": 0.339
+  },
+  "koffing": {
+   "feet": 55,
+   "height": 48,
+   "width": 46,
+   "area": 1193,
+   "dark_outline": 0.298,
+   "orphans": 0.092,
+   "colours": 13,
+   "symmetry": 0.153
+  },
+  "krabby": {
+   "feet": 50,
+   "height": 39,
+   "width": 48,
+   "area": 767,
+   "dark_outline": 0.877,
+   "orphans": 0.205,
+   "colours": 11,
+   "symmetry": 0.115
+  },
+  "kyogre": {
+   "feet": 59,
+   "height": 53,
+   "width": 64,
+   "area": 1813,
+   "dark_outline": 0.918,
+   "orphans": 0.185,
+   "colours": 15,
+   "symmetry": 0.088
+  },
+  "lairon": {
+   "feet": 50,
+   "height": 39,
+   "width": 54,
+   "area": 1440,
+   "dark_outline": 0.582,
+   "orphans": 0.167,
+   "colours": 14,
+   "symmetry": 0.083
+  },
+  "lanturn": {
+   "feet": 52,
+   "height": 48,
+   "width": 52,
+   "area": 1379,
+   "dark_outline": 0.675,
+   "orphans": 0.128,
+   "colours": 15,
+   "symmetry": 0.132
+  },
+  "lapras": {
+   "feet": 50,
+   "height": 39,
+   "width": 64,
+   "area": 1592,
+   "dark_outline": 0.848,
+   "orphans": 0.131,
+   "colours": 15,
+   "symmetry": 0.117
+  },
+  "larvitar": {
+   "feet": 54,
+   "height": 44,
+   "width": 31,
+   "area": 742,
+   "dark_outline": 0.878,
+   "orphans": 0.112,
+   "colours": 10,
+   "symmetry": 0.229
+  },
+  "latias": {
+   "feet": 62,
+   "height": 61,
+   "width": 64,
+   "area": 1647,
+   "dark_outline": 0.796,
+   "orphans": 0.165,
+   "colours": 15,
+   "symmetry": 0.113
+  },
+  "latios": {
+   "feet": 61,
+   "height": 61,
+   "width": 63,
+   "area": 1829,
+   "dark_outline": 0.745,
+   "orphans": 0.204,
+   "colours": 15,
+   "symmetry": 0.125
+  },
+  "ledian": {
+   "feet": 59,
+   "height": 55,
+   "width": 41,
+   "area": 1236,
+   "dark_outline": 0.779,
+   "orphans": 0.162,
+   "colours": 15,
+   "symmetry": 0.193
+  },
+  "ledyba": {
+   "feet": 51,
+   "height": 41,
+   "width": 40,
+   "area": 943,
+   "dark_outline": 0.739,
+   "orphans": 0.158,
+   "colours": 13,
+   "symmetry": 0.223
+  },
+  "lickitung": {
+   "feet": 55,
+   "height": 47,
+   "width": 58,
+   "area": 1735,
+   "dark_outline": 0.864,
+   "orphans": 0.104,
+   "colours": 14,
+   "symmetry": 0.251
+  },
+  "lileep": {
+   "feet": 56,
+   "height": 50,
+   "width": 45,
+   "area": 1120,
+   "dark_outline": 0.365,
+   "orphans": 0.127,
+   "colours": 12,
+   "symmetry": 0.239
+  },
+  "linoone": {
+   "feet": 60,
+   "height": 60,
+   "width": 51,
+   "area": 1357,
+   "dark_outline": 0.641,
+   "orphans": 0.181,
+   "colours": 11,
+   "symmetry": 0.144
+  },
+  "lombre": {
+   "feet": 54,
+   "height": 45,
+   "width": 41,
+   "area": 1072,
+   "dark_outline": 0.899,
+   "orphans": 0.128,
+   "colours": 14,
+   "symmetry": 0.264
+  },
+  "lotad": {
+   "feet": 49,
+   "height": 30,
+   "width": 39,
+   "area": 773,
+   "dark_outline": 0.757,
+   "orphans": 0.12,
+   "colours": 14,
+   "symmetry": 0.241
+  },
+  "loudred": {
+   "feet": 60,
+   "height": 57,
+   "width": 52,
+   "area": 1799,
+   "dark_outline": 0.805,
+   "orphans": 0.112,
+   "colours": 15,
+   "symmetry": 0.14
+  },
+  "ludicolo": {
+   "feet": 63,
+   "height": 64,
+   "width": 58,
+   "area": 2338,
+   "dark_outline": 0.7,
+   "orphans": 0.081,
+   "colours": 15,
+   "symmetry": 0.105
+  },
+  "lugia": {
+   "feet": 63,
+   "height": 64,
+   "width": 63,
+   "area": 2326,
+   "dark_outline": 0.744,
+   "orphans": 0.119,
+   "colours": 15,
+   "symmetry": 0.191
+  },
+  "lunatone": {
+   "feet": 54,
+   "height": 45,
+   "width": 42,
+   "area": 1327,
+   "dark_outline": 0.382,
+   "orphans": 0.168,
+   "colours": 15,
+   "symmetry": 0.264
+  },
+  "luvdisc": {
+   "feet": 39,
+   "height": 31,
+   "width": 20,
+   "area": 434,
+   "dark_outline": 0.729,
+   "orphans": 0.09,
+   "colours": 9,
+   "symmetry": 0.406
+  },
+  "machamp": {
+   "feet": 62,
+   "height": 61,
+   "width": 63,
+   "area": 2346,
+   "dark_outline": 0.862,
+   "orphans": 0.117,
+   "colours": 14,
+   "symmetry": 0.267
+  },
+  "machoke": {
+   "feet": 57,
+   "height": 52,
+   "width": 45,
+   "area": 1508,
+   "dark_outline": 0.902,
+   "orphans": 0.134,
+   "colours": 14,
+   "symmetry": 0.224
+  },
+  "machop": {
+   "feet": 52,
+   "height": 42,
+   "width": 34,
+   "area": 791,
+   "dark_outline": 0.947,
+   "orphans": 0.145,
+   "colours": 14,
+   "symmetry": 0.212
+  },
+  "magby": {
+   "feet": 50,
+   "height": 38,
+   "width": 29,
+   "area": 664,
+   "dark_outline": 0.748,
+   "orphans": 0.179,
+   "colours": 11,
+   "symmetry": 0.224
+  },
+  "magcargo": {
+   "feet": 50,
+   "height": 46,
+   "width": 37,
+   "area": 1202,
+   "dark_outline": 0.789,
+   "orphans": 0.129,
+   "colours": 14,
+   "symmetry": 0.141
+  },
+  "magikarp": {
+   "feet": 57,
+   "height": 51,
+   "width": 42,
+   "area": 1038,
+   "dark_outline": 0.605,
+   "orphans": 0.224,
+   "colours": 15,
+   "symmetry": 0.123
+  },
+  "magmar": {
+   "feet": 59,
+   "height": 55,
+   "width": 52,
+   "area": 1697,
+   "dark_outline": 0.675,
+   "orphans": 0.154,
+   "colours": 12,
+   "symmetry": 0.146
+  },
+  "magnemite": {
+   "feet": 42,
+   "height": 22,
+   "width": 30,
+   "area": 367,
+   "dark_outline": 0.867,
+   "orphans": 0.169,
+   "colours": 15,
+   "symmetry": 0.174
+  },
+  "magneton": {
+   "feet": 55,
+   "height": 48,
+   "width": 49,
+   "area": 1474,
+   "dark_outline": 0.859,
+   "orphans": 0.187,
+   "colours": 15,
+   "symmetry": 0.159
+  },
+  "makuhita": {
+   "feet": 51,
+   "height": 40,
+   "width": 40,
+   "area": 1142,
+   "dark_outline": 0.846,
+   "orphans": 0.13,
+   "colours": 12,
+   "symmetry": 0.156
+  },
+  "manectric": {
+   "feet": 59,
+   "height": 56,
+   "width": 42,
+   "area": 1100,
+   "dark_outline": 0.665,
+   "orphans": 0.133,
+   "colours": 12,
+   "symmetry": 0.096
+  },
+  "mankey": {
+   "feet": 49,
+   "height": 36,
+   "width": 42,
+   "area": 872,
+   "dark_outline": 0.737,
+   "orphans": 0.205,
+   "colours": 15,
+   "symmetry": 0.135
+  },
+  "mantine": {
+   "feet": 62,
+   "height": 63,
+   "width": 62,
+   "area": 1973,
+   "dark_outline": 0.797,
+   "orphans": 0.133,
+   "colours": 14,
+   "symmetry": 0.09
+  },
+  "mareep": {
+   "feet": 47,
+   "height": 33,
+   "width": 38,
+   "area": 893,
+   "dark_outline": 0.83,
+   "orphans": 0.158,
+   "colours": 15,
+   "symmetry": 0.159
+  },
+  "marill": {
+   "feet": 49,
+   "height": 35,
+   "width": 42,
+   "area": 866,
+   "dark_outline": 0.962,
+   "orphans": 0.137,
+   "colours": 12,
+   "symmetry": 0.139
+  },
+  "marowak": {
+   "feet": 52,
+   "height": 42,
+   "width": 55,
+   "area": 1286,
+   "dark_outline": 0.784,
+   "orphans": 0.158,
+   "colours": 15,
+   "symmetry": 0.081
+  },
+  "marshtomp": {
+   "feet": 57,
+   "height": 52,
+   "width": 45,
+   "area": 1348,
+   "dark_outline": 0.872,
+   "orphans": 0.101,
+   "colours": 14,
+   "symmetry": 0.237
+  },
+  "masquerain": {
+   "feet": 62,
+   "height": 59,
+   "width": 60,
+   "area": 1303,
+   "dark_outline": 0.628,
+   "orphans": 0.134,
+   "colours": 15,
+   "symmetry": 0.081
+  },
+  "mawile": {
+   "feet": 55,
+   "height": 47,
+   "width": 55,
+   "area": 1460,
+   "dark_outline": 0.844,
+   "orphans": 0.115,
+   "colours": 14,
+   "symmetry": 0.097
+  },
+  "medicham": {
+   "feet": 62,
+   "height": 61,
+   "width": 39,
+   "area": 1079,
+   "dark_outline": 0.58,
+   "orphans": 0.163,
+   "colours": 13,
+   "symmetry": 0.13
+  },
+  "meditite": {
+   "feet": 51,
+   "height": 40,
+   "width": 39,
+   "area": 805,
+   "dark_outline": 0.567,
+   "orphans": 0.147,
+   "colours": 13,
+   "symmetry": 0.309
+  },
+  "meganium": {
+   "feet": 63,
+   "height": 64,
+   "width": 64,
+   "area": 2509,
+   "dark_outline": 0.853,
+   "orphans": 0.14,
+   "colours": 15,
+   "symmetry": 0.136
+  },
+  "meowth": {
+   "feet": 51,
+   "height": 40,
+   "width": 39,
+   "area": 862,
+   "dark_outline": 0.608,
+   "orphans": 0.181,
+   "colours": 15,
+   "symmetry": 0.171
+  },
+  "metagross": {
+   "feet": 57,
+   "height": 45,
+   "width": 64,
+   "area": 1651,
+   "dark_outline": 0.943,
+   "orphans": 0.166,
+   "colours": 14,
+   "symmetry": 0.168
+  },
+  "metang": {
+   "feet": 56,
+   "height": 48,
+   "width": 57,
+   "area": 1578,
+   "dark_outline": 0.72,
+   "orphans": 0.165,
+   "colours": 14,
+   "symmetry": 0.124
+  },
+  "metapod": {
+   "feet": 43,
+   "height": 25,
+   "width": 39,
+   "area": 600,
+   "dark_outline": 0.939,
+   "orphans": 0.11,
+   "colours": 6,
+   "symmetry": 0.285
+  },
+  "mew": {
+   "feet": 50,
+   "height": 37,
+   "width": 35,
+   "area": 701,
+   "dark_outline": 0.902,
+   "orphans": 0.178,
+   "colours": 9,
+   "symmetry": 0.158
+  },
+  "mewtwo": {
+   "feet": 63,
+   "height": 63,
+   "width": 57,
+   "area": 1625,
+   "dark_outline": 0.839,
+   "orphans": 0.145,
+   "colours": 10,
+   "symmetry": 0.114
+  },
+  "mightyena": {
+   "feet": 59,
+   "height": 56,
+   "width": 58,
+   "area": 1663,
+   "dark_outline": 0.936,
+   "orphans": 0.15,
+   "colours": 12,
+   "symmetry": 0.141
+  },
+  "milotic": {
+   "feet": 63,
+   "height": 64,
+   "width": 63,
+   "area": 2010,
+   "dark_outline": 0.608,
+   "orphans": 0.092,
+   "colours": 14,
+   "symmetry": 0.186
+  },
+  "miltank": {
+   "feet": 59,
+   "height": 53,
+   "width": 49,
+   "area": 1421,
+   "dark_outline": 0.81,
+   "orphans": 0.117,
+   "colours": 14,
+   "symmetry": 0.125
+  },
+  "minun": {
+   "feet": 51,
+   "height": 42,
+   "width": 32,
+   "area": 651,
+   "dark_outline": 0.825,
+   "orphans": 0.152,
+   "colours": 12,
+   "symmetry": 0.117
+  },
+  "misdreavus": {
+   "feet": 51,
+   "height": 39,
+   "width": 35,
+   "area": 828,
+   "dark_outline": 0.925,
+   "orphans": 0.13,
+   "colours": 14,
+   "symmetry": 0.169
+  },
+  "moltres": {
+   "feet": 63,
+   "height": 64,
+   "width": 63,
+   "area": 2431,
+   "dark_outline": 0.706,
+   "orphans": 0.136,
+   "colours": 15,
+   "symmetry": 0.121
+  },
+  "mr_mime": {
+   "feet": 55,
+   "height": 48,
+   "width": 49,
+   "area": 1263,
+   "dark_outline": 0.843,
+   "orphans": 0.193,
+   "colours": 14,
+   "symmetry": 0.102
+  },
+  "mudkip": {
+   "feet": 51,
+   "height": 41,
+   "width": 40,
+   "area": 852,
+   "dark_outline": 0.489,
+   "orphans": 0.195,
+   "colours": 15,
+   "symmetry": 0.136
+  },
+  "muk": {
+   "feet": 59,
+   "height": 54,
+   "width": 62,
+   "area": 2196,
+   "dark_outline": 0.773,
+   "orphans": 0.081,
+   "colours": 9,
+   "symmetry": 0.185
+  },
+  "murkrow": {
+   "feet": 52,
+   "height": 42,
+   "width": 42,
+   "area": 789,
+   "dark_outline": 0.877,
+   "orphans": 0.174,
+   "colours": 13,
+   "symmetry": 0.15
+  },
+  "natu": {
+   "feet": 43,
+   "height": 25,
+   "width": 25,
+   "area": 358,
+   "dark_outline": 0.814,
+   "orphans": 0.187,
+   "colours": 14,
+   "symmetry": 0.115
+  },
+  "nidoking": {
+   "feet": 61,
+   "height": 60,
+   "width": 56,
+   "area": 2092,
+   "dark_outline": 0.886,
+   "orphans": 0.133,
+   "colours": 12,
+   "symmetry": 0.176
+  },
+  "nidoqueen": {
+   "feet": 60,
+   "height": 57,
+   "width": 54,
+   "area": 1877,
+   "dark_outline": 0.913,
+   "orphans": 0.126,
+   "colours": 14,
+   "symmetry": 0.147
+  },
+  "nidoran_f": {
+   "feet": 48,
+   "height": 34,
+   "width": 28,
+   "area": 649,
+   "dark_outline": 0.737,
+   "orphans": 0.234,
+   "colours": 12,
+   "symmetry": 0.194
+  },
+  "nidoran_m": {
+   "feet": 51,
+   "height": 40,
+   "width": 36,
+   "area": 904,
+   "dark_outline": 0.97,
+   "orphans": 0.173,
+   "colours": 11,
+   "symmetry": 0.177
+  },
+  "nidorina": {
+   "feet": 52,
+   "height": 42,
+   "width": 45,
+   "area": 1082,
+   "dark_outline": 0.787,
+   "orphans": 0.169,
+   "colours": 14,
+   "symmetry": 0.143
+  },
+  "nidorino": {
+   "feet": 54,
+   "height": 46,
+   "width": 47,
+   "area": 1304,
+   "dark_outline": 0.878,
+   "orphans": 0.15,
+   "colours": 13,
+   "symmetry": 0.173
+  },
+  "nincada": {
+   "feet": 45,
+   "height": 28,
+   "width": 51,
+   "area": 702,
+   "dark_outline": 0.608,
+   "orphans": 0.225,
+   "colours": 15,
+   "symmetry": 0.083
+  },
+  "ninetales": {
+   "feet": 60,
+   "height": 57,
+   "width": 59,
+   "area": 2022,
+   "dark_outline": 0.458,
+   "orphans": 0.11,
+   "colours": 8,
+   "symmetry": 0.226
+  },
+  "ninjask": {
+   "feet": 53,
+   "height": 39,
+   "width": 56,
+   "area": 1172,
+   "dark_outline": 0.505,
+   "orphans": 0.196,
+   "colours": 13,
+   "symmetry": 0.191
+  },
+  "noctowl": {
+   "feet": 60,
+   "height": 57,
+   "width": 38,
+   "area": 1186,
+   "dark_outline": 0.626,
+   "orphans": 0.165,
+   "colours": 14,
+   "symmetry": 0.076
+  },
+  "nosepass": {
+   "feet": 51,
+   "height": 41,
+   "width": 36,
+   "area": 995,
+   "dark_outline": 0.698,
+   "orphans": 0.11,
+   "colours": 11,
+   "symmetry": 0.151
+  },
+  "numel": {
+   "feet": 48,
+   "height": 33,
+   "width": 47,
+   "area": 1078,
+   "dark_outline": 0.686,
+   "orphans": 0.105,
+   "colours": 15,
+   "symmetry": 0.138
+  },
+  "nuzleaf": {
+   "feet": 55,
+   "height": 48,
+   "width": 34,
+   "area": 935,
+   "dark_outline": 0.914,
+   "orphans": 0.121,
+   "colours": 14,
+   "symmetry": 0.193
+  },
+  "octillery": {
+   "feet": 53,
+   "height": 43,
+   "width": 42,
+   "area": 1134,
+   "dark_outline": 0.963,
+   "orphans": 0.123,
+   "colours": 13,
+   "symmetry": 0.192
+  },
+  "oddish": {
+   "feet": 48,
+   "height": 33,
+   "width": 29,
+   "area": 538,
+   "dark_outline": 0.885,
+   "orphans": 0.149,
+   "colours": 11,
+   "symmetry": 0.257
+  },
+  "omanyte": {
+   "feet": 48,
+   "height": 34,
+   "width": 32,
+   "area": 805,
+   "dark_outline": 0.856,
+   "orphans": 0.17,
+   "colours": 13,
+   "symmetry": 0.204
+  },
+  "omastar": {
+   "feet": 56,
+   "height": 50,
+   "width": 48,
+   "area": 1395,
+   "dark_outline": 0.961,
+   "orphans": 0.153,
+   "colours": 13,
+   "symmetry": 0.09
+  },
+  "onix": {
+   "feet": 61,
+   "height": 60,
+   "width": 55,
+   "area": 1840,
+   "dark_outline": 0.769,
+   "orphans": 0.124,
+   "colours": 7,
+   "symmetry": 0.167
+  },
+  "paras": {
+   "feet": 48,
+   "height": 33,
+   "width": 37,
+   "area": 700,
+   "dark_outline": 0.776,
+   "orphans": 0.146,
+   "colours": 13,
+   "symmetry": 0.161
+  },
+  "parasect": {
+   "feet": 55,
+   "height": 48,
+   "width": 62,
+   "area": 1667,
+   "dark_outline": 0.963,
+   "orphans": 0.082,
+   "colours": 14,
+   "symmetry": 0.173
+  },
+  "pelipper": {
+   "feet": 59,
+   "height": 55,
+   "width": 54,
+   "area": 1758,
+   "dark_outline": 0.81,
+   "orphans": 0.118,
+   "colours": 15,
+   "symmetry": 0.172
+  },
+  "persian": {
+   "feet": 56,
+   "height": 47,
+   "width": 53,
+   "area": 1337,
+   "dark_outline": 0.532,
+   "orphans": 0.18,
+   "colours": 13,
+   "symmetry": 0.141
+  },
+  "phanpy": {
+   "feet": 47,
+   "height": 32,
+   "width": 35,
+   "area": 737,
+   "dark_outline": 0.837,
+   "orphans": 0.106,
+   "colours": 10,
+   "symmetry": 0.239
+  },
+  "pichu": {
+   "feet": 51,
+   "height": 38,
+   "width": 26,
+   "area": 502,
+   "dark_outline": 0.816,
+   "orphans": 0.147,
+   "colours": 12,
+   "symmetry": 0.207
+  },
+  "pidgeot": {
+   "feet": 62,
+   "height": 62,
+   "width": 60,
+   "area": 2016,
+   "dark_outline": 0.902,
+   "orphans": 0.147,
+   "colours": 15,
+   "symmetry": 0.107
+  },
+  "pidgeotto": {
+   "feet": 52,
+   "height": 47,
+   "width": 44,
+   "area": 1087,
+   "dark_outline": 0.957,
+   "orphans": 0.186,
+   "colours": 13,
+   "symmetry": 0.09
+  },
+  "pidgey": {
+   "feet": 50,
+   "height": 38,
+   "width": 42,
+   "area": 802,
+   "dark_outline": 0.799,
+   "orphans": 0.266,
+   "colours": 13,
+   "symmetry": 0.18
+  },
+  "pikachu": {
+   "feet": 54,
+   "height": 49,
+   "width": 41,
+   "area": 1082,
+   "dark_outline": 0.808,
+   "orphans": 0.131,
+   "colours": 11,
+   "symmetry": 0.158
+  },
+  "piloswine": {
+   "feet": 55,
+   "height": 48,
+   "width": 42,
+   "area": 1515,
+   "dark_outline": 0.86,
+   "orphans": 0.088,
+   "colours": 13,
+   "symmetry": 0.136
+  },
+  "pineco": {
+   "feet": 53,
+   "height": 43,
+   "width": 37,
+   "area": 1139,
+   "dark_outline": 0.776,
+   "orphans": 0.112,
+   "colours": 8,
+   "symmetry": 0.231
+  },
+  "pinsir": {
+   "feet": 59,
+   "height": 56,
+   "width": 56,
+   "area": 1517,
+   "dark_outline": 0.891,
+   "orphans": 0.158,
+   "colours": 10,
+   "symmetry": 0.145
+  },
+  "plusle": {
+   "feet": 49,
+   "height": 40,
+   "width": 34,
+   "area": 700,
+   "dark_outline": 0.791,
+   "orphans": 0.15,
+   "colours": 10,
+   "symmetry": 0.131
+  },
+  "politoed": {
+   "feet": 57,
+   "height": 52,
+   "width": 45,
+   "area": 1104,
+   "dark_outline": 0.82,
+   "orphans": 0.13,
+   "colours": 15,
+   "symmetry": 0.123
+  },
+  "poliwag": {
+   "feet": 44,
+   "height": 26,
+   "width": 49,
+   "area": 719,
+   "dark_outline": 0.868,
+   "orphans": 0.161,
+   "colours": 12,
+   "symmetry": 0.117
+  },
+  "poliwhirl": {
+   "feet": 53,
+   "height": 43,
+   "width": 53,
+   "area": 1359,
+   "dark_outline": 0.817,
+   "orphans": 0.113,
+   "colours": 10,
+   "symmetry": 0.311
+  },
+  "poliwrath": {
+   "feet": 55,
+   "height": 47,
+   "width": 50,
+   "area": 1488,
+   "dark_outline": 0.895,
+   "orphans": 0.12,
+   "colours": 11,
+   "symmetry": 0.185
+  },
+  "ponyta": {
+   "feet": 55,
+   "height": 47,
+   "width": 47,
+   "area": 1291,
+   "dark_outline": 0.598,
+   "orphans": 0.135,
+   "colours": 12,
+   "symmetry": 0.218
+  },
+  "poochyena": {
+   "feet": 51,
+   "height": 40,
+   "width": 40,
+   "area": 887,
+   "dark_outline": 0.97,
+   "orphans": 0.2,
+   "colours": 14,
+   "symmetry": 0.14
+  },
+  "porygon": {
+   "feet": 50,
+   "height": 37,
+   "width": 38,
+   "area": 849,
+   "dark_outline": 0.656,
+   "orphans": 0.139,
+   "colours": 11,
+   "symmetry": 0.137
+  },
+  "porygon2": {
+   "feet": 48,
+   "height": 35,
+   "width": 36,
+   "area": 688,
+   "dark_outline": 0.717,
+   "orphans": 0.196,
+   "colours": 13,
+   "symmetry": 0.201
+  },
+  "primeape": {
+   "feet": 56,
+   "height": 49,
+   "width": 50,
+   "area": 1375,
+   "dark_outline": 0.941,
+   "orphans": 0.127,
+   "colours": 15,
+   "symmetry": 0.183
+  },
+  "psyduck": {
+   "feet": 54,
+   "height": 46,
+   "width": 35,
+   "area": 972,
+   "dark_outline": 0.875,
+   "orphans": 0.13,
+   "colours": 11,
+   "symmetry": 0.147
+  },
+  "pupitar": {
+   "feet": 54,
+   "height": 47,
+   "width": 37,
+   "area": 1093,
+   "dark_outline": 0.691,
+   "orphans": 0.119,
+   "colours": 11,
+   "symmetry": 0.187
+  },
+  "quagsire": {
+   "feet": 56,
+   "height": 50,
+   "width": 50,
+   "area": 1539,
+   "dark_outline": 0.876,
+   "orphans": 0.11,
+   "colours": 10,
+   "symmetry": 0.208
+  },
+  "quilava": {
+   "feet": 55,
+   "height": 48,
+   "width": 51,
+   "area": 1200,
+   "dark_outline": 0.867,
+   "orphans": 0.094,
+   "colours": 15,
+   "symmetry": 0.124
+  },
+  "qwilfish": {
+   "feet": 53,
+   "height": 43,
+   "width": 37,
+   "area": 873,
+   "dark_outline": 0.993,
+   "orphans": 0.117,
+   "colours": 13,
+   "symmetry": 0.223
+  },
+  "raichu": {
+   "feet": 59,
+   "height": 56,
+   "width": 48,
+   "area": 1363,
+   "dark_outline": 0.642,
+   "orphans": 0.142,
+   "colours": 15,
+   "symmetry": 0.109
+  },
+  "raikou": {
+   "feet": 63,
+   "height": 64,
+   "width": 62,
+   "area": 2317,
+   "dark_outline": 0.497,
+   "orphans": 0.135,
+   "colours": 14,
+   "symmetry": 0.086
+  },
+  "ralts": {
+   "feet": 48,
+   "height": 35,
+   "width": 23,
+   "area": 499,
+   "dark_outline": 0.688,
+   "orphans": 0.16,
+   "colours": 12,
+   "symmetry": 0.323
+  },
+  "rapidash": {
+   "feet": 62,
+   "height": 61,
+   "width": 63,
+   "area": 2009,
+   "dark_outline": 0.806,
+   "orphans": 0.129,
+   "colours": 13,
+   "symmetry": 0.128
+  },
+  "raticate": {
+   "feet": 52,
+   "height": 42,
+   "width": 43,
+   "area": 1297,
+   "dark_outline": 0.769,
+   "orphans": 0.18,
+   "colours": 14,
+   "symmetry": 0.153
+  },
+  "rattata": {
+   "feet": 47,
+   "height": 31,
+   "width": 27,
+   "area": 518,
+   "dark_outline": 0.803,
+   "orphans": 0.245,
+   "colours": 14,
+   "symmetry": 0.18
+  },
+  "rayquaza": {
+   "feet": 63,
+   "height": 64,
+   "width": 62,
+   "area": 2138,
+   "dark_outline": 0.877,
+   "orphans": 0.154,
+   "colours": 14,
+   "symmetry": 0.132
+  },
+  "regice": {
+   "feet": 61,
+   "height": 60,
+   "width": 63,
+   "area": 2131,
+   "dark_outline": 0.715,
+   "orphans": 0.075,
+   "colours": 10,
+   "symmetry": 0.299
+  },
+  "regirock": {
+   "feet": 59,
+   "height": 57,
+   "width": 49,
+   "area": 2070,
+   "dark_outline": 0.886,
+   "orphans": 0.129,
+   "colours": 13,
+   "symmetry": 0.138
+  },
+  "registeel": {
+   "feet": 60,
+   "height": 58,
+   "width": 61,
+   "area": 2150,
+   "dark_outline": 0.824,
+   "orphans": 0.094,
+   "colours": 13,
+   "symmetry": 0.154
+  },
+  "relicanth": {
+   "feet": 52,
+   "height": 47,
+   "width": 54,
+   "area": 1427,
+   "dark_outline": 0.629,
+   "orphans": 0.16,
+   "colours": 13,
+   "symmetry": 0.126
+  },
+  "remoraid": {
+   "feet": 49,
+   "height": 35,
+   "width": 36,
+   "area": 606,
+   "dark_outline": 0.583,
+   "orphans": 0.175,
+   "colours": 10,
+   "symmetry": 0.142
+  },
+  "rhydon": {
+   "feet": 61,
+   "height": 58,
+   "width": 60,
+   "area": 2347,
+   "dark_outline": 0.873,
+   "orphans": 0.102,
+   "colours": 13,
+   "symmetry": 0.17
+  },
+  "rhyhorn": {
+   "feet": 54,
+   "height": 45,
+   "width": 55,
+   "area": 1702,
+   "dark_outline": 0.868,
+   "orphans": 0.117,
+   "colours": 9,
+   "symmetry": 0.152
+  },
+  "roselia": {
+   "feet": 55,
+   "height": 48,
+   "width": 55,
+   "area": 1103,
+   "dark_outline": 0.807,
+   "orphans": 0.131,
+   "colours": 15,
+   "symmetry": 0.108
+  },
+  "sableye": {
+   "feet": 54,
+   "height": 44,
+   "width": 48,
+   "area": 852,
+   "dark_outline": 0.842,
+   "orphans": 0.221,
+   "colours": 13,
+   "symmetry": 0.085
+  },
+  "salamence": {
+   "feet": 59,
+   "height": 56,
+   "width": 64,
+   "area": 2051,
+   "dark_outline": 0.912,
+   "orphans": 0.119,
+   "colours": 13,
+   "symmetry": 0.149
+  },
+  "sandshrew": {
+   "feet": 49,
+   "height": 36,
+   "width": 39,
+   "area": 808,
+   "dark_outline": 0.934,
+   "orphans": 0.203,
+   "colours": 11,
+   "symmetry": 0.162
+  },
+  "sandslash": {
+   "feet": 54,
+   "height": 46,
+   "width": 49,
+   "area": 1419,
+   "dark_outline": 0.961,
+   "orphans": 0.144,
+   "colours": 14,
+   "symmetry": 0.146
+  },
+  "sceptile": {
+   "feet": 63,
+   "height": 63,
+   "width": 64,
+   "area": 2086,
+   "dark_outline": 0.817,
+   "orphans": 0.177,
+   "colours": 14,
+   "symmetry": 0.074
+  },
+  "scizor": {
+   "feet": 63,
+   "height": 64,
+   "width": 61,
+   "area": 1990,
+   "dark_outline": 0.816,
+   "orphans": 0.141,
+   "colours": 12,
+   "symmetry": 0.184
+  },
+  "scyther": {
+   "feet": 63,
+   "height": 64,
+   "width": 58,
+   "area": 1699,
+   "dark_outline": 0.757,
+   "orphans": 0.163,
+   "colours": 15,
+   "symmetry": 0.107
+  },
+  "seadra": {
+   "feet": 56,
+   "height": 49,
+   "width": 48,
+   "area": 1303,
+   "dark_outline": 0.693,
+   "orphans": 0.196,
+   "colours": 10,
+   "symmetry": 0.144
+  },
+  "seaking": {
+   "feet": 59,
+   "height": 55,
+   "width": 53,
+   "area": 2046,
+   "dark_outline": 0.75,
+   "orphans": 0.115,
+   "colours": 14,
+   "symmetry": 0.174
+  },
+  "sealeo": {
+   "feet": 53,
+   "height": 45,
+   "width": 57,
+   "area": 1556,
+   "dark_outline": 0.647,
+   "orphans": 0.124,
+   "colours": 15,
+   "symmetry": 0.238
+  },
+  "seedot": {
+   "feet": 47,
+   "height": 38,
+   "width": 31,
+   "area": 758,
+   "dark_outline": 0.656,
+   "orphans": 0.092,
+   "colours": 11,
+   "symmetry": 0.193
+  },
+  "seel": {
+   "feet": 53,
+   "height": 45,
+   "width": 50,
+   "area": 1404,
+   "dark_outline": 0.789,
+   "orphans": 0.114,
+   "colours": 12,
+   "symmetry": 0.305
+  },
+  "sentret": {
+   "feet": 59,
+   "height": 56,
+   "width": 30,
+   "area": 941,
+   "dark_outline": 0.78,
+   "orphans": 0.13,
+   "colours": 13,
+   "symmetry": 0.227
+  },
+  "seviper": {
+   "feet": 55,
+   "height": 52,
+   "width": 51,
+   "area": 1635,
+   "dark_outline": 0.828,
+   "orphans": 0.145,
+   "colours": 14,
+   "symmetry": 0.152
+  },
+  "sharpedo": {
+   "feet": 60,
+   "height": 60,
+   "width": 51,
+   "area": 1294,
+   "dark_outline": 0.859,
+   "orphans": 0.178,
+   "colours": 15,
+   "symmetry": 0.141
+  },
+  "shedinja": {
+   "feet": 53,
+   "height": 44,
+   "width": 41,
+   "area": 1000,
+   "dark_outline": 0.316,
+   "orphans": 0.154,
+   "colours": 11,
+   "symmetry": 0.181
+  },
+  "shelgon": {
+   "feet": 54,
+   "height": 45,
+   "width": 41,
+   "area": 1307,
+   "dark_outline": 0.773,
+   "orphans": 0.069,
+   "colours": 12,
+   "symmetry": 0.26
+  },
+  "shellder": {
+   "feet": 47,
+   "height": 33,
+   "width": 33,
+   "area": 660,
+   "dark_outline": 0.78,
+   "orphans": 0.198,
+   "colours": 11,
+   "symmetry": 0.173
+  },
+  "shiftry": {
+   "feet": 61,
+   "height": 62,
+   "width": 63,
+   "area": 2181,
+   "dark_outline": 0.633,
+   "orphans": 0.092,
+   "colours": 14,
+   "symmetry": 0.133
+  },
+  "shroomish": {
+   "feet": 47,
+   "height": 32,
+   "width": 38,
+   "area": 711,
+   "dark_outline": 0.753,
+   "orphans": 0.2,
+   "colours": 11,
+   "symmetry": 0.219
+  },
+  "shuckle": {
+   "feet": 54,
+   "height": 45,
+   "width": 48,
+   "area": 909,
+   "dark_outline": 0.874,
+   "orphans": 0.075,
+   "colours": 13,
+   "symmetry": 0.134
+  },
+  "shuppet": {
+   "feet": 49,
+   "height": 39,
+   "width": 31,
+   "area": 704,
+   "dark_outline": 0.764,
+   "orphans": 0.107,
+   "colours": 12,
+   "symmetry": 0.263
+  },
+  "silcoon": {
+   "feet": 46,
+   "height": 33,
+   "width": 47,
+   "area": 775,
+   "dark_outline": 0.24,
+   "orphans": 0.16,
+   "colours": 11,
+   "symmetry": 0.406
+  },
+  "skarmory": {
+   "feet": 63,
+   "height": 64,
+   "width": 62,
+   "area": 1843,
+   "dark_outline": 0.725,
+   "orphans": 0.181,
+   "colours": 13,
+   "symmetry": 0.132
+  },
+  "skiploom": {
+   "feet": 48,
+   "height": 34,
+   "width": 37,
+   "area": 803,
+   "dark_outline": 0.704,
+   "orphans": 0.112,
+   "colours": 12,
+   "symmetry": 0.279
+  },
+  "skitty": {
+   "feet": 52,
+   "height": 40,
+   "width": 41,
+   "area": 934,
+   "dark_outline": 0.685,
+   "orphans": 0.209,
+   "colours": 11,
+   "symmetry": 0.164
+  },
+  "slaking": {
+   "feet": 55,
+   "height": 46,
+   "width": 64,
+   "area": 2264,
+   "dark_outline": 0.876,
+   "orphans": 0.152,
+   "colours": 14,
+   "symmetry": 0.11
+  },
+  "slakoth": {
+   "feet": 45,
+   "height": 30,
+   "width": 52,
+   "area": 957,
+   "dark_outline": 0.84,
+   "orphans": 0.176,
+   "colours": 14,
+   "symmetry": 0.086
+  },
+  "slowbro": {
+   "feet": 55,
+   "height": 47,
+   "width": 63,
+   "area": 2095,
+   "dark_outline": 0.713,
+   "orphans": 0.127,
+   "colours": 15,
+   "symmetry": 0.135
+  },
+  "slowking": {
+   "feet": 62,
+   "height": 60,
+   "width": 33,
+   "area": 1346,
+   "dark_outline": 0.767,
+   "orphans": 0.102,
+   "colours": 15,
+   "symmetry": 0.184
+  },
+  "slowpoke": {
+   "feet": 52,
+   "height": 43,
+   "width": 47,
+   "area": 1070,
+   "dark_outline": 0.748,
+   "orphans": 0.171,
+   "colours": 14,
+   "symmetry": 0.153
+  },
+  "slugma": {
+   "feet": 50,
+   "height": 37,
+   "width": 29,
+   "area": 660,
+   "dark_outline": 0.679,
+   "orphans": 0.162,
+   "colours": 11,
+   "symmetry": 0.255
+  },
+  "smeargle": {
+   "feet": 57,
+   "height": 51,
+   "width": 50,
+   "area": 1243,
+   "dark_outline": 0.779,
+   "orphans": 0.141,
+   "colours": 13,
+   "symmetry": 0.142
+  },
+  "smoochum": {
+   "feet": 48,
+   "height": 36,
+   "width": 24,
+   "area": 597,
+   "dark_outline": 0.55,
+   "orphans": 0.188,
+   "colours": 15,
+   "symmetry": 0.157
+  },
+  "sneasel": {
+   "feet": 58,
+   "height": 53,
+   "width": 42,
+   "area": 948,
+   "dark_outline": 0.736,
+   "orphans": 0.218,
+   "colours": 15,
+   "symmetry": 0.127
+  },
+  "snorlax": {
+   "feet": 58,
+   "height": 53,
+   "width": 64,
+   "area": 2347,
+   "dark_outline": 0.723,
+   "orphans": 0.066,
+   "colours": 15,
+   "symmetry": 0.209
+  },
+  "snorunt": {
+   "feet": 52,
+   "height": 41,
+   "width": 35,
+   "area": 856,
+   "dark_outline": 0.627,
+   "orphans": 0.139,
+   "colours": 15,
+   "symmetry": 0.238
+  },
+  "snubbull": {
+   "feet": 50,
+   "height": 38,
+   "width": 40,
+   "area": 903,
+   "dark_outline": 0.924,
+   "orphans": 0.105,
+   "colours": 13,
+   "symmetry": 0.295
+  },
+  "solrock": {
+   "feet": 62,
+   "height": 62,
+   "width": 62,
+   "area": 1571,
+   "dark_outline": 0.523,
+   "orphans": 0.174,
+   "colours": 15,
+   "symmetry": 0.132
+  },
+  "spearow": {
+   "feet": 48,
+   "height": 33,
+   "width": 29,
+   "area": 622,
+   "dark_outline": 0.87,
+   "orphans": 0.209,
+   "colours": 15,
+   "symmetry": 0.119
+  },
+  "spheal": {
+   "feet": 47,
+   "height": 33,
+   "width": 39,
+   "area": 890,
+   "dark_outline": 0.717,
+   "orphans": 0.149,
+   "colours": 12,
+   "symmetry": 0.175
+  },
+  "spinarak": {
+   "feet": 44,
+   "height": 25,
+   "width": 40,
+   "area": 643,
+   "dark_outline": 0.712,
+   "orphans": 0.179,
+   "colours": 15,
+   "symmetry": 0.243
+  },
+  "spinda": {
+   "feet": 55,
+   "height": 49,
+   "width": 37,
+   "area": 1024,
+   "dark_outline": 0.635,
+   "orphans": 0.157,
+   "colours": 11,
+   "symmetry": 0.226
+  },
+  "spoink": {
+   "feet": 54,
+   "height": 47,
+   "width": 26,
+   "area": 664,
+   "dark_outline": 0.864,
+   "orphans": 0.128,
+   "colours": 13,
+   "symmetry": 0.265
+  },
+  "squirtle": {
+   "feet": 50,
+   "height": 38,
+   "width": 40,
+   "area": 852,
+   "dark_outline": 0.845,
+   "orphans": 0.177,
+   "colours": 15,
+   "symmetry": 0.157
+  },
+  "stantler": {
+   "feet": 63,
+   "height": 63,
+   "width": 56,
+   "area": 1504,
+   "dark_outline": 0.8,
+   "orphans": 0.107,
+   "colours": 13,
+   "symmetry": 0.101
+  },
+  "starmie": {
+   "feet": 57,
+   "height": 51,
+   "width": 55,
+   "area": 1673,
+   "dark_outline": 0.986,
+   "orphans": 0.124,
+   "colours": 13,
+   "symmetry": 0.157
+  },
+  "staryu": {
+   "feet": 53,
+   "height": 44,
+   "width": 43,
+   "area": 910,
+   "dark_outline": 0.899,
+   "orphans": 0.178,
+   "colours": 13,
+   "symmetry": 0.105
+  },
+  "steelix": {
+   "feet": 63,
+   "height": 63,
+   "width": 64,
+   "area": 2313,
+   "dark_outline": 0.934,
+   "orphans": 0.093,
+   "colours": 8,
+   "symmetry": 0.158
+  },
+  "sudowoodo": {
+   "feet": 57,
+   "height": 51,
+   "width": 48,
+   "area": 971,
+   "dark_outline": 0.746,
+   "orphans": 0.166,
+   "colours": 12,
+   "symmetry": 0.189
+  },
+  "suicune": {
+   "feet": 63,
+   "height": 64,
+   "width": 63,
+   "area": 2181,
+   "dark_outline": 0.64,
+   "orphans": 0.171,
+   "colours": 15,
+   "symmetry": 0.083
+  },
+  "sunflora": {
+   "feet": 55,
+   "height": 48,
+   "width": 40,
+   "area": 1058,
+   "dark_outline": 0.85,
+   "orphans": 0.158,
+   "colours": 13,
+   "symmetry": 0.163
+  },
+  "sunkern": {
+   "feet": 47,
+   "height": 32,
+   "width": 31,
+   "area": 522,
+   "dark_outline": 0.741,
+   "orphans": 0.167,
+   "colours": 13,
+   "symmetry": 0.109
+  },
+  "surskit": {
+   "feet": 48,
+   "height": 37,
+   "width": 48,
+   "area": 423,
+   "dark_outline": 0.81,
+   "orphans": 0.175,
+   "colours": 12,
+   "symmetry": 0.26
+  },
+  "swablu": {
+   "feet": 46,
+   "height": 36,
+   "width": 56,
+   "area": 920,
+   "dark_outline": 0.385,
+   "orphans": 0.137,
+   "colours": 12,
+   "symmetry": 0.283
+  },
+  "swalot": {
+   "feet": 55,
+   "height": 48,
+   "width": 46,
+   "area": 1618,
+   "dark_outline": 0.638,
+   "orphans": 0.111,
+   "colours": 14,
+   "symmetry": 0.325
+  },
+  "swampert": {
+   "feet": 63,
+   "height": 63,
+   "width": 63,
+   "area": 2643,
+   "dark_outline": 0.898,
+   "orphans": 0.147,
+   "colours": 15,
+   "symmetry": 0.303
+  },
+  "swellow": {
+   "feet": 57,
+   "height": 51,
+   "width": 61,
+   "area": 1425,
+   "dark_outline": 0.959,
+   "orphans": 0.184,
+   "colours": 15,
+   "symmetry": 0.15
+  },
+  "swinub": {
+   "feet": 43,
+   "height": 22,
+   "width": 26,
+   "area": 482,
+   "dark_outline": 0.921,
+   "orphans": 0.145,
+   "colours": 10,
+   "symmetry": 0.207
+  },
+  "taillow": {
+   "feet": 47,
+   "height": 30,
+   "width": 43,
+   "area": 650,
+   "dark_outline": 0.92,
+   "orphans": 0.222,
+   "colours": 15,
+   "symmetry": 0.185
+  },
+  "tangela": {
+   "feet": 56,
+   "height": 49,
+   "width": 46,
+   "area": 1358,
+   "dark_outline": 0.81,
+   "orphans": 0.16,
+   "colours": 10,
+   "symmetry": 0.197
+  },
+  "tauros": {
+   "feet": 63,
+   "height": 64,
+   "width": 53,
+   "area": 1931,
+   "dark_outline": 0.957,
+   "orphans": 0.124,
+   "colours": 14,
+   "symmetry": 0.142
+  },
+  "teddiursa": {
+   "feet": 50,
+   "height": 36,
+   "width": 28,
+   "area": 652,
+   "dark_outline": 0.791,
+   "orphans": 0.173,
+   "colours": 13,
+   "symmetry": 0.196
+  },
+  "tentacool": {
+   "feet": 54,
+   "height": 47,
+   "width": 32,
+   "area": 750,
+   "dark_outline": 0.921,
+   "orphans": 0.185,
+   "colours": 15,
+   "symmetry": 0.195
+  },
+  "tentacruel": {
+   "feet": 59,
+   "height": 55,
+   "width": 62,
+   "area": 1785,
+   "dark_outline": 0.867,
+   "orphans": 0.177,
+   "colours": 15,
+   "symmetry": 0.129
+  },
+  "togepi": {
+   "feet": 43,
+   "height": 25,
+   "width": 22,
+   "area": 382,
+   "dark_outline": 0.577,
+   "orphans": 0.173,
+   "colours": 13,
+   "symmetry": 0.267
+  },
+  "togetic": {
+   "feet": 54,
+   "height": 46,
+   "width": 27,
+   "area": 623,
+   "dark_outline": 0.503,
+   "orphans": 0.217,
+   "colours": 12,
+   "symmetry": 0.14
+  },
+  "torchic": {
+   "feet": 55,
+   "height": 47,
+   "width": 33,
+   "area": 782,
+   "dark_outline": 0.569,
+   "orphans": 0.199,
+   "colours": 13,
+   "symmetry": 0.21
+  },
+  "torkoal": {
+   "feet": 61,
+   "height": 58,
+   "width": 58,
+   "area": 2307,
+   "dark_outline": 0.325,
+   "orphans": 0.128,
+   "colours": 13,
+   "symmetry": 0.314
+  },
+  "totodile": {
+   "feet": 48,
+   "height": 35,
+   "width": 40,
+   "area": 742,
+   "dark_outline": 0.908,
+   "orphans": 0.191,
+   "colours": 14,
+   "symmetry": 0.081
+  },
+  "trapinch": {
+   "feet": 47,
+   "height": 32,
+   "width": 33,
+   "area": 658,
+   "dark_outline": 0.8,
+   "orphans": 0.116,
+   "colours": 10,
+   "symmetry": 0.175
+  },
+  "treecko": {
+   "feet": 55,
+   "height": 48,
+   "width": 47,
+   "area": 967,
+   "dark_outline": 0.928,
+   "orphans": 0.144,
+   "colours": 15,
+   "symmetry": 0.145
+  },
+  "tropius": {
+   "feet": 63,
+   "height": 64,
+   "width": 64,
+   "area": 2693,
+   "dark_outline": 0.817,
+   "orphans": 0.147,
+   "colours": 15,
+   "symmetry": 0.127
+  },
+  "typhlosion": {
+   "feet": 63,
+   "height": 64,
+   "width": 53,
+   "area": 2150,
+   "dark_outline": 0.882,
+   "orphans": 0.103,
+   "colours": 15,
+   "symmetry": 0.307
+  },
+  "tyranitar": {
+   "feet": 63,
+   "height": 64,
+   "width": 64,
+   "area": 2507,
+   "dark_outline": 0.798,
+   "orphans": 0.117,
+   "colours": 14,
+   "symmetry": 0.211
+  },
+  "tyrogue": {
+   "feet": 54,
+   "height": 46,
+   "width": 25,
+   "area": 657,
+   "dark_outline": 0.779,
+   "orphans": 0.207,
+   "colours": 15,
+   "symmetry": 0.218
+  },
+  "umbreon": {
+   "feet": 55,
+   "height": 49,
+   "width": 43,
+   "area": 1069,
+   "dark_outline": 0.957,
+   "orphans": 0.108,
+   "colours": 11,
+   "symmetry": 0.125
+  },
+  "ursaring": {
+   "feet": 62,
+   "height": 62,
+   "width": 52,
+   "area": 2003,
+   "dark_outline": 0.882,
+   "orphans": 0.12,
+   "colours": 14,
+   "symmetry": 0.301
+  },
+  "vaporeon": {
+   "feet": 57,
+   "height": 53,
+   "width": 44,
+   "area": 1199,
+   "dark_outline": 0.877,
+   "orphans": 0.179,
+   "colours": 15,
+   "symmetry": 0.1
+  },
+  "venomoth": {
+   "feet": 61,
+   "height": 59,
+   "width": 60,
+   "area": 2119,
+   "dark_outline": 0.742,
+   "orphans": 0.179,
+   "colours": 12,
+   "symmetry": 0.22
+  },
+  "venonat": {
+   "feet": 55,
+   "height": 47,
+   "width": 42,
+   "area": 1175,
+   "dark_outline": 0.772,
+   "orphans": 0.152,
+   "colours": 15,
+   "symmetry": 0.255
+  },
+  "venusaur": {
+   "feet": 60,
+   "height": 56,
+   "width": 59,
+   "area": 2441,
+   "dark_outline": 0.751,
+   "orphans": 0.147,
+   "colours": 15,
+   "symmetry": 0.286
+  },
+  "vibrava": {
+   "feet": 51,
+   "height": 41,
+   "width": 56,
+   "area": 1142,
+   "dark_outline": 0.736,
+   "orphans": 0.215,
+   "colours": 14,
+   "symmetry": 0.098
+  },
+  "victreebel": {
+   "feet": 58,
+   "height": 54,
+   "width": 55,
+   "area": 1697,
+   "dark_outline": 0.866,
+   "orphans": 0.154,
+   "colours": 15,
+   "symmetry": 0.218
+  },
+  "vigoroth": {
+   "feet": 63,
+   "height": 64,
+   "width": 48,
+   "area": 1684,
+   "dark_outline": 0.786,
+   "orphans": 0.143,
+   "colours": 15,
+   "symmetry": 0.213
+  },
+  "vileplume": {
+   "feet": 57,
+   "height": 51,
+   "width": 54,
+   "area": 1542,
+   "dark_outline": 0.988,
+   "orphans": 0.078,
+   "colours": 14,
+   "symmetry": 0.301
+  },
+  "volbeat": {
+   "feet": 55,
+   "height": 45,
+   "width": 44,
+   "area": 1245,
+   "dark_outline": 0.801,
+   "orphans": 0.145,
+   "colours": 15,
+   "symmetry": 0.12
+  },
+  "voltorb": {
+   "feet": 44,
+   "height": 26,
+   "width": 26,
+   "area": 538,
+   "dark_outline": 0.917,
+   "orphans": 0.162,
+   "colours": 10,
+   "symmetry": 0.149
+  },
+  "vulpix": {
+   "feet": 51,
+   "height": 40,
+   "width": 48,
+   "area": 1119,
+   "dark_outline": 0.933,
+   "orphans": 0.14,
+   "colours": 15,
+   "symmetry": 0.07
+  },
+  "wailmer": {
+   "feet": 48,
+   "height": 35,
+   "width": 50,
+   "area": 1252,
+   "dark_outline": 0.983,
+   "orphans": 0.164,
+   "colours": 15,
+   "symmetry": 0.329
+  },
+  "wailord": {
+   "feet": 53,
+   "height": 48,
+   "width": 64,
+   "area": 2006,
+   "dark_outline": 0.751,
+   "orphans": 0.126,
+   "colours": 13,
+   "symmetry": 0.198
+  },
+  "walrein": {
+   "feet": 62,
+   "height": 60,
+   "width": 63,
+   "area": 2532,
+   "dark_outline": 0.828,
+   "orphans": 0.101,
+   "colours": 14,
+   "symmetry": 0.214
+  },
+  "wartortle": {
+   "feet": 55,
+   "height": 48,
+   "width": 48,
+   "area": 1247,
+   "dark_outline": 0.755,
+   "orphans": 0.165,
+   "colours": 15,
+   "symmetry": 0.095
+  },
+  "weedle": {
+   "feet": 45,
+   "height": 28,
+   "width": 34,
+   "area": 564,
+   "dark_outline": 0.672,
+   "orphans": 0.147,
+   "colours": 13,
+   "symmetry": 0.135
+  },
+  "weepinbell": {
+   "feet": 52,
+   "height": 42,
+   "width": 47,
+   "area": 1121,
+   "dark_outline": 0.952,
+   "orphans": 0.143,
+   "colours": 15,
+   "symmetry": 0.136
+  },
+  "weezing": {
+   "feet": 61,
+   "height": 59,
+   "width": 62,
+   "area": 1874,
+   "dark_outline": 0.638,
+   "orphans": 0.135,
+   "colours": 14,
+   "symmetry": 0.114
+  },
+  "whiscash": {
+   "feet": 54,
+   "height": 46,
+   "width": 52,
+   "area": 1286,
+   "dark_outline": 0.502,
+   "orphans": 0.127,
+   "colours": 15,
+   "symmetry": 0.104
+  },
+  "whismur": {
+   "feet": 49,
+   "height": 37,
+   "width": 38,
+   "area": 884,
+   "dark_outline": 0.595,
+   "orphans": 0.112,
+   "colours": 12,
+   "symmetry": 0.224
+  },
+  "wigglytuff": {
+   "feet": 55,
+   "height": 49,
+   "width": 47,
+   "area": 1408,
+   "dark_outline": 0.838,
+   "orphans": 0.109,
+   "colours": 13,
+   "symmetry": 0.207
+  },
+  "wingull": {
+   "feet": 39,
+   "height": 22,
+   "width": 61,
+   "area": 513,
+   "dark_outline": 0.699,
+   "orphans": 0.232,
+   "colours": 14,
+   "symmetry": 0.064
+  },
+  "wobbuffet": {
+   "feet": 57,
+   "height": 52,
+   "width": 49,
+   "area": 1571,
+   "dark_outline": 0.947,
+   "orphans": 0.09,
+   "colours": 13,
+   "symmetry": 0.205
+  },
+  "wooper": {
+   "feet": 47,
+   "height": 30,
+   "width": 35,
+   "area": 593,
+   "dark_outline": 0.667,
+   "orphans": 0.172,
+   "colours": 10,
+   "symmetry": 0.177
+  },
+  "wurmple": {
+   "feet": 49,
+   "height": 36,
+   "width": 30,
+   "area": 669,
+   "dark_outline": 0.648,
+   "orphans": 0.157,
+   "colours": 13,
+   "symmetry": 0.17
+  },
+  "wynaut": {
+   "feet": 51,
+   "height": 40,
+   "width": 35,
+   "area": 819,
+   "dark_outline": 0.762,
+   "orphans": 0.179,
+   "colours": 12,
+   "symmetry": 0.168
+  },
+  "xatu": {
+   "feet": 56,
+   "height": 50,
+   "width": 29,
+   "area": 934,
+   "dark_outline": 0.823,
+   "orphans": 0.126,
+   "colours": 15,
+   "symmetry": 0.241
+  },
+  "yanma": {
+   "feet": 53,
+   "height": 43,
+   "width": 58,
+   "area": 1135,
+   "dark_outline": 0.506,
+   "orphans": 0.195,
+   "colours": 12,
+   "symmetry": 0.13
+  },
+  "zangoose": {
+   "feet": 58,
+   "height": 54,
+   "width": 60,
+   "area": 1459,
+   "dark_outline": 0.608,
+   "orphans": 0.187,
+   "colours": 15,
+   "symmetry": 0.077
+  },
+  "zapdos": {
+   "feet": 59,
+   "height": 54,
+   "width": 64,
+   "area": 1983,
+   "dark_outline": 0.821,
+   "orphans": 0.122,
+   "colours": 13,
+   "symmetry": 0.154
+  },
+  "zigzagoon": {
+   "feet": 48,
+   "height": 36,
+   "width": 56,
+   "area": 1315,
+   "dark_outline": 0.898,
+   "orphans": 0.215,
+   "colours": 12,
+   "symmetry": 0.075
+  },
+  "zubat": {
+   "feet": 57,
+   "height": 51,
+   "width": 45,
+   "area": 827,
+   "dark_outline": 0.826,
+   "orphans": 0.193,
+   "colours": 12,
+   "symmetry": 0.128
+  }
+ }
+}

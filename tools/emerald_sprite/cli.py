@@ -26,7 +26,7 @@ from pathlib import Path
 
 from . import audit as audit_mod
 from . import lint as lint_mod
-from . import preview, sheet, spec as spec_mod, trainer
+from . import creature, preview, sheet, spec as spec_mod, trainer
 
 REPO = Path(__file__).resolve().parents[2]
 OUT = REPO / "output"
@@ -77,10 +77,43 @@ def build_trainer(s, out: Path, png: Path) -> int:
     return 1 if errors else 0
 
 
+def shiny_palette(s):
+    sh = s.meta.get("shiny")
+    if not sh:
+        return None
+    cols = [tuple(int(v) for v in c) for c in sh]
+    return cols + [(0, 0, 0)] * (16 - len(cols))
+
+
+def build_creature(s, out: Path) -> int:
+    colours = sheet.spec_palette(s)
+    shiny = shiny_palette(s)
+    paths = creature.write_files(s.frames, colours, shiny, out)
+    errors, warnings, m = creature.lint(s.frames, colours, shiny)
+    if not shiny:
+        warnings.append("no `shiny:` palette; shiny.pal is a copy of normal.pal")
+    yo = creature.art_yoff(s.frames, int(s.meta.get("elevation", 0)))
+    m["y_offset_front"], m["y_offset_back"] = yo[0], yo[1]
+    creature.zoom(s.frames, colours, out / "preview" / "zoom.png")
+    creature.anim_gif(s.frames, colours, out / "preview" / "anim.gif")
+    em = emerald_dir()
+    if (em / "graphics/battle_environment").exists():
+        creature.battle(s.frames, colours, out / "preview" / "battle.png", em, s.replaces, yo)
+    creature.showcase(out / "preview", creature.shiny_strip(s.frames, colours, shiny))
+    text = report(errors, warnings, {"summary": m}, creature.load_corpus() or {})
+    (out / "lint.txt").write_text(text + "\n")
+    (out / "metrics.json").write_text(json.dumps(m, indent=1))
+    print(f"wrote {', '.join(sorted(paths))} and previews in {(out / 'preview').relative_to(REPO)}")
+    print(text)
+    return 1 if errors else 0
+
+
 def cmd_build(a) -> int:
     s = spec_mod.load(a.spec)
     out = out_dir(s)
     (out / "preview").mkdir(parents=True, exist_ok=True)
+    if s.kit == "creature64":
+        return build_creature(s, out)
     im = sheet.build_sheet(s)
     png = out / f"{s.name}.png"
     im.save(png, optimize=False)
@@ -113,7 +146,7 @@ def cmd_lint(a) -> int:
 
 
 def cmd_corpus(a) -> int:
-    for what, mod in (("vanilla walkers", lint_mod), ("vanilla trainer pics", trainer)):
+    for what, mod in (("vanilla walkers", lint_mod), ("vanilla trainer pics", trainer), ("vanilla creature fronts", creature)):
         c = mod.build_corpus(emerald_dir())
         print(f"measured {c['count']} {what} -> {mod.CORPUS_FILE.relative_to(REPO)}")
         for k in c["median"]:
@@ -135,6 +168,8 @@ def cmd_verify(a) -> int:
     g = _gbagfx()
     if s.kit == "trainer64":
         return verify_trainer(g, png)
+    if s.kit == "creature64":
+        return verify_creature(g, out_dir(s))
     with tempfile.TemporaryDirectory() as t:
         bpp = Path(t) / "x.4bpp"
         back = Path(t) / "back.png"
@@ -170,6 +205,55 @@ def verify_trainer(g: Path, png: Path) -> int:
     return 0 if ok and size == 2048 and psize == 32 else 1
 
 
+def verify_creature(g: Path, out: Path) -> int:
+    """As src/data/graphics/pokemon.h: each PNG -> .4bpp, normal/shiny.pal -> .gbapal."""
+    ok_all = True
+    with tempfile.TemporaryDirectory() as t:
+        for name, frames, expect in (("anim_front.png", 2, 4096), ("front.png", 1, 2048), ("back.png", 1, 2048)):
+            bpp, back = Path(t) / (name + ".4bpp"), Path(t) / (name + ".back.png")
+            gp = Path(t) / "n.gbapal"
+            subprocess.run([str(g), str(out / "normal.pal"), str(gp)], check=True)
+            subprocess.run([str(g), str(out / name), str(bpp)], check=True)
+            subprocess.run([str(g), str(bpp), str(back), "-width", "8", "-palette", str(gp)], check=True)
+            from PIL import Image
+            a_, b_ = Image.open(out / name), Image.open(back)
+            same = list(a_.getdata()) == list(b_.getdata())
+            size = bpp.stat().st_size
+            print(f"gbagfx: {name} -> {size} bytes of 4bpp (expect {expect}); round-trip {'identical' if same else 'DIFFERS'}")
+            ok_all &= same and size == expect
+        for p in ("normal.pal", "shiny.pal"):
+            gp = Path(t) / (p + ".gbapal")
+            subprocess.run([str(g), str(out / p), str(gp)], check=True)
+            print(f"gbagfx: {p} -> {gp.stat().st_size} bytes (expect 32)")
+            ok_all &= gp.stat().st_size == 32
+    return 0 if ok_all else 1
+
+
+def install_creature(s) -> int:
+    """Copy the five files into graphics/pokemon/<replaces>/ and set its y_offsets."""
+    em = emerald_dir()
+    dst = em / "graphics/pokemon" / s.replaces
+    for n in ("anim_front.png", "front.png", "back.png", "normal.pal", "shiny.pal"):
+        shutil.copyfile(out_dir(s) / n, dst / n)
+    yo = creature.art_yoff(s.frames)
+    const = "SPECIES_" + re.sub(r"[^A-Z0-9]", "_", s.replaces.upper())
+    for f, v in (("front_pic_coordinates.h", yo[0]), ("back_pic_coordinates.h", yo[1])):
+        p = em / "src/data/pokemon_graphics" / f
+        src = p.read_text()
+        new, n = re.subn(rf"(\[{const}\]\s*=\s*\{{[^}}]*\.y_offset\s*=\s*)\d+", rf"\g<1>{v}", src)
+        if n == 1:
+            p.write_text(new)
+            print(f"{f}: {const}.y_offset = {v}")
+    if "elevation" in s.meta:
+        p = em / "src/data/pokemon_graphics/enemy_mon_elevation.h"
+        src = p.read_text()
+        if re.search(rf"\[{const}\]", src):
+            p.write_text(re.sub(rf"(\[{const}\]\s*=\s*)\d+", rf"\g<1>{int(s.meta['elevation'])}", src))
+            print(f"enemy_mon_elevation.h: {const} = {s.meta['elevation']}")
+    print(f"copied 5 files -> {dst}")
+    return 0
+
+
 def png_w(p: Path) -> int:
     from PIL import Image
 
@@ -182,6 +266,8 @@ def cmd_install(a) -> int:
     if not s.replaces:
         print("spec has no `replaces:`")
         return 1
+    if s.kit == "creature64":
+        return install_creature(s)
     em = emerald_dir()
     shutil.copyfile(out_dir(s) / f"{s.name}.png", em / s.replaces)
     print(f"copied -> {em / s.replaces}")
@@ -204,6 +290,10 @@ def cmd_compare(a) -> int:
     """Side-by-side review sheet for variants: python -m emerald_sprite compare out.png a.yaml b.yaml ..."""
     specs = [spec_mod.load(p) for p in a.specs]
     em = emerald_dir()
+    if specs[0].kit == "creature64":
+        creature.compare(specs, Path(a.out), em if (em / "graphics/battle_environment").exists() else None, sheet.spec_palette)
+        print(f"wrote {a.out}")
+        return 0
     if specs[0].kit == "trainer64":
         trainer.compare(specs, Path(a.out), em if (em / "graphics/battle_environment").exists() else None, sheet.spec_palette)
         print(f"wrote {a.out}")

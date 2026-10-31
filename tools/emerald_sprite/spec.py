@@ -64,6 +64,15 @@ KITS = {
         "stand": ["front"],
         "walk": {},
     },
+    # Creature (Pokémon) battle sprites: anim_front.png is front + front2 stacked (64x128),
+    # front.png is a copy of front, back.png is back. Palette and shiny palette are separate
+    # .pal files (normal.pal, shiny.pal); the PNG's own colours are ignored by the build.
+    "creature64": {
+        "frame": (64, 64),
+        "order": ["front", "front2", "back"],
+        "stand": ["front"],
+        "walk": {},
+    },
 }
 
 Grid = list[list[int]]
@@ -152,6 +161,100 @@ def _repaint(rp: dict, legend: dict[str, int], w: int, h: int, where: str) -> Gr
     return g
 
 
+def _pip_path(pic: str, frame: str) -> tuple[str, int]:
+    """`rhydon` + `front2` -> (graphics/pokemon/rhydon/anim_front.png, 64): file and y offset."""
+    if "/" in pic:
+        return pic, (64 if frame == "front2" else 0)
+    if frame == "back":
+        return f"graphics/pokemon/{pic}/back.png", 0
+    return f"graphics/pokemon/{pic}/anim_front.png", (64 if frame == "front2" else 0)
+
+
+def _in_poly(x: float, y: float, pts) -> bool:
+    inside = False
+    j = len(pts) - 1
+    for i in range(len(pts)):
+        xi, yi = pts[i]
+        xj, yj = pts[j]
+        if (yi > y) != (yj > y) and x < (xj - xi) * (y - yi) / (yj - yi) + xi:
+            inside = not inside
+        j = i
+    return inside
+
+
+def _splice(parts: list, remaps: dict, legend: dict[str, int], w: int, h: int, where: str) -> Grid:
+    """Kitbash a frame from parts of vanilla sprites (creatures: any of the 386 species).
+
+        splice:
+          - pic: rhydon          # species folder under graphics/pokemon/, or a path
+            frame: front         # front | front2 (2nd anim frame) | back
+            crop: [x0, y0, x1, y1]   # source rectangle, end exclusive (default: whole frame)
+            keep: [[x, y], ...]  # optional source polygon: only pixels inside it are taken
+            at: [dx, dy]         # move the part by this much (default [0, 0])
+            flip: true           # mirror the part inside its crop box
+            remap: grey          # a name in the spec's `remaps:`, or an inline {index: char}
+            behind: true         # only paint pixels that are still transparent
+            under: true          # paint under the parts so far (fill transparent only, same as behind)
+
+    Parts are pasted in order, later over earlier. Every palette index a part takes must be in
+    its remap (`inspect` shows which index is which material); map an index to the
+    transparent character to drop it. This keeps vanilla's hand-placed shading, outlines and
+    anti-aliasing (the reason D13 repaints passed review), while the silhouette is new.
+    """
+    import os
+
+    from PIL import Image
+
+    emerald = Path(os.environ.get("EMERALD_DIR", Path(__file__).resolve().parents[3] / "pokeemerald"))
+    g = [[0] * w for _ in range(h)]
+    for i, part in enumerate(parts):
+        pw = f"{where}: splice part {i} ({part.get('name', part.get('pic'))})"
+        frame = str(part.get("frame", "front"))
+        if frame not in ("front", "front2", "back"):
+            raise SpecError(f"{pw}: frame must be front, front2 or back")
+        rel, yo = _pip_path(str(part["pic"]), frame)
+        src = emerald / rel
+        if not src.exists():
+            raise SpecError(f"{pw}: {src} not found (set EMERALD_DIR)")
+        im = Image.open(src)
+        if im.mode != "P":
+            raise SpecError(f"{pw}: {rel} is not an indexed PNG")
+        px = im.load()
+        rm = part.get("remap", {})
+        if isinstance(rm, str):
+            if rm not in remaps:
+                raise SpecError(f"{pw}: remap {rm!r} is not in the spec's remaps")
+            rm = remaps[rm]
+        rm = {int(k): str(v) for k, v in rm.items()}
+        for k, ch in rm.items():
+            if ch not in legend:
+                raise SpecError(f"{pw}: remap {k} -> {ch!r}: not in the legend")
+        x0, y0, x1, y1 = part.get("crop", [0, 0, w, h])
+        keep = part.get("keep")
+        dx, dy = part.get("at", [0, 0])
+        flip = bool(part.get("flip"))
+        behind = bool(part.get("behind") or part.get("under"))
+        missing = set()
+        for y in range(y0, y1):
+            for x in range(x0, x1):
+                v = px[x, y + yo]
+                if not v or (keep and not _in_poly(x + 0.5, y + 0.5, keep)):
+                    continue
+                if v not in rm:
+                    missing.add(v)
+                    continue
+                tx = (x1 - 1 - (x - x0) if flip else x) + int(dx)
+                ty = y + int(dy)
+                c = legend[rm[v]]
+                if 0 <= tx < w and 0 <= ty < h and c and not (behind and g[ty][tx]):
+                    g[ty][tx] = c
+                elif 0 <= tx < w and 0 <= ty < h and not c and not behind:
+                    pass  # mapped to transparent: dropped
+        if missing:
+            raise SpecError(f"{pw}: remap is missing vanilla indices {sorted(missing)}")
+    return g
+
+
 def _transparent(legend: dict[str, int]) -> str:
     for ch, idx in legend.items():
         if idx == 0:
@@ -194,6 +297,13 @@ def load(path: str | Path) -> Spec:
         where = f"frame {name}"
         if isinstance(f, str):
             g = _bottom_anchor(_parse_rows(f, legend, w, where), w, h, where)
+        elif "splice" in f:
+            g = _splice(f["splice"], d.get("remaps") or {}, legend, w, h, where)
+            if "rig" in f:
+                try:
+                    g = rig_mod.render(f["rig"], legend, w, h, where, base=g)
+                except rig_mod.RigError as e:
+                    raise SpecError(str(e)) from None
         elif "repaint" in f:
             g = _repaint(f["repaint"], legend, w, h, where)
             if "rig" in f:
