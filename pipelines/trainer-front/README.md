@@ -1,14 +1,15 @@
 # Tool: `trainer-front` (trainer battle pics)
 
-**Status: IN-REVIEW.** Vader round 2 (four rig-posed 3/4 poses) is with the owner. Category B1
+**Status: IN-REVIEW.** Vader round 3 (the picked salute pose redrawn with perspective) is with the owner. Category B1
 (93 pics) and B4 (professor portrait).
 
 **Read [STYLE-GUIDE.md](STYLE-GUIDE.md) first**: pose, perspective and pixel rules from the 93
 vanilla pics, a review checklist, and the owner's feedback log. Getting the pose right is the
 hard part of this category; the format is handled by the tool.
 
-Reference: `art/trainers/vader_p1..p4.yaml` -> `output/trainers/vader_p*/`; review sheets
-`output/trainers/vader-poses-r2.png` (current) and `vader-poses-r1.png` (rejected: front-on).
+Reference: `art/trainers/vader_p4b.yaml` and `vader_p4c.yaml` (round 3) next to `vader_p4.yaml`
+(round 2 pick); review sheets `output/trainers/vader-poses-r3.png` (current), `-r2.png`,
+`-r1.png` (rejected: front-on).
 
 ## Format (what the game needs)
 

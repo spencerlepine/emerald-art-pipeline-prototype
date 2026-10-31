@@ -202,3 +202,13 @@ low behind, P3 lunging high guard, P4 salute with the blade raised. Sheet:
 `output/trainers/vader-poses-r2.png`. Palette brightened (D7 again: dark armour needs a strong
 blue-grey highlight to separate from the cape). Known gaps: area over vanilla's p95 (the cape),
 few single-pixel accents, rig shading still smoother than hand-pixelled vanilla.
+
+## Trainer prototype 1: Vader battle pic, round 3 (2026-10-31)
+
+Owner picked P4 (salute) but: "the feet are perfectly level... still feels like the camera is
+orthogonal". Measured vanilla: the two feet's lowest pixels differ by only 0-2 px in 3 of 4
+pics, so the fix is not a height offset; depth is drawn with foot orientation (one in profile,
+one toe-on), sloped and curved bands (belt, brim, hem), a centre line pushed to the far side,
+and overlaps. Recorded as perspective cues in the style guide. The rig's ellipse gained
+`angle`. Round 3: 4b (subtle) and 4c (mid-stride toward the player), with 4 for reference.
+P1-P3 removed. Sheet: `output/trainers/vader-poses-r3.png`.

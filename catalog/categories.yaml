@@ -20,7 +20,7 @@ tools:
     status: IN-REVIEW
     covers: "64x64 trainer battle pics with their own 16-colour palette"
     guide: pipelines/trainer-front/README.md
-    note: "Vader round 2 (4 rig-posed 3/4 poses) with the owner; round 1 rejected as flat."
+    note: "Vader round 3 (salute with perspective cues) with the owner; rounds 1-2 reviewed."
   trainer-back:
     status: TODO-NEED-TO-BUILD
     covers: "Player/partner battle back sprites (4-5 frame throw sheets)"

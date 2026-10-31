@@ -14,11 +14,12 @@ the weight, which arm is near the camera) and like a pixel artist second (patche
         layers:                  # back to front; each is filled, shaded and outlined
           - {shape: poly, pts: [cape_top, [48, 60], [36, 62]], ramp: cdm}
           - {shape: capsule, from: sh_far, to: el_far, r: [3, 3], ramp: cdm}
-          - {shape: ellipse, at: head, r: [7, 8], ramp: dmhs}
+          - {shape: ellipse, at: head, r: [7, 8], angle: -10, ramp: dmh}
           - {shape: capsule, from: hilt, to: [6, 58], r: [1, 1], ramp: WWW, outline: R}
       patches: [...]             # pixel-level detail on top (face, emblems, highlights)
 
-Shapes: `capsule` (from, to, r: [r_from, r_to]), `ellipse` (at, r: [rx, ry]), `poly` (pts).
+Shapes: `capsule` (from, to, r: [r_from, r_to]), `ellipse` (at, r: [rx, ry], angle: degrees
+clockwise), `poly` (pts).
 Points are joint names or [x, y]; `offset: [dx, dy]` shifts a whole layer.
 `ramp` is 1-3 legend characters dark -> light: shadow, base, highlight. Pixels whose
 light-side neighbour is outside the shape get the highlight, pixels near the far edge the
@@ -74,9 +75,13 @@ def _mask(layer, joints, w, h, where):
     elif shape == "ellipse":
         cx, cy = _pt(layer["at"], joints, off, where)
         rx, ry = (float(v) for v in layer["r"])
+        an = math.radians(float(layer.get("angle", 0)))  # clockwise tilt, degrees
+        ca, sa = math.cos(an), math.sin(an)
         for y in range(h):
             for x in range(w):
-                if ((x - cx) / rx) ** 2 + ((y - cy) / ry) ** 2 <= 1.0 + 0.08:
+                dx, dy = x - cx, y - cy
+                u, v = dx * ca + dy * sa, -dx * sa + dy * ca
+                if (u / rx) ** 2 + (v / ry) ** 2 <= 1.0 + 0.08:
                     m.add((x, y))
     elif shape == "poly":
         pts = [_pt(p, joints, off, where) for p in layer["pts"]]

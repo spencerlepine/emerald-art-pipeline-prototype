@@ -43,6 +43,30 @@ lint's `symmetry` metric is 0.06-0.33 on vanilla pics, 0.65 on that draft.
   touch the frame edge; the figure itself is roughly centred, slightly right of centre.
 - Hands and heads are drawn a little large; they carry the gesture and the identity.
 
+### Perspective cues: how a 3/4 view is *drawn*, not rotated
+
+The owner on round 2: "the feet are perfectly level... it still feels like the camera is
+orthogonal facing him exactly. This can't be solved by rotating the image, it just needs to be
+drawn that way." What vanilla does instead (study Steven, Norman, Maxie, Drake at 5x):
+
+- **Feet differ in shape, not much in height.** The lowest pixels of the two feet differ by
+  only 0-2 px in 3 of 4 vanilla pics (the frame bottom crops them). Depth comes from
+  *orientation*: one foot points toward the player and is seen in profile (long, toe out to
+  the left), the other points toward the camera and is seen toe-on (short, wide, rounded).
+  Two identical level ovals = orthographic. The far foot sits 1-3 px higher.
+- **Horizontal bands slope and curve.** Belts, hems, collars, helmet brims and shoulder lines
+  follow the body like rings around a cylinder: they dip toward the near side and bow
+  downward in the middle (camera above). A perfectly horizontal belt is the strongest "flat"
+  signal there is.
+- **The centre line moves to the far side.** Zips, buttons, emblems, chest panels and the
+  nose sit left of the torso/head centre; the near half of the chest is wider. The far
+  shoulder is narrower and a little higher.
+- **Overlap tells depth.** The near arm crosses in front of the torso, the near leg in front
+  of the far leg, the head in front of the far shoulder or cape. Each overlap gets an outline.
+- **Hems seen from above are curves**: a cape or skirt bottom is an arc, lower in front.
+- **Mid-stride is easiest**: one foot stepping toward the player (toe-on, lowest), the other
+  trailing (profile, higher) reads as 3D immediately (round 3, pose 4c).
+
 ## 3. Pixel craft
 
 - **Outline**: near-black, about 88% of edge pixels (lint `dark_outline`). Interior lines
@@ -76,6 +100,8 @@ lint's `symmetry` metric is 0.06-0.33 on vanilla pics, 0.65 on that draft.
 
 - [ ] Turned 3/4, not front-on; `symmetry` within 0.06-0.33.
 - [ ] Feet staggered, weight readable, at least one arm doing something.
+- [ ] Feet drawn differently (one profile, one toe-on), not two level ovals.
+- [ ] Belt, hems, brims slope toward the near side and curve; centre line toward the far side.
 - [ ] Silhouette identifies the character at 1x in `battle.png`.
 - [ ] Light from the upper left on every part; far side darker than near side.
 - [ ] Face/identity details hand-placed, not left to the rig.
@@ -89,8 +115,14 @@ lint's `symmetry` metric is 0.06-0.33 on vanilla pics, 0.65 on that draft.
   be more ambitious with the positioning... I like the lightsaber on A." Lessons: 3/4 turn,
   organic pose, the lit saber held low (round 1 A) is liked. Led to the rig, the `symmetry`
   lint and this guide.
-- **2026-10-31, Vader round 2** (rig-posed 3/4): four poses sent (advance with saber low,
-  Force grip, high guard, salute). Awaiting review.
+- **2026-10-31, Vader round 2** (rig-posed 3/4; advance, Force grip, high guard, salute):
+  "Vader p4 [salute] is the best. It's still not right though, the feet are perfectly level...
+  still feels like the camera is orthogonal facing him exactly... can't be solved by rotating
+  the image, it just needs to be drawn that way." Lessons: the perspective cues above; level
+  identical boots and a horizontal belt were the giveaways.
+- **2026-10-31, Vader round 3** (salute redrawn with perspective cues): 4b subtle (far boot in
+  profile and higher, near boot toe-on, sloped belt and helmet brim, curved cape hem), 4c
+  stepping in (near leg forward, far leg trailing). Awaiting review.
 
 ## Contact sheet of the vanilla pics
 
