@@ -1,0 +1,15 @@
+warning style: area = 258 is outside Emerald's p5-p95 range [194, 252]
+warning style: orphans = 0.082 is outside Emerald's p5-p95 range [0.098, 0.233]
+warning style: colours = 9 is outside Emerald's p5-p95 range [10, 15]
+warning style: step_change = 0.391 is outside Emerald's p5-p95 range [0.615, 0.805]
+
+metric            this  Emerald p5  median     p95
+top                 10          10    11.0      13
+feet                30          29    30.0      30
+height              21          18    20.0      21
+width               16          14    15.0      16
+area               258         194   226.0     252
+dark_outline       1.0       0.846     1.0     1.0
+orphans          0.082       0.098   0.152   0.233
+colours              9          10    14.0      15
+step_change      0.391       0.615   0.698   0.805

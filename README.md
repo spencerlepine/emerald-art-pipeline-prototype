@@ -18,6 +18,7 @@ python -m emerald_sprite verify  ../sprites/people/vader.yaml   # round-trip thr
 python -m emerald_sprite install ../sprites/people/vader.yaml   # copy into ../pokeemerald
 python -m emerald_sprite lint    ../../pokeemerald/graphics/object_events/pics/people/steven.png
 python -m emerald_sprite corpus                                 # re-measure vanilla walkers
+python -m emerald_sprite compare ../output/x.png a.yaml b.yaml   # variant review sheet
 ```
 
 `EMERALD_DIR` overrides the pokeemerald path.

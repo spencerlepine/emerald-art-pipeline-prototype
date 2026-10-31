@@ -1,0 +1,154 @@
+name: vader_c
+description: "Vader helmet variant C. Emerald proportions: smaller helmet (12 wide, starts row 11) so shoulders show, flare edge lit so it separates from the body."
+kit: person16x32
+replaces: graphics/object_events/pics/people/team_magma/maxie.png
+graphics_info: Maxie
+# Maxie ships on NPC_2 (reds/oranges). Vader needs blacks and greys, which NPC_4 already has,
+# so he moves palettes instead of adding one (see output-analysis/DECISIONS.md, D4).
+palette: npc_4
+palette_tag: OBJ_EVENT_PAL_TAG_NPC_4
+
+# npc_4.pal indices. 1-4 are the shared skin ramp every NPC palette carries.
+# Emerald never draws "black" clothes black: it uses a dark blue-grey ramp outlined in pure
+# black (see Steven, Juan, the Aqua grunts). Vader follows that convention, so K (outline)
+# and s/b/h (armour) stay separable at 1x.
+legend:
+  ".": 0    # transparent
+  "K": 15   # 0 0 0        outline, eye lenses, boots
+  "s": 7    # 8 16 32      armour/cape shadow
+  "b": 6    # 57 74 98     armour/cape base
+  "h": 5    # 106 139 172  armour highlight (light from the upper left)
+  "d": 13   # 65 65 82     gloves
+  "g": 12   # 139 139 148  grill, belt, chest box
+  "G": 11   # 213 213 213  grill and buckle highlight
+  "r": 9    # 164 65 115   chest-box light
+  "p": 8    # 213 115 164  chest-box light (bright)
+
+frames:
+  down: |
+    ................
+    ......KKKK......
+    ....KKbhhbKK....
+    ...KbhhbbbbsK...
+    ..KbhbbbbbbbsK..
+    ..KbKKKbbKKKsK..
+    ..KbKKKhhKKKsK..
+    ..KbsKbggbKssK..
+    .KbbsKgGGgKssbK.
+    .KhbbsKggKsssbK.
+    .KKKKKKKKKKKKKK.
+    .KhbKsgpgrsKbsK.
+    .KbsKsrbgbsKssK.
+    .KbsKssssssKssK.
+    .KbsKgGgggsKssK.
+    .KddKssssssKddK.
+    .KbsKsbssbsKssK.
+    .KbsKsbKKbsKssK.
+    .KbsKsbKKbsKssK.
+    ..KKKbKKKKbKKK..
+    ....KKK..KKK....
+    ................
+  up: |
+    ................
+    ......KKKK......
+    ....KKbhhbKK....
+    ...KbhhbbbbsK...
+    ..KbhbbbbbbbsK..
+    ..KhbbbbbbbbsK..
+    ..KbbbbbbbbbsK..
+    ..KbbbbbbbbssK..
+    .KhbbbbbbbbbssK.
+    .KhbbbbbbbbbsbK.
+    .KKKKKKKKKKKKKK.
+    .KbbbbbbbbbsssK.
+    .KbbbsbbbbssssK.
+    .KbbbsbbbbssssK.
+    .KbbsbbbbbsbssK.
+    .KbbsbbbbbsbssK.
+    .KbbsbbbbbsbssK.
+    .KbsbbbbbbbsbsK.
+    .KbsbbbbbbbsbsK.
+    ..KKKKKKKKKKKK..
+    ....KKK..KKK....
+    ................
+  left: |
+    ................
+    .......KKKK.....
+    .....KKbhhbKK...
+    ....KbhhbbbbsK..
+    ...KbhbbbbbbbsK.
+    ..KKKKbbbbbbbsK.
+    ..KKKhbbbbbbbsK.
+    .KgKbbbbbbbbssK.
+    KGgKbbbbbbbbsssK
+    .KgKKbbbbbbbsbK.
+    ..KKKKKKKKKKKKK.
+    ...KsgpKbbbsssK.
+    ...KsrsKbbbsssK.
+    ...KdssKbbbsssK.
+    ...KgGgKbbbsssK.
+    ...KssbKbbssssK.
+    ...KsbsKbbssssK.
+    ...KsbKsKbbsssK.
+    ...KsbKsKbsssK..
+    ...KKKKKKKKKKK..
+    ..KKK..KKK......
+    ................
+  down_a:
+    base: down
+    shift: 1
+    patch_y: 26
+    rows: |
+      .KddKssssssKssK.
+      .KbsKsbssbsKddK.
+      .KbsKsbKKbsKssK.
+      .KbsKsbKKKKKssK.
+      ..KKKbKKKKKKKK..
+      ....KKK.........
+  down_b:
+    base: down
+    shift: 1
+    patch_y: 26
+    rows: |
+      .KbsKssssssKddK.
+      .KddKsbssbsKssK.
+      .KbsKsbKKbsKssK.
+      .KbsKKKKKbsKssK.
+      ..KKKKKKKKbKKK..
+      .........KKK....
+  up_a:
+    base: up
+    shift: 1
+    patch_y: 29
+    rows: |
+      ..KKKKKKKKKKKK..
+      ....KKK..KKK....
+      ....KKK.........
+  up_b:
+    base: up
+    shift: 1
+    patch_y: 29
+    rows: |
+      ..KKKKKKKKKKKK..
+      ....KKK..KKK....
+      .........KKK....
+  left_a:
+    base: left
+    shift: 1
+    patch_y: 27
+    rows: |
+      ...KsbsKbbbsssK.
+      ...KsbKKsKbsssK.
+      ..KsbK.KKbsssK..
+      .KKKKK..KKKKK...
+      .KKK......KKK...
+  left_b:
+    base: left
+    shift: 1
+    patch_y: 27
+    rows: |
+      ...KsbsKbbbsssK.
+      ...KsbKsKbsssK..
+      ...KsbKKbsssK...
+      ...KKKKKKKKK....
+      ....KKKK........

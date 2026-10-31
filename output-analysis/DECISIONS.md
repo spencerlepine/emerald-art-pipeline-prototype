@@ -101,3 +101,28 @@ Known gaps, by the linter and by eye:
 - Up view is a plain dome + cape with little detail.
 
 Waiting on owner feedback before the next iteration.
+
+## Helmet variants (2026-10-31)
+
+Owner feedback on prototype 1: "about 90% there, the helmet looks a little odd". Three variants
+change only the helmet rows (10-19) of the stand frames; body and step frames are inherited.
+Review sheet: `output/vader-helmet-variants.png` (`python -m emerald_sprite compare`).
+
+- `vader_a`: round dome, pinch at the temples, skirt flaring past the shoulders. Best
+  silhouette, especially from behind.
+- `vader_b`: original helmet plus face detail (lit brow ridge, grey cheeks, grill triangle).
+  Reads most as Vader's mask from the front.
+- `vader_c`: smaller helmet (12 wide, starts row 11) so shoulders show. Closest to vanilla
+  proportions, and the only variant inside every size range of the corpus.
+
+A first pass of A (pointed dome) and B (whole face plate in grey) was discarded before review:
+the cone read as a hood and the grey plate as one big ring.
+
+## D8. The tool enforces; a human judges likeness (2026-10-31)
+
+What the tool guarantees by construction or check: size, frame order, palette indices, colour
+count, gbagfx round trip, and Emerald's measurable style ranges. What it cannot judge: whether
+the character reads as *that* character, and taste calls (helmet shape, proportions). Those
+stay with a human, but cheaply: the LLM produces 2-4 variants of the uncertain part, the human
+picks from a `compare` sheet, and the pick plus the reason is recorded here so later sprites
+inherit it instead of being asked again.

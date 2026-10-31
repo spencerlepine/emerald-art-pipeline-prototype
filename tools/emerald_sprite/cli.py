@@ -152,6 +152,15 @@ def cmd_install(a) -> int:
     return 0
 
 
+def cmd_compare(a) -> int:
+    """Side-by-side review sheet for variants: python -m emerald_sprite compare out.png a.yaml b.yaml ..."""
+    specs = [spec_mod.load(p) for p in a.specs]
+    em = emerald_dir()
+    preview.compare(specs, Path(a.out), em if (em / "data/tilesets").exists() else None)
+    print(f"wrote {a.out}")
+    return 0
+
+
 def main(argv=None) -> int:
     p = argparse.ArgumentParser(prog="emerald_sprite")
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -165,6 +174,10 @@ def main(argv=None) -> int:
         sp.add_argument(arg)
         sp.set_defaults(fn=fn)
     sub.add_parser("corpus").set_defaults(fn=cmd_corpus)
+    cp = sub.add_parser("compare")
+    cp.add_argument("out")
+    cp.add_argument("specs", nargs="+")
+    cp.set_defaults(fn=cmd_compare)
     a = p.parse_args(argv)
     try:
         return a.fn(a)

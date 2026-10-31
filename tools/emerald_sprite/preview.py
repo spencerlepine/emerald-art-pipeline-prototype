@@ -163,3 +163,43 @@ def showcase(out_dir: Path) -> None:
         im.paste(p, (0, y))
         y += p.height + 8
     im.save(out_dir / "showcase.png")
+
+
+def compare(specs: list, out: Path, emerald: Path | None = None, z: int = 6) -> None:
+    """Variant review sheet: one row per spec, stand frames at z, then the same row at 1x/2x on grass."""
+    from .sheet import spec_palette
+
+    ground = _metatile_renderer(emerald)(1) if emerald else None
+    rows = []
+    for s in specs:
+        cols = spec_palette(s)
+        frs = [rgba_frame(s.frames[n], cols) for n in ("down", "left", "up")]
+        w, h = s.w, s.h
+        big = Image.new("RGB", (3 * (w * z + 6), h * z), BG)
+        for i, f in enumerate(frs):
+            big.paste(f.resize((w * z, h * z), Image.NEAREST), (i * (w * z + 6), 0), f.resize((w * z, h * z), Image.NEAREST))
+        small = Image.new("RGB", (3 * 16 + 16, 48), BG)
+        if ground:
+            for x in range(0, small.width, 16):
+                for y in range(0, 48, 16):
+                    small.paste(ground, (x, y))
+        for i, f in enumerate(frs):
+            small.paste(f, (8 + i * 16, 16), f)
+        rows.append((s.name, big, small))
+    lab = 120
+    W = lab + rows[0][1].width + 12 + rows[0][2].width * 3 + 12 + rows[0][2].width * 2
+    H = sum(b.height + 10 for _, b, _ in rows)
+    im = Image.new("RGB", (W, H), (24, 24, 30))
+    d = ImageDraw.Draw(im)
+    y = 0
+    for name, big, small in rows:
+        d.text((6, y + 6), name, fill=(230, 230, 230))
+        im.paste(big, (lab, y))
+        x = lab + big.width + 12
+        s3 = small.resize((small.width * 3, small.height * 3), Image.NEAREST)
+        im.paste(s3, (x, y))
+        x += s3.width + 12
+        im.paste(small.resize((small.width * 2, small.height * 2), Image.NEAREST), (x, y))
+        im.paste(small, (x, y + small.height * 2 + 8))
+        y += big.height + 10
+    im.save(out)
