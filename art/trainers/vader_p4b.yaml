@@ -2,7 +2,7 @@ name: vader_p4b
 kit: trainer64
 replaces: graphics/trainers/front_pics/magma_leader_maxie.png
 # Darth Vader replaces Maxie (emerald-sw-db swap_map: character:maxie -> VADER).
-# Pose 4b "salute" with perspective (round 3): high 3/4 camera. Far boot in profile and set
+# Picked style (round 3). Pose 4b "salute" with perspective (round 3): high 3/4 camera. Far boot in profile and set
 # higher, near boot toe-on and lowest; belt and helmet flare slope down to the near side;
 # torso centre line toward the far side; cape hem curved.
 palette:
@@ -61,14 +61,14 @@ frames:
         # helmet: flare bottom edge slopes down to the near/back side, dome tilted with the head
         - {name: helmet flare, shape: poly, pts: [[17, 12], [36, 10], [42, 18], [37, 22], [22, 20], [16, 17]], ramp: dmh}
         - {name: helmet dome, shape: ellipse, at: head, r: [8, 6.5], angle: -12, ramp: dmh}
+        - {name: face, shape: pixels, x: 14, y: 9, rows: "__KKKKKKKKKK\n_KllKhKKllllK\nKslKKdKslllK_\nKlKKdddKllKK_\n_KdgggdKKd___\n_KdgGggdK____\n_KggGggK_____\n__KgggK______\n___KKK_______"}
+        - {name: face, shape: pixels, x: 20, y: 4, rows: "_ss\ns__"}
         - {name: far arm, shape: capsule, from: sh_far, to: el_far, r: [3.5, 3], ramp: dmh}
         - {name: far forearm, shape: capsule, from: el_far, to: hand_far, r: [3, 3], ramp: dmh}
         - {name: far fist, shape: ellipse, at: hand_far, r: [3, 3], ramp: dmh}
         - {name: blade, shape: capsule, from: [23, 27], to: [11, 1], r: [1.5, 1.5], ramp: W, outline: R}
         - {name: hilt, shape: capsule, from: [25, 33], to: [23, 28], r: [1, 1], ramp: gG}
     patches:
-      - {x: 14, y: 9, rows: "__KKKKKKKKKK\n_KllKhKKllllK\nKslKKdKslllK_\nKlKKdddKllKK_\n_KdgggdKKd___\n_KdgGggdK____\n_KggGggK_____\n__KgggK______\n___KKK_______"}
-      - {x: 20, y: 4, rows: "_ss\ns__"}
       # chest box sits on the turned chest plane, toward the far side, skewed
       - {x: 26, y: 22, rows: "KKKKK_\nKGrebK\nKGbrGK\n_KKKKK"}
       - {x: 28, y: 32, rows: "KKKK\nKsGK\nKGgK\nKKKK"}

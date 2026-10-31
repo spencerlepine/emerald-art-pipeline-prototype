@@ -18,7 +18,8 @@ the weight, which arm is near the camera) and like a pixel artist second (patche
           - {shape: capsule, from: hilt, to: [6, 58], r: [1, 1], ramp: WWW, outline: R}
       patches: [...]             # pixel-level detail on top (face, emblems, highlights)
 
-Shapes: `capsule` (from, to, r: [r_from, r_to]), `ellipse` (at, r: [rx, ry], angle: degrees
+Shapes: `pixels` (x, y, rows: hand-placed pixels, `_` keeps; use it for details that must sit
+*under* a later layer, e.g. a face the lightsaber passes in front of), `capsule` (from, to, r: [r_from, r_to]), `ellipse` (at, r: [rx, ry], angle: degrees
 clockwise), `poly` (pts).
 Points are joint names or [x, y]; `offset: [dx, dy]` shifts a whole layer.
 `ramp` is 1-3 legend characters dark -> light: shadow, base, highlight. Pixels whose
@@ -112,7 +113,21 @@ def render(rig: dict, legend: dict[str, int], w: int, h: int, where: str) -> lis
     default_outline = "K" if "K" in legend else None
     for i, layer in enumerate(rig.get("layers", [])):
         lw = f"{where}: layer {i} ({layer.get('name', layer.get('shape'))})"
-        ramp = str(layer.get("ramp", ""))
+        if layer.get("shape") == "pixels":  # hand-placed pixels at this depth (`_` = keep)
+            x0, y0 = int(layer["x"]), int(layer["y"])
+            for dy, ln in enumerate(str(layer["rows"]).strip("\n").split("\n")):
+                for dx, ch in enumerate(ln.strip()):
+                    if ch == "_":
+                        continue
+                    if ch not in legend:
+                        raise RigError(f"{lw}: character {ch!r} is not in the legend")
+                    if 0 <= x0 + dx < w and 0 <= y0 + dy < h:
+                        g[y0 + dy][x0 + dx] = legend[ch]
+            continue
+        ramp = layer.get("ramp", "")
+        if isinstance(ramp, bool):
+            raise RigError(f"{lw}: ramp parsed as a YAML boolean (no/yes/on/off); quote it or pick other characters")
+        ramp = str(ramp)
         if not 1 <= len(ramp) <= 3 or any(ch not in legend for ch in ramp):
             raise RigError(f"{lw}: ramp must be 1-3 legend characters, dark -> light")
         outline = layer.get("outline", default_outline)
