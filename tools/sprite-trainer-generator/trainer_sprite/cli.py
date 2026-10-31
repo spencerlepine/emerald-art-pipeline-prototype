@@ -1,4 +1,4 @@
-"""trainer_sprite CLI (run from tools/sprite-trainer-generator/).
+"""trainer_sprite CLI (run from the tool folder).
 
     python -m trainer_sprite build   art/vader.yaml              # PNG + previews + lint report
     python -m trainer_sprite verify  art/vader.yaml              # round-trip through pokeemerald's gbagfx
@@ -9,7 +9,7 @@
 
 Outputs go to output/<name>/ (name from the spec).
 
-EMERALD_DIR (default: pokeemerald next to this repo) points at a pokeemerald checkout; it is
+EMERALD_DIR (default: a pokeemerald clone beside any parent folder) points at a pokeemerald checkout; it is
 read for repaint bases, the style corpus, battle previews and gbagfx, and written only by
 `install`.
 """
@@ -35,12 +35,16 @@ def out_dir(s) -> Path:
 
 
 def emerald_dir() -> Path:
-    """EMERALD_DIR, else the pokeemerald clone next to this repo (its game/ folder if it has one)."""
+    """EMERALD_DIR, else the first `pokeemerald` folder found beside this tool or any parent
+    folder (its game/ subfolder when it has one)."""
     env = os.environ.get("EMERALD_DIR")
     if env:
         return Path(env).resolve()
-    root = TOOL.parents[2] / "pokeemerald"
-    return (root / "game" if (root / "game" / "graphics").exists() else root).resolve()
+    for d in TOOL.parents:
+        root = d / "pokeemerald"
+        if root.is_dir():
+            return (root / "game" if (root / "game" / "graphics").exists() else root).resolve()
+    return (TOOL.parent / "pokeemerald").resolve()
 
 
 def report(errors, warnings, m, corpus) -> str:

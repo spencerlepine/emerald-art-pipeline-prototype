@@ -1,7 +1,7 @@
 # Creature sprites with an image model: research
 
 Status: **research only** (2026-10-31). Nothing here has been run on a GPU. The owner chose an
-image model for every creature (D15) after hand-drawing fell short in round 1, and asked for
+image model for every creature (D7) after hand-drawing fell short in round 1, and asked for
 all research, old and new, to be kept in this folder so the build can start later without
 re-asking.
 

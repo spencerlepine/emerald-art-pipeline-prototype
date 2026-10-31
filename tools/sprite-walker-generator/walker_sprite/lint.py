@@ -1,6 +1,6 @@
 """Guard rails: format rules (errors) and style metrics measured against Emerald (warnings).
 
-Format rules come from how pokeemerald loads a walker (see docs/EMERALD-ART-REQUIREMENTS.md).
+Format rules come from how pokeemerald loads a walker (see README.md, "Format").
 Style metrics are measured on all 90 vanilla 16x32 people walkers; a value outside the
 corpus's 5th-95th percentile is a warning, because it means "no Emerald artist did this".
 """

@@ -79,30 +79,28 @@ drawn that way." What vanilla does instead (study Steven, Norman, Maxie, Drake a
   buttons, fabric folds, sparkle. Rig output is too smooth until these are patched in.
 - **13-15 colours.** Budget: outline 1, transparent 1, two or three 3-step ramps for the main
   materials, then accents. Dark costumes (Archie, Steven, Vader) use a blue-grey ramp with a
-  strong highlight, not near-black fills (see D7): a black figure is a blob in battle.
+  strong highlight, not near-black fills (see D4): a black figure is a blob in battle.
 - **Colours multiples of 8**, and no two that collapse to the same GBA colour (lint warns).
 
 ## 4. How to draw one (with the tool)
 
-Repaint a vanilla base first (see `README.md`, D13): the base supplies the pose, perspective
-and pixel craft below, and you only change materials, heads and props. Check the result against
-this guide all the same: kitbashed parts (helmets, props) must follow sections 2 and 3. The
-steps below are for the rare pic drawn from scratch with a rig.
+Every pic is a repaint of a vanilla base (`README.md`, D8): the base supplies the pose,
+perspective and pixel craft above, and you change materials, heads and props. Whole figures
+built from rig shapes are not allowed (D9).
 
-1. Write a one-line **pose brief** in the spec comment: facing, weight, gesture, prop, mood.
-2. Block the pose with a `rig:` (joints + layered shapes): place hips, feet, shoulders and
-   head first, then the arms. Order layers back to front: cape/hair behind, far leg, far arm
-   (if behind), torso, near leg, near arm, head, anything held toward the camera. Far-side
-   layers use the darker ramp.
-3. Build and look at `zoom.png` and `battle.png`. Fix the *pose* by moving joints until the
-   silhouette alone (squint at the 1x battle view) says who it is and what they are doing.
-4. Then add identity details: faces, visors and emblems as `shape: pixels` layers at the right
-   depth in the rig (so a prop held in front can cover them), and only top-most accents
-   (glints, folds) as `patches:`.
+1. Write a one-line **brief** in the spec comment: who, which base and why (pose and costume
+   cut), what changes.
+2. Pick the base by silhouette and costume cut, not by the character it replaces; `inspect` it
+   to learn which index is which material.
+3. Remap whole ramps to whole ramps so the vanilla shading survives; split materials with
+   `recolour` regions.
+4. Replace heads, helmets and props with `erase` plus small shaded parts or `pixels` layers;
+   these kitbashed parts must follow sections 2 and 3 (3/4 turn, light from the upper left,
+   outline, accents). Faces go in `pixels` layers before anything held in front of them.
    Watch YAML: a ramp like `no`, `yes`, `on`, `off` parses as a boolean; pick other letters.
-5. Check lint: `symmetry` must be in range; explain any other accepted warning in the spec.
-6. Draw 3-4 **genuinely different** poses (not the same pose with a different arm) and send
-   a `compare` sheet. Ask the owner a specific question, not "do you like it?".
+5. Build, look at `zoom.png` and `showcase.png` at 1x, fix, rebuild. Explain any accepted lint
+   warning in the spec.
+6. Send the owner a `compare` sheet and ask a specific question, not "do you like it?".
 
 ## 5. Review checklist (before showing the owner)
 
@@ -138,7 +136,7 @@ steps below are for the rare pic drawn from scratch with a rig.
 - **2026-10-31, style check round 4**: Vader 4b (saber over the helmet) plus Boba Fett, Leia
   and Obi-Wan in the same style. Owner: "about 70% there, but it still looks really bad...
   rethink this from the ground up." Lesson: shape-built figures lack vanilla's folds,
-  selective outlines, hands, faces and slim proportions; led to the repaint tool (D13).
+  selective outlines, hands, faces and slim proportions; led to the repaint tool (D8).
 - **2026-10-31, round 5 (repaint)**: Vader from Drake, Boba Fett from Pyramid King Brandon,
   Leia from Glacia, Obi-Wan from Expert M. Owner: "those are perfect. You nailed it. Ship that
   tool!" Lesson: repaint a close vanilla base; this is the reference style. Tool marked READY.

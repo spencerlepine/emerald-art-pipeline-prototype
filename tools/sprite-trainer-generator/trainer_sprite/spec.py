@@ -3,7 +3,7 @@
 A spec is what the LLM writes. It never contains RGB: every character maps to a palette
 *index* through `legend`, so the output cannot leave the palette.
 
-The frame is a repaint of a vanilla trainer pic (D13): `repaint:` copies the vanilla pixels
+The frame is a repaint of a vanilla trainer pic (D8): `repaint:` copies the vanilla pixels
 with every vanilla palette index remapped to one of our legend characters, then `rig:` layers
 kitbash it (erase, recolour, small shaded parts such as a saber or a bun, `pixels`, `edge`;
 see rig.py), then `patches:` hand-fix single pixels:
@@ -15,7 +15,7 @@ see rig.py), then `patches:` hand-fix single pixels:
         - {x: 20, y: 30, rows: "KK_K"}
 
 A plain 64-row grid also works. Whole figures drawn from rig shapes alone are not supported
-(D14: shape-based drawing is not Emerald quality).
+(D9: shape-based drawing is not Emerald quality).
 
 `palette:` is an inline list of up to 16 [r, g, b] colours (the pic's own palette, stored in
 the PNG); index 0 is transparent.
@@ -200,7 +200,7 @@ def load(path: str | Path) -> Spec:
                 for i, row in enumerate(patch):
                     g[py + i] = row
         else:
-            raise SpecError(f"{where}: give a grid or a `repaint:` (D13)")
+            raise SpecError(f"{where}: give a grid or a `repaint:` (D8)")
         if isinstance(f, dict):
             for i, pt in enumerate(f.get("patches") or []):
                 px, py = int(pt["x"]), int(pt["y"])

@@ -20,7 +20,7 @@ tools:
     status: READY
     covers: "64x64 trainer battle pics with their own 16-colour palette"
     guide: tools/sprite-trainer-generator/README.md
-    note: "Repaint tool (D13) approved in round 5 (Vader, Boba Fett, Leia, Obi-Wan). B4 (professor portrait) not yet tried."
+    note: "Repaint tool (repaints of vanilla pics) approved in round 5 (Vader, Boba Fett, Leia, Obi-Wan). B4 (professor portrait) not yet tried."
   sprite-trainer-back-generator:
     status: TODO-NEED-TO-BUILD
     covers: "Player/partner battle back sprites (4-5 frame throw sheets)"
@@ -29,7 +29,7 @@ tools:
     status: PENDING
     covers: "Creature (Pokémon) battle front + 2nd anim frame, back, normal/shiny palettes"
     guide: tools/sprite-creature-generator/README.md
-    note: "D15: drawn by an image model (Stable Diffusion family + LoRA trained on vanilla sprites), our tool as finisher. Waits on a GPU; research and design in tools/sprite-creature-generator/research/. Round 1 hand-drawing fell short."
+    note: "To be drawn by an image model (Stable Diffusion family + LoRA trained on vanilla sprites), our tool as finisher. Waits on a GPU; research and design in tools/sprite-creature-generator/research/. Round 1 hand-drawing fell short."
   icon:
     status: TODO-NEED-TO-BUILD
     covers: "Small fixed-size stills: item icons, berries, decorations, balls, type labels, creature party icons, footprints"

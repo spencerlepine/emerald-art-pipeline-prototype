@@ -1,6 +1,6 @@
 """Creature spec files (YAML) -> indexed frames `front`, `front2`, `back` (64x64 each).
 
-A spec is what the LLM (or, per D15, the image-model finisher) writes. It never contains RGB:
+A spec is what the LLM (or, per D7, the image-model finisher) writes. It never contains RGB:
 every character maps to a palette *index* through `legend`, so the output cannot leave the
 palette. A frame is one of:
 
@@ -119,7 +119,7 @@ def _splice(parts: list, remaps: dict, legend: dict[str, int], w: int, h: int, w
     Parts are pasted in order, later over earlier. Every palette index a part takes must be in
     its remap (`inspect` shows which index is which material); map an index to the
     transparent character to drop it. This keeps vanilla's hand-placed shading, outlines and
-    anti-aliasing (the reason D13 repaints passed review), while the silhouette is new.
+    anti-aliasing (the reason D5 repaints passed review), while the silhouette is new.
     """
     from PIL import Image
 

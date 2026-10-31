@@ -1,7 +1,7 @@
 """Measure the vanilla creature sprites that an image model would be trained on, and join them
 with the Star Wars mapping. Research only: no GPU, no model.
 
-    python measure.py ../../../../pokeemerald/game ../../../../emerald-sw-db/database
+    python measure.py $EMERALD_DIR /path/to/emerald-sw-db/database
 
 Writes vanilla-stats.json (numbers quoted in the research docs) and sw-creature-jobs.csv (one
 row per species folder: what replaces it and the facts a prompt/caption can use).

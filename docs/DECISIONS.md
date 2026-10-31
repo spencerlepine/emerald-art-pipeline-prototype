@@ -295,7 +295,8 @@ new, lives in `tools/sprite-creature-generator/research/`.
 Owner: "each tool is standalone. You can duplicate as much as you need. Each tool will be its
 own thing and have its own pipeline." So `tools/<tool>/` holds everything one tool needs: its
 own Python package (`walker_sprite`, `trainer_sprite`, `creature_sprite`), `requirements.txt`,
-`README.md` (the agent's procedure), corpus, palettes, `art/<name>.yaml` and
+`README.md` (the agent's procedure and the category's format facts), its own `DECISIONS.md`
+(the decisions above that apply to it, copied and renumbered), corpus, palettes, `art/<name>.yaml` and
 `output/<name>/`. Code that two tools need (spec parsing, palette rules, gbagfx verify,
 metrics) is copied, not shared, and each copy keeps only what its category uses: the walker
 spec has no repaint/rig, the trainer spec allows rig layers only on top of a `repaint:` (D14),
@@ -304,6 +305,7 @@ an agent without reading or breaking the others, and each category will get its 
 (the creature tool will grow an image-model stage, D15). Names: `sprite-walker-generator`,
 `sprite-trainer-generator` (front pics), `sprite-trainer-back-generator` (separate folder,
 TODO), `sprite-creature-generator` (with its research in `research/`), and `asset-checklist`
-(the audit that generates `CHECKLIST.md`). Repo-wide docs stay at the root: this log,
+(the audit that generates `CHECKLIST.md`). No tool folder refers to anything outside itself
+except a pokeemerald checkout. Repo-wide docs stay at the root: this log,
 `EMERALD-ART-REQUIREMENTS.md`, `CHECKLIST.md`. Default `EMERALD_DIR` is the pokeemerald clone
 next to this repo, using its `game/` folder when it has one (the fork moved the source there).

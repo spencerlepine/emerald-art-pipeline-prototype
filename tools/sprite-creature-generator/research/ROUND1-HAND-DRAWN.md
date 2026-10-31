@@ -5,7 +5,7 @@ Specs: `art/rancor_drawn.yaml` (Rhydon's slot), `art/mynock_drawn.yaml`
 
 ## Method
 
-D14 rules out shape-built figures and the owner ruled out repaints for creatures. So every
+D6 rules out shape-built figures and the owner ruled out repaints for creatures. So every
 pixel was placed by the LLM: Rancor sketched at 32x32 (`sketch:` frame, doubled and
 outline-thinned by the tool), then rewritten at 64x64 in row segments with two detail passes;
 Mynock written once at 64x64.
@@ -17,7 +17,7 @@ Mynock written once at 64x64.
 | Rancor | ~60% | Hunched beast, long arms, underbite, claws: recognisable at 1x | Flat single-tone areas, few form clusters, no texture (a mottling pass read as noise), bulky (area 2,544 vs p95 2,346) |
 | Mynock | ~35% | A green ball with a sucker mouth | Wings came out as flat triangles with dotted ribs, not membranes |
 
-Owner's call (D15): an image model for every creature.
+Owner's call (D7): an image model for every creature.
 
 ## What carries over to the image-model pipeline
 

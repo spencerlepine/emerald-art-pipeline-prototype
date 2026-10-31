@@ -1,6 +1,6 @@
 # sprite-trainer-generator (trainer battle pics)
 
-**Status: READY.** A repaint tool (D13): each pic starts from the vanilla pic closest in pose
+**Status: READY.** A repaint tool (D8): each pic starts from the vanilla pic closest in pose
 and costume, recoloured and kitbashed. Approved by the owner on round 5 (Vader, Boba Fett,
 Leia, Obi-Wan). Category B1 (93 pics) and B4 (professor portrait).
 
@@ -12,19 +12,19 @@ Reference specs (repaints): `art/vader.yaml` (base Drake), `boba.yaml` (Pyramid 
 Brandon), `leia.yaml` (Glacia), `obiwan.yaml` (Expert M), plus the later mockups listed in
 STYLE-GUIDE's feedback log. Review sheets: `output/style-check-r5.png` and
 `repaint-bases-r5.png` (approved round), `style-check-r4.png` and `vader-poses-r*.png` (rig
-drawings, rejected, kept for comparison). Back pics (category B2) are a separate tool,
-`tools/sprite-trainer-back-generator`.
+drawings, rejected, kept for comparison). Back pics (category B2) are out of scope for this tool.
 
 ## Setup
 
-This folder is a standalone tool: its own Python package, requirements, corpus, art and
-output. It shares no code with the other tools in `tools/`.
+This folder is a self-contained tool: its own Python package, requirements, decision log,
+corpus, art and output. It needs nothing outside this folder except a pokeemerald checkout.
 
 ```bash
-cd tools/sprite-trainer-generator
+# from this folder
 pip install -r requirements.txt     # pillow, pyyaml
-# pokeemerald next to this repo (its game/ folder is used if present), or set EMERALD_DIR
-git clone https://github.com/spencerlepine/pokeemerald ../../../pokeemerald
+# a pokeemerald checkout: set EMERALD_DIR, or keep a clone named pokeemerald beside any
+# folder above this one (its game/ subfolder is used when present)
+export EMERALD_DIR=/path/to/pokeemerald/game
 ```
 
 | Path | What |
@@ -36,8 +36,8 @@ git clone https://github.com/spencerlepine/pokeemerald ../../../pokeemerald
 | `corpus/trainer64.json` | Style metrics measured on the 93 vanilla pics (`python -m trainer_sprite corpus`) |
 | `STYLE-GUIDE.md` | Pose, perspective and pixel rules, review checklist, owner feedback log |
 
-`D1`-`D16` refer to the repo-wide decision log, [docs/DECISIONS.md](../../docs/DECISIONS.md); the
-game's format facts are in [docs/EMERALD-ART-REQUIREMENTS.md](../../docs/EMERALD-ART-REQUIREMENTS.md).
+`D1`, `D2`... are the decisions in this folder's [DECISIONS.md](DECISIONS.md): read it before changing
+the tool.
 
 ## Commands
 
@@ -63,6 +63,16 @@ python -m trainer_sprite corpus                                # re-measure the 
 Measured on the 93 vanilla pics (`corpus/trainer64.json`): full body, feet on row 62-63, head
 at row 1-17, 29-57 px wide, ~1,075 opaque pixels, 13-15 colours, near-black outline on most
 edges, plenty of single-pixel highlights (orphans 11-23%).
+
+### Rules for all GBA 4bpp art
+
+- The game builds from **indexed PNGs** (mode `P`) via pokeemerald's `tools/gbagfx`, which
+  reads pixel *indices*; the colours on screen come from the palette the game loads.
+- Max 16 colours per palette, index 0 is transparent.
+- GBA colour is 15-bit: each channel keeps 5 bits (`v >> 3 << 3`). Colours that differ only in
+  the low 3 bits look identical in game, so use multiples of 8.
+- Sizes are multiples of 8 (tiles are 8x8).
+- Replacing a PNG at the same path needs no code change; a new asset needs C table entries.
 
 ## Drawing a new trainer pic (repaint)
 
@@ -95,7 +105,7 @@ edges, plenty of single-pixel highlights (orphans 11-23%).
 7. `python -m trainer_sprite verify art/<name>.yaml`: 2048 bytes of 4bpp, a 32-byte
    palette, identical round trip. Then a `compare` sheet for the owner.
 
-There is no from-scratch mode: a frame made only of rig shapes is rejected (D14, the owner
+There is no from-scratch mode: a frame made only of rig shapes is rejected (D9, the owner
 rated rig drawings "about 70%"). Rig layers are only for kitbashing a repaint; the layer
 reference is the docstring in `trainer_sprite/rig.py`.
 
