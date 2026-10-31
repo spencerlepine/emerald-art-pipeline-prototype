@@ -140,7 +140,8 @@ steps below are for the rare pic drawn from scratch with a rig.
   rethink this from the ground up." Lesson: shape-built figures lack vanilla's folds,
   selective outlines, hands, faces and slim proportions; led to the repaint tool (D13).
 - **2026-10-31, round 5 (repaint)**: Vader from Drake, Boba Fett from Pyramid King Brandon,
-  Leia from Glacia, Obi-Wan from Expert M. Awaiting the owner's final assessment.
+  Leia from Glacia, Obi-Wan from Expert M. Owner: "those are perfect. You nailed it. Ship that
+  tool!" Lesson: repaint a close vanilla base; this is the reference style. Tool marked READY.
 
 ## Contact sheet of the vanilla pics
 

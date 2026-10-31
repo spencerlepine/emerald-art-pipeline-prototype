@@ -23,7 +23,7 @@ and renders previews to iterate on with the owner.
 | I need to draw... | Category | Guide | Status |
 | --- | --- | --- | --- |
 | An overworld walker (16x32 person) | B3 | [pipelines/walker](pipelines/walker/README.md) | READY |
-| A trainer battle pic (64x64) | B1 | [pipelines/trainer-front](pipelines/trainer-front/README.md) | IN-REVIEW |
+| A trainer battle pic (64x64) | B1 | [pipelines/trainer-front](pipelines/trainer-front/README.md) | READY |
 | Anything else | see [CHECKLIST.md](CHECKLIST.md) | - | TODO-NEED-TO-BUILD |
 
 ## Layout

@@ -28,7 +28,7 @@ as the work.
 | Tool | Status | Covers | Categories | Files | Drawn | Guide |
 | --- | --- | --- | --- | --- | --- | --- |
 | `walker` | **READY** | 16x32 people walkers (9-frame standard sheet) | A6, B3, C4 | 207 | 1 | [pipelines/walker/README.md](pipelines/walker/README.md) |
-| `trainer-front` | **IN-REVIEW** | 64x64 trainer battle pics with their own 16-colour palette | B1, B4 | 95 | 4 | [pipelines/trainer-front/README.md](pipelines/trainer-front/README.md) |
+| `trainer-front` | **READY** | 64x64 trainer battle pics with their own 16-colour palette | B1, B4 | 95 | 4 | [pipelines/trainer-front/README.md](pipelines/trainer-front/README.md) |
 | `trainer-back` | **TODO-NEED-TO-BUILD** | Player/partner battle back sprites (4-5 frame throw sheets) | B2 | 8 | 0 | - |
 | `creature` | **TODO-NEED-TO-BUILD** | Creature (Pokémon) battle front + 2nd anim frame, back, normal/shiny palettes | A1, A2, A5 | 1262 | 0 | - |
 | `icon` | **TODO-NEED-TO-BUILD** | Small fixed-size stills: item icons, berries, decorations, balls, type labels, creature party icons, footprints | A3, A4, C1, C2, C3, C5, C6 | 1144 | 0 | - |
@@ -60,10 +60,10 @@ as the work.
 
 | # | Category | Where it shows | Format | PNGs | .pal | Drawn | Tool | Tool status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| B1 | Trainer battle front pics | Trainer battles, trainer card, Hall of Fame, Battle Frontier | 64x64, 1 frame, own 16-colour palette taken from the PNG | 93 |  | 4 | `trainer-front` | IN-REVIEW |
+| B1 | Trainer battle front pics | Trainer battles, trainer card, Hall of Fame, Battle Frontier | 64x64, 1 frame, own 16-colour palette taken from the PNG | 93 |  | 4 | `trainer-front` | READY |
 | B2 | Player battle back pics | Your side when a battle starts (ball throw) | 64x256/64x320 = 4-5 frames of 64x64, palette in graphics/trainers/palettes | 8 | 6 | 0 | `trainer-back` | TODO-NEED-TO-BUILD |
 | B3 | People overworld walkers | Overworld NPCs, player, rivals | 16x32 x 9 frames (standard), plus 32x32 big, 16x16 small and special sheets (bike, surf, fish, field move) | 133 | 36 | 1 | `walker` | READY (16x32 kit); other kits TODO-NEED-TO-BUILD |
-| B4 | Professor speech portrait | New-game intro | birch 64x64 still + shadow/unused frames | 2 |  | 0 | `trainer-front` | IN-REVIEW |
+| B4 | Professor speech portrait | New-game intro | birch 64x64 still + shadow/unused frames | 2 |  | 0 | `trainer-front` | READY |
 
 ### C. Items and icons
 
@@ -159,7 +159,7 @@ Work one tool at a time: build it, show the owner mockups in chat, iterate, mark
 1. [x] Audit every asset category, generate this checklist (2026-10-31).
 2. [x] Restructure the repo: `art/<category>/`, `output/<category>/`, `pipelines/<tool>/`, `catalog/`.
 3. [x] `walker` 16x32 people kit: Vader approved.
-4. [ ] `trainer-front`: tool built; Vader round 1 rejected (flat, front-on); round 3 picked 4b's style; round 4 rig drawings judged 70%; rebuilt as a repaint tool (D13), round 5 (Vader, Boba Fett, Leia, Obi-Wan) **IN-REVIEW** for the final call: keep the repaint tool or use an image model for this category. Style guide: `pipelines/trainer-front/STYLE-GUIDE.md`.
+4. [x] `trainer-front`: **READY**. Rebuilt as a repaint tool (D13) after the rig drawings were judged 70%; round 5 (Vader, Boba Fett, Leia, Obi-Wan) approved by the owner ("those are perfect"). No image model needed for this category. Style guide: `pipelines/trainer-front/STYLE-GUIDE.md`.
 5. [ ] `trainer-back`: player throw sheets (needs the player character decided).
 6. [ ] `creature`: battle front (2 frames) + back + shiny palette.
 7. [ ] `icon`: item icons first (218), then berries, decorations, balls, type labels; derive party icons and footprints from creature fronts.

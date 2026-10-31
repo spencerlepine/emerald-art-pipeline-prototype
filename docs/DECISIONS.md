@@ -249,4 +249,5 @@ T-visor helmet, rangefinder, jetpack behind), Leia from Glacia (gown -> white, s
 silver belt, ball -> blaster), Obi-Wan from Expert M (robes -> beige tunic and brown robe,
 blue saber). Sheets: `output/trainers/style-check-r5.png`, `repaint-bases-r5.png` (base next to
 result). Each spec takes 10-20 layers and a handful of builds; all verify. The old rig specs are
-not kept (git history has them).
+not kept (git history has them). Owner: "those are perfect. You nailed it. Ship that tool!"
+The tool is READY, and this category needs no image model.

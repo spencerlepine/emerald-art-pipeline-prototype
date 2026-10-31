@@ -1,8 +1,8 @@
 # Tool: `trainer-front` (trainer battle pics)
 
-**Status: IN-REVIEW.** Rebuilt as a repaint tool (D13): each pic starts from the vanilla pic
-closest in pose and costume, recoloured and kitbashed. Round 5 (Vader, Boba Fett, Leia,
-Obi-Wan) is with the owner. Category B1 (93 pics) and B4 (professor portrait).
+**Status: READY.** A repaint tool (D13): each pic starts from the vanilla pic closest in pose
+and costume, recoloured and kitbashed. Approved by the owner on round 5 (Vader, Boba Fett,
+Leia, Obi-Wan). Category B1 (93 pics) and B4 (professor portrait).
 
 **Read [STYLE-GUIDE.md](STYLE-GUIDE.md) first**: pose, perspective and pixel rules from the 93
 vanilla pics, a review checklist, and the owner's feedback log. Getting the pose right is the
