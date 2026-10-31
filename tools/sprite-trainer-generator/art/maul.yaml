@@ -1,0 +1,47 @@
+name: maul
+kit: trainer64
+replaces: graphics/trainers/front_pics/elite_four_sidney.png
+# Darth Maul replaces Elite Four Sidney (emerald-sw-db pending_art: DARTH MAUL (Force vision)).
+# Repaint of Sidney himself: low crouch, weight forward, near hand thrust out, a punk's
+# menace that is already Maul's. Changes: jacket, vest and trousers -> black Sith robes and
+# gloves, skin -> red with the black tattoo, mohawk -> the crown of horns, eyes -> yellow,
+# the tossed Poke Ball -> the double-bladed red saber held across the body.
+palette:
+  - [115, 197, 164]  # 0 transparent
+  - [16, 8, 16]      # K outline / tattoo
+  - [32, 32, 40]     # a robe shadow
+  - [56, 56, 72]     # b robe base
+  - [96, 96, 120]    # c robe light
+  - [136, 24, 24]    # d skin shadow
+  - [200, 48, 40]    # e skin base
+  - [240, 104, 80]   # f skin light
+  - [232, 216, 176]  # h horn
+  - [160, 136, 104]  # i horn shadow
+  - [248, 200, 40]   # j eye yellow
+  - [248, 64, 48]    # R saber glow
+  - [248, 240, 240]  # W saber core
+  - [112, 112, 128]  # m hilt
+  - [192, 192, 208]  # n hilt light
+legend: {'.': 0, K: 1, a: 2, b: 3, c: 4, d: 5, e: 6, f: 7, h: 8, i: 9, j: 10, R: 11, W: 12, m: 13, n: 14}
+frames:
+  front:
+    repaint:
+      pic: graphics/trainers/front_pics/elite_four_sidney.png
+      # sidney: 1/2/3 skin light->dark, 4 skin/jacket dark edge, 6/8 vest, 12/13 red jacket,
+      # 10/11/5 khaki trousers light->dark, 9/14 whites (ball, eyes), 15 outline
+      remap: {1: f, 2: e, 3: d, 4: d, 5: a, 6: b, 8: a, 9: n, 10: c, 11: b, 12: c, 13: b, 14: n, 15: K}
+    rig:
+      layers:
+        # the tossed ball goes; the saber replaces it
+        - {name: ball, shape: poly, pts: [[9, 22], [21, 22], [21, 31], [9, 31]], erase: true}
+        # below the neck everything is robe or glove: no bare skin
+        - {name: robe and gloves, shape: poly, pts: [[8, 28], [56, 28], [56, 64], [8, 64]], recolour: "d:a e:b f:c n:c"}
+        # mohawk -> bald head, then the horns
+        - {name: mohawk top, shape: poly, pts: [[30, 8], [38, 8], [38, 12], [30, 12]], erase: true}
+        - {name: scalp, shape: poly, pts: [[27, 11], [42, 11], [42, 19], [27, 19]], recolour: "c:f b:e"}
+        - {name: horns, shape: pixels, x: 29, y: 10, rows: "___K___K____\n__KhK_KhK_K_\n__KiK_KiKKhK"}
+        - {name: tattoo, shape: pixels, x: 28, y: 14, rows: "___K__K__K___\n___K__K__K___\n__K__KK__K___\n__K__KK___K__\n__K__KK___K__\n_KK___K____K_\n_KKKK_e_KKKK_\n_KjjKfeeKjjK_\n_KKKKeeeKKKK_\n__KK_eee_KK__\n___K_eee_K___\n___KKKKKKK___\n____KKKKK____"}
+        # double-bladed saber across the body, hilt in the near hand
+        - {name: upper blade, shape: capsule, from: [18, 30], to: [26, 17], r: [1.4, 1.4], ramp: W, outline: R}
+        - {name: lower blade, shape: capsule, from: [12, 40], to: [3, 53], r: [1.4, 1.4], ramp: W, outline: R}
+        - {name: hilt, shape: capsule, from: [12, 39], to: [18, 31], r: [1.1, 1.1], ramp: mn}

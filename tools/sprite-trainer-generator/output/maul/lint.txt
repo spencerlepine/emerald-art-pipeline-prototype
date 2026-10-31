@@ -1,0 +1,11 @@
+
+metric            this  Emerald p5  median     p95
+top                 10           1       5      17
+feet                62          62      62      63
+height              53          46      58      63
+width               46          29      41      57
+area              1080         718    1075    1534
+dark_outline     0.767       0.611   0.877   0.974
+orphans          0.131        0.11   0.168   0.226
+colours             13          13      15      15
+symmetry         0.085       0.062   0.148    0.33
