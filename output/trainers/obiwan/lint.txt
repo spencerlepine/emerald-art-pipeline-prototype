@@ -1,12 +1,11 @@
-warning style: orphans = 0.048 is outside Emerald's p5-p95 range [0.11, 0.226]
 
 metric            this  Emerald p5  median     p95
-top                  4           1       5      17
-feet                63          62      62      63
-height              60          46      58      63
-width               52          29      41      57
-area              1493         718    1075    1534
-dark_outline     0.896       0.611   0.877   0.974
-orphans          0.048        0.11   0.168   0.226
-colours             14          13      15      15
-symmetry         0.153       0.062   0.148    0.33
+top                  5           1       5      17
+feet                62          62      62      63
+height              58          46      58      63
+width               50          29      41      57
+area              1370         718    1075    1534
+dark_outline     0.683       0.611   0.877   0.974
+orphans           0.12        0.11   0.168   0.226
+colours             15          13      15      15
+symmetry         0.231       0.062   0.148    0.33

@@ -1,0 +1,45 @@
+name: vader
+kit: trainer64
+replaces: graphics/trainers/front_pics/magma_leader_maxie.png
+# Darth Vader replaces Maxie (emerald-sw-db swap_map: character:maxie -> VADER).
+# Repaint of Elite Four Drake (wide 3/4 stance, long coat, cape swept to the side), whose
+# silhouette is already Vader's. Changes: coat -> black cape over the shoulders, open chest ->
+# chest armour with the control box, trousers -> armour, gold trim -> silver, cape lining ->
+# black; head and captain's hat replaced by the helmet; red saber lit in the lowered hand.
+palette:
+  - [115, 197, 164]  # 0 transparent
+  - [16, 16, 24]     # K outline
+  - [24, 24, 40]     # c cape / deepest shadow
+  - [48, 56, 88]     # d armour shadow
+  - [80, 96, 136]    # m armour base
+  - [136, 160, 208]  # h armour highlight
+  - [200, 216, 240]  # s sheen
+  - [96, 96, 112]    # g metal dark
+  - [168, 168, 184]  # G metal light
+  - [96, 40, 56]     # l lens
+  - [216, 48, 40]    # r red light
+  - [72, 200, 96]    # e green light
+  - [64, 128, 232]   # b blue light
+  - [248, 64, 48]    # R saber glow
+  - [248, 240, 240]  # W saber core
+legend: {'.': 0, K: 1, c: 2, d: 3, m: 4, h: 5, s: 6, g: 7, G: 8, l: 9, r: 10, e: 11, b: 12, R: 13, W: 14}
+frames:
+  front:
+    repaint:
+      pic: graphics/trainers/front_pics/elite_four_drake.png
+      # drake: 2/3 skin, 4 cape lining, 5/6 trousers, 7/8 coat, 9/14 hat, 10/11 gold,
+      # 12/13 blue collar, 15 outline
+      remap: {2: m, 3: d, 4: c, 5: m, 6: d, 7: K, 8: c, 9: h, 10: G, 11: g, 12: h, 13: m, 14: s, 15: K}
+    rig:
+      layers:
+        # remove hat, face and beard; the helmet takes their place
+        - {name: old head, shape: poly, pts: [[13, 0], [36, 0], [36, 17], [30, 19], [16, 19], [13, 14]], erase: true}
+        - {name: helmet flare, shape: poly, pts: [[16, 11], [31, 9], [35, 17], [31, 20], [20, 19], [15, 16]], ramp: dmh}
+        - {name: helmet dome, shape: ellipse, at: [24, 8], r: [6.5, 6], angle: -12, ramp: dmh}
+        - {name: face, shape: pixels, x: 16, y: 8, rows: "_KKKKKKKK_\nKllKhKlllK\nKslKdKsllK\n_KKdgdKKK_\n__KgGgK___\n__KgggK___\n___KKK____"}
+        - {name: dome sheen, shape: pixels, x: 20, y: 3, rows: "_ss\ns__"}
+        # open chest -> armour plate with the control box
+        - {name: chest box, shape: pixels, x: 22, y: 23, rows: "KKKKKK\nKGrebK\nKGbrGK\nKKKKKK"}
+        # saber in the lowered (viewer-left) fist, blade down toward the player
+        - {name: blade, shape: capsule, from: [11, 39], to: [2, 62], r: [1.5, 1.5], ramp: W, outline: R}
+        - {name: hilt, shape: capsule, from: [13, 34], to: [11, 39], r: [1.1, 1.1], ramp: gG}

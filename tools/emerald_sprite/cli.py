@@ -222,6 +222,46 @@ def cmd_audit(a) -> int:
     return 1 if r["unassigned"] else 0
 
 
+def cmd_inspect(a) -> int:
+    """Material map of an indexed PNG: each palette index in a false colour with its number, so
+    a repaint `remap:` can be written (which index is skin, hair, coat, outline...)."""
+    from PIL import Image, ImageDraw
+
+    im = Image.open(a.png)
+    pal = im.getpalette()[:48]
+    px = im.load()
+    counts = {}
+    for y in range(im.height):
+        for x in range(im.width):
+            counts[px[x, y]] = counts.get(px[x, y], 0) + 1
+    false = [(0, 0, 0), (255, 0, 0), (0, 200, 0), (0, 80, 255), (255, 200, 0), (255, 0, 255), (0, 220, 220), (255, 128, 0),
+             (128, 0, 255), (0, 128, 64), (160, 80, 40), (255, 160, 200), (120, 120, 120), (200, 255, 120), (0, 0, 128), (255, 255, 255)]
+    z = 6
+    W = im.width * z * 2 + 260
+    out = Image.new("RGB", (W, max(im.height * z, 16 * 22 + 10)), (30, 30, 36))
+    real = Image.new("RGB", im.size, (115, 197, 164))
+    fc = Image.new("RGB", im.size, (40, 40, 48))
+    for y in range(im.height):
+        for x in range(im.width):
+            v = px[x, y]
+            if v:
+                real.putpixel((x, y), tuple(pal[v * 3 : v * 3 + 3]))
+                fc.putpixel((x, y), false[v])
+    out.paste(real.resize((im.width * z, im.height * z), Image.NEAREST), (0, 0))
+    out.paste(fc.resize((im.width * z, im.height * z), Image.NEAREST), (im.width * z, 0))
+    d = ImageDraw.Draw(out)
+    x0 = im.width * z * 2 + 10
+    for i in range(16):
+        y = 6 + i * 22
+        d.rectangle([x0, y, x0 + 16, y + 16], fill=false[i])
+        d.rectangle([x0 + 20, y, x0 + 36, y + 16], fill=tuple(pal[i * 3 : i * 3 + 3]))
+        d.text((x0 + 42, y + 3), f"{i:>2}  {tuple(pal[i * 3 : i * 3 + 3])}  {counts.get(i, 0)} px", fill=(230, 230, 230))
+        print(f"{i:>2} {tuple(pal[i * 3 : i * 3 + 3])!s:<18} {counts.get(i, 0):>5} px")
+    out.save(a.out)
+    print(f"wrote {a.out}")
+    return 0
+
+
 def main(argv=None) -> int:
     p = argparse.ArgumentParser(prog="emerald_sprite")
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -235,6 +275,10 @@ def main(argv=None) -> int:
         sp.add_argument(arg)
         sp.set_defaults(fn=fn)
     sub.add_parser("corpus").set_defaults(fn=cmd_corpus)
+    ip = sub.add_parser("inspect")
+    ip.add_argument("png")
+    ip.add_argument("out")
+    ip.set_defaults(fn=cmd_inspect)
     ap = sub.add_parser("audit")
     ap.add_argument("--write", action="store_true")
     ap.set_defaults(fn=cmd_audit)

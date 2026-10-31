@@ -109,6 +109,49 @@ def _parse_rows(text: str, legend: dict[str, int], w: int, where: str) -> Grid:
     return rows
 
 
+def _repaint(rp: dict, legend: dict[str, int], w: int, h: int, where: str) -> Grid:
+    """Start from a vanilla pic's pixels, every palette index mapped to one of our characters.
+
+        repaint:
+          pic: graphics/trainers/front_pics/expert_m.png   # relative to EMERALD_DIR
+          flip: false                                      # mirror horizontally
+          offset: [0, 0]                                   # move the whole figure
+          remap: {1: K, 2: f, 3: e, ...}                   # vanilla index -> legend character
+
+    Every index the pic uses must be mapped (`python -m emerald_sprite inspect <png>` shows
+    which index is which material). Map an index to the transparent character to delete it.
+    """
+    import os
+
+    from PIL import Image
+
+    emerald = Path(os.environ.get("EMERALD_DIR", Path(__file__).resolve().parents[3] / "pokeemerald"))
+    src = emerald / rp["pic"]
+    if not src.exists():
+        raise SpecError(f"{where}: repaint pic {src} not found (set EMERALD_DIR)")
+    im = Image.open(src)
+    if im.mode != "P" or im.size != (w, h):
+        raise SpecError(f"{where}: repaint pic must be a {w}x{h} indexed PNG")
+    remap = {int(k): str(v) for k, v in (rp.get("remap") or {}).items()}
+    px = im.load()
+    used = {px[x, y] for y in range(h) for x in range(w)} - {0}
+    missing = sorted(used - set(remap))
+    if missing:
+        raise SpecError(f"{where}: repaint remap is missing vanilla indices {missing}")
+    for k, ch in remap.items():
+        if ch not in legend:
+            raise SpecError(f"{where}: repaint remap {k} -> {ch!r}: not in the legend")
+    ox, oy = rp.get("offset", [0, 0])
+    g = [[0] * w for _ in range(h)]
+    for y in range(h):
+        for x in range(w):
+            v = px[w - 1 - x if rp.get("flip") else x, y]
+            tx, ty = x + int(ox), y + int(oy)
+            if v and 0 <= tx < w and 0 <= ty < h:
+                g[ty][tx] = legend[remap[v]]
+    return g
+
+
 def _transparent(legend: dict[str, int]) -> str:
     for ch, idx in legend.items():
         if idx == 0:
@@ -151,6 +194,13 @@ def load(path: str | Path) -> Spec:
         where = f"frame {name}"
         if isinstance(f, str):
             g = _bottom_anchor(_parse_rows(f, legend, w, where), w, h, where)
+        elif "repaint" in f:
+            g = _repaint(f["repaint"], legend, w, h, where)
+            if "rig" in f:
+                try:
+                    g = rig_mod.render(f["rig"], legend, w, h, where, base=g)
+                except rig_mod.RigError as e:
+                    raise SpecError(str(e)) from None
         elif "rig" in f:
             try:
                 g = rig_mod.render(f["rig"], legend, w, h, where)

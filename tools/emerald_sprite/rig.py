@@ -18,6 +18,10 @@ the weight, which arm is near the camera) and like a pixel artist second (patche
           - {shape: capsule, from: hilt, to: [6, 58], r: [1, 1], ramp: WWW, outline: R}
       patches: [...]             # pixel-level detail on top (face, emblems, highlights)
 
+Repaint helpers (used on top of a `repaint:` vanilla base): `erase: true` on any shape cuts it
+out; `recolour: "a:b c:d"` on any shape swaps characters inside it; `shape: edge` with
+`chars: "jk"` and `to: d` darkens silhouette pixels of those characters (selective outline).
+
 Shapes: `pixels` (x, y, rows: hand-placed pixels, `_` keeps; use it for details that must sit
 *under* a later layer, e.g. a face the lightsaber passes in front of), `capsule` (from, to, r: [r_from, r_to]), `ellipse` (at, r: [rx, ry], angle: degrees
 clockwise), `poly` (pts).
@@ -106,10 +110,11 @@ def _mask(layer, joints, w, h, where):
     return m
 
 
-def render(rig: dict, legend: dict[str, int], w: int, h: int, where: str) -> list[list[int]]:
+def render(rig: dict, legend: dict[str, int], w: int, h: int, where: str, base=None) -> list[list[int]]:
+    """Draw the layers onto `base` (a grid, e.g. a repainted vanilla pic) or an empty frame."""
     joints = rig.get("joints", {})
     lx, ly = rig.get("light", LIGHT)
-    g = [[0] * w for _ in range(h)]
+    g = [list(r) for r in base] if base else [[0] * w for _ in range(h)]
     default_outline = "K" if "K" in legend else None
     for i, layer in enumerate(rig.get("layers", [])):
         lw = f"{where}: layer {i} ({layer.get('name', layer.get('shape'))})"
@@ -123,6 +128,32 @@ def render(rig: dict, legend: dict[str, int], w: int, h: int, where: str) -> lis
                         raise RigError(f"{lw}: character {ch!r} is not in the legend")
                     if 0 <= x0 + dx < w and 0 <= y0 + dy < h:
                         g[y0 + dy][x0 + dx] = legend[ch]
+            continue
+        if layer.get("shape") == "edge":  # silhouette pixels whose character is in `chars` -> `to`
+            on = {legend[c] for c in str(layer["chars"]) if c in legend}
+            to = legend[str(layer["to"])]
+            src = [list(r) for r in g]
+            for y in range(h):
+                for x in range(w):
+                    if src[y][x] in on and any(not (0 <= x + dx < w and 0 <= y + dy < h) or src[y + dy][x + dx] == 0
+                                               for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1))):
+                        g[y][x] = to
+            continue
+        if layer.get("erase"):  # cut the shape out (back to transparent)
+            for (x, y) in _mask(layer, joints, w, h, lw):
+                if 0 <= x < w and 0 <= y < h:
+                    g[y][x] = 0
+            continue
+        if "recolour" in layer:  # inside the shape, swap characters: "a:b c:d"
+            sw = {}
+            for pair in str(layer["recolour"]).split():
+                a_, b_ = pair.split(":")
+                if a_ not in legend or b_ not in legend:
+                    raise RigError(f"{lw}: recolour {pair!r} uses a character not in the legend")
+                sw[legend[a_]] = legend[b_]
+            for (x, y) in _mask(layer, joints, w, h, lw):
+                if 0 <= x < w and 0 <= y < h:
+                    g[y][x] = sw.get(g[y][x], g[y][x])
             continue
         ramp = layer.get("ramp", "")
         if isinstance(ramp, bool):
