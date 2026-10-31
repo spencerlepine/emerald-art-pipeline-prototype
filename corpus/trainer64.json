@@ -8,7 +8,8 @@
   "area": 718,
   "dark_outline": 0.611,
   "orphans": 0.11,
-  "colours": 13
+  "colours": 13,
+  "symmetry": 0.062
  },
  "median": {
   "top": 5,
@@ -18,7 +19,8 @@
   "area": 1075,
   "dark_outline": 0.877,
   "orphans": 0.168,
-  "colours": 15
+  "colours": 15,
+  "symmetry": 0.148
  },
  "p95": {
   "top": 17,
@@ -28,7 +30,8 @@
   "area": 1534,
   "dark_outline": 0.974,
   "orphans": 0.226,
-  "colours": 15
+  "colours": 15,
+  "symmetry": 0.33
  },
  "sprites": {
   "aqua_admin_f.png": {
@@ -39,7 +42,8 @@
    "area": 1357,
    "dark_outline": 0.992,
    "orphans": 0.136,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.23
   },
   "aqua_admin_m.png": {
    "top": 2,
@@ -49,7 +53,8 @@
    "area": 1379,
    "dark_outline": 0.967,
    "orphans": 0.131,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.17
   },
   "aqua_grunt_f.png": {
    "top": 3,
@@ -59,7 +64,8 @@
    "area": 967,
    "dark_outline": 0.947,
    "orphans": 0.181,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.176
   },
   "aqua_grunt_m.png": {
    "top": 6,
@@ -69,7 +75,8 @@
    "area": 1142,
    "dark_outline": 0.951,
    "orphans": 0.155,
-   "colours": 13
+   "colours": 13,
+   "symmetry": 0.273
   },
   "aqua_leader_archie.png": {
    "top": 0,
@@ -79,7 +86,8 @@
    "area": 1226,
    "dark_outline": 0.978,
    "orphans": 0.104,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.282
   },
   "arena_tycoon_greta.png": {
    "top": 8,
@@ -89,7 +97,8 @@
    "area": 883,
    "dark_outline": 0.723,
    "orphans": 0.202,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.188
   },
   "aroma_lady.png": {
    "top": 6,
@@ -99,7 +108,8 @@
    "area": 760,
    "dark_outline": 0.678,
    "orphans": 0.229,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.137
   },
   "battle_girl.png": {
    "top": 0,
@@ -109,7 +119,8 @@
    "area": 1025,
    "dark_outline": 0.891,
    "orphans": 0.171,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.169
   },
   "beauty.png": {
    "top": 3,
@@ -119,7 +130,8 @@
    "area": 808,
    "dark_outline": 0.817,
    "orphans": 0.226,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.043
   },
   "bird_keeper.png": {
    "top": 3,
@@ -129,7 +141,8 @@
    "area": 1110,
    "dark_outline": 0.895,
    "orphans": 0.107,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.047
   },
   "black_belt.png": {
    "top": 2,
@@ -139,7 +152,8 @@
    "area": 1114,
    "dark_outline": 0.863,
    "orphans": 0.173,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.127
   },
   "brendan.png": {
    "top": 8,
@@ -149,7 +163,8 @@
    "area": 859,
    "dark_outline": 0.906,
    "orphans": 0.234,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.081
   },
   "brendan_rs.png": {
    "top": 8,
@@ -159,7 +174,8 @@
    "area": 850,
    "dark_outline": 0.918,
    "orphans": 0.224,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.082
   },
   "bug_catcher.png": {
    "top": 12,
@@ -169,7 +185,8 @@
    "area": 890,
    "dark_outline": 0.612,
    "orphans": 0.21,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.106
   },
   "bug_maniac.png": {
    "top": 4,
@@ -179,7 +196,8 @@
    "area": 1548,
    "dark_outline": 0.713,
    "orphans": 0.169,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.062
   },
   "camper.png": {
    "top": 18,
@@ -189,7 +207,8 @@
    "area": 789,
    "dark_outline": 0.888,
    "orphans": 0.185,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.11
   },
   "champion_wallace.png": {
    "top": 4,
@@ -199,7 +218,8 @@
    "area": 1932,
    "dark_outline": 0.616,
    "orphans": 0.127,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.096
   },
   "collector.png": {
    "top": 4,
@@ -209,7 +229,8 @@
    "area": 1534,
    "dark_outline": 0.888,
    "orphans": 0.117,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.454
   },
   "cooltrainer_f.png": {
    "top": 4,
@@ -219,7 +240,8 @@
    "area": 902,
    "dark_outline": 0.884,
    "orphans": 0.155,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.095
   },
   "cooltrainer_m.png": {
    "top": 2,
@@ -229,7 +251,8 @@
    "area": 825,
    "dark_outline": 0.902,
    "orphans": 0.172,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.136
   },
   "cycling_triathlete_f.png": {
    "top": 2,
@@ -239,7 +262,8 @@
    "area": 1292,
    "dark_outline": 0.904,
    "orphans": 0.185,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.166
   },
   "cycling_triathlete_m.png": {
    "top": 3,
@@ -249,7 +273,8 @@
    "area": 1331,
    "dark_outline": 0.871,
    "orphans": 0.155,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.148
   },
   "dome_ace_tucker.png": {
    "top": 2,
@@ -259,7 +284,8 @@
    "area": 1417,
    "dark_outline": 0.463,
    "orphans": 0.158,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.085
   },
   "dragon_tamer.png": {
    "top": 3,
@@ -269,7 +295,8 @@
    "area": 1253,
    "dark_outline": 0.927,
    "orphans": 0.114,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.137
   },
   "elite_four_drake.png": {
    "top": 1,
@@ -279,7 +306,8 @@
    "area": 1352,
    "dark_outline": 0.925,
    "orphans": 0.176,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.089
   },
   "elite_four_glacia.png": {
    "top": 2,
@@ -289,7 +317,8 @@
    "area": 1215,
    "dark_outline": 0.732,
    "orphans": 0.197,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.165
   },
   "elite_four_phoebe.png": {
    "top": 6,
@@ -299,7 +328,8 @@
    "area": 867,
    "dark_outline": 0.721,
    "orphans": 0.198,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.178
   },
   "elite_four_sidney.png": {
    "top": 9,
@@ -309,7 +339,8 @@
    "area": 992,
    "dark_outline": 0.84,
    "orphans": 0.163,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.125
   },
   "expert_f.png": {
    "top": 21,
@@ -319,7 +350,8 @@
    "area": 990,
    "dark_outline": 0.659,
    "orphans": 0.173,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.267
   },
   "expert_m.png": {
    "top": 5,
@@ -329,7 +361,8 @@
    "area": 1296,
    "dark_outline": 0.67,
    "orphans": 0.141,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.128
   },
   "factory_head_noland.png": {
    "top": 1,
@@ -339,7 +372,8 @@
    "area": 1254,
    "dark_outline": 0.678,
    "orphans": 0.096,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.18
   },
   "fisherman.png": {
    "top": 11,
@@ -349,7 +383,8 @@
    "area": 1236,
    "dark_outline": 0.782,
    "orphans": 0.223,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.044
   },
   "gentleman.png": {
    "top": 6,
@@ -359,7 +394,8 @@
    "area": 1087,
    "dark_outline": 0.929,
    "orphans": 0.133,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.294
   },
   "guitarist.png": {
    "top": 3,
@@ -369,7 +405,8 @@
    "area": 1116,
    "dark_outline": 0.879,
    "orphans": 0.173,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.065
   },
   "hex_maniac.png": {
    "top": 2,
@@ -379,7 +416,8 @@
    "area": 1182,
    "dark_outline": 0.975,
    "orphans": 0.154,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.25
   },
   "hiker.png": {
    "top": 1,
@@ -389,7 +427,8 @@
    "area": 1895,
    "dark_outline": 0.702,
    "orphans": 0.092,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.219
   },
   "interviewer.png": {
    "top": 5,
@@ -399,7 +438,8 @@
    "area": 1671,
    "dark_outline": 0.921,
    "orphans": 0.152,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.056
   },
   "kindler.png": {
    "top": 6,
@@ -409,7 +449,8 @@
    "area": 1127,
    "dark_outline": 0.531,
    "orphans": 0.096,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.096
   },
   "lady.png": {
    "top": 1,
@@ -419,7 +460,8 @@
    "area": 1453,
    "dark_outline": 0.473,
    "orphans": 0.213,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.1
   },
   "lass.png": {
    "top": 9,
@@ -429,7 +471,8 @@
    "area": 742,
    "dark_outline": 0.611,
    "orphans": 0.173,
-   "colours": 13
+   "colours": 13,
+   "symmetry": 0.022
   },
   "leader_brawly.png": {
    "top": 3,
@@ -439,7 +482,8 @@
    "area": 1171,
    "dark_outline": 0.922,
    "orphans": 0.18,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.305
   },
   "leader_flannery.png": {
    "top": 2,
@@ -449,7 +493,8 @@
    "area": 1060,
    "dark_outline": 0.924,
    "orphans": 0.216,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.155
   },
   "leader_juan.png": {
    "top": 0,
@@ -459,7 +504,8 @@
    "area": 1217,
    "dark_outline": 0.887,
    "orphans": 0.187,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.085
   },
   "leader_norman.png": {
    "top": 1,
@@ -469,7 +515,8 @@
    "area": 1078,
    "dark_outline": 0.987,
    "orphans": 0.123,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.267
   },
   "leader_roxanne.png": {
    "top": 9,
@@ -479,7 +526,8 @@
    "area": 827,
    "dark_outline": 0.845,
    "orphans": 0.177,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.122
   },
   "leader_tate_and_liza.png": {
    "top": 10,
@@ -489,7 +537,8 @@
    "area": 1492,
    "dark_outline": 0.918,
    "orphans": 0.153,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.088
   },
   "leader_wattson.png": {
    "top": 4,
@@ -499,7 +548,8 @@
    "area": 1202,
    "dark_outline": 0.855,
    "orphans": 0.124,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.3
   },
   "leader_winona.png": {
    "top": 3,
@@ -509,7 +559,8 @@
    "area": 1119,
    "dark_outline": 0.957,
    "orphans": 0.145,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.092
   },
   "leaf.png": {
    "top": 8,
@@ -519,7 +570,8 @@
    "area": 960,
    "dark_outline": 0.79,
    "orphans": 0.186,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.194
   },
   "magma_admin.png": {
    "top": 2,
@@ -529,7 +581,8 @@
    "area": 1331,
    "dark_outline": 0.974,
    "orphans": 0.137,
-   "colours": 13
+   "colours": 13,
+   "symmetry": 0.168
   },
   "magma_grunt_f.png": {
    "top": 3,
@@ -539,7 +592,8 @@
    "area": 1039,
    "dark_outline": 0.923,
    "orphans": 0.201,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.131
   },
   "magma_grunt_m.png": {
    "top": 7,
@@ -549,7 +603,8 @@
    "area": 1140,
    "dark_outline": 1.0,
    "orphans": 0.171,
-   "colours": 13
+   "colours": 13,
+   "symmetry": 0.139
   },
   "magma_leader_maxie.png": {
    "top": 1,
@@ -559,7 +614,8 @@
    "area": 1039,
    "dark_outline": 0.962,
    "orphans": 0.121,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.268
   },
   "may.png": {
    "top": 8,
@@ -569,7 +625,8 @@
    "area": 811,
    "dark_outline": 0.895,
    "orphans": 0.261,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.158
   },
   "may_rs.png": {
    "top": 8,
@@ -579,7 +636,8 @@
    "area": 811,
    "dark_outline": 0.899,
    "orphans": 0.244,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.178
   },
   "ninja_boy.png": {
    "top": 19,
@@ -589,7 +647,8 @@
    "area": 861,
    "dark_outline": 0.934,
    "orphans": 0.146,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.192
   },
   "old_couple.png": {
    "top": 1,
@@ -599,7 +658,8 @@
    "area": 2110,
    "dark_outline": 0.659,
    "orphans": 0.158,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.075
   },
   "palace_maven_spenser.png": {
    "top": 4,
@@ -609,7 +669,8 @@
    "area": 1254,
    "dark_outline": 0.593,
    "orphans": 0.155,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.089
   },
   "parasol_lady.png": {
    "top": 3,
@@ -619,7 +680,8 @@
    "area": 1174,
    "dark_outline": 0.882,
    "orphans": 0.11,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.092
   },
   "picnicker.png": {
    "top": 11,
@@ -629,7 +691,8 @@
    "area": 761,
    "dark_outline": 0.916,
    "orphans": 0.151,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.184
   },
   "pike_queen_lucy.png": {
    "top": 1,
@@ -639,7 +702,8 @@
    "area": 958,
    "dark_outline": 0.897,
    "orphans": 0.16,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.063
   },
   "pokefan_f.png": {
    "top": 6,
@@ -649,7 +713,8 @@
    "area": 1435,
    "dark_outline": 0.845,
    "orphans": 0.127,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.126
   },
   "pokefan_m.png": {
    "top": 9,
@@ -659,7 +724,8 @@
    "area": 1233,
    "dark_outline": 0.877,
    "orphans": 0.142,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.11
   },
   "pokemaniac.png": {
    "top": 12,
@@ -669,7 +735,8 @@
    "area": 1318,
    "dark_outline": 0.881,
    "orphans": 0.129,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.206
   },
   "pokemon_breeder_f.png": {
    "top": 3,
@@ -679,7 +746,8 @@
    "area": 911,
    "dark_outline": 0.858,
    "orphans": 0.176,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.199
   },
   "pokemon_breeder_m.png": {
    "top": 3,
@@ -689,7 +757,8 @@
    "area": 1007,
    "dark_outline": 0.739,
    "orphans": 0.133,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.093
   },
   "pokemon_ranger_f.png": {
    "top": 3,
@@ -699,7 +768,8 @@
    "area": 917,
    "dark_outline": 0.841,
    "orphans": 0.168,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.164
   },
   "pokemon_ranger_m.png": {
    "top": 7,
@@ -709,7 +779,8 @@
    "area": 1005,
    "dark_outline": 0.814,
    "orphans": 0.149,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.165
   },
   "psychic_f.png": {
    "top": 5,
@@ -719,7 +790,8 @@
    "area": 977,
    "dark_outline": 0.712,
    "orphans": 0.136,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.33
   },
   "psychic_m.png": {
    "top": 8,
@@ -729,7 +801,8 @@
    "area": 995,
    "dark_outline": 0.747,
    "orphans": 0.156,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.076
   },
   "pyramid_king_brandon.png": {
    "top": 3,
@@ -739,7 +812,8 @@
    "area": 1132,
    "dark_outline": 0.911,
    "orphans": 0.123,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.23
   },
   "red.png": {
    "top": 8,
@@ -749,7 +823,8 @@
    "area": 859,
    "dark_outline": 0.909,
    "orphans": 0.178,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.165
   },
   "rich_boy.png": {
    "top": 9,
@@ -759,7 +834,8 @@
    "area": 747,
    "dark_outline": 0.912,
    "orphans": 0.183,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.341
   },
   "ruin_maniac.png": {
    "top": 9,
@@ -769,7 +845,8 @@
    "area": 1288,
    "dark_outline": 0.563,
    "orphans": 0.147,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.172
   },
   "running_triathlete_f.png": {
    "top": 5,
@@ -779,7 +856,8 @@
    "area": 693,
    "dark_outline": 0.811,
    "orphans": 0.196,
-   "colours": 13
+   "colours": 13,
+   "symmetry": 0.271
   },
   "running_triathlete_m.png": {
    "top": 3,
@@ -789,7 +867,8 @@
    "area": 717,
    "dark_outline": 0.943,
    "orphans": 0.173,
-   "colours": 13
+   "colours": 13,
+   "symmetry": 0.381
   },
   "sailor.png": {
    "top": 2,
@@ -799,7 +878,8 @@
    "area": 1502,
    "dark_outline": 0.611,
    "orphans": 0.123,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.212
   },
   "salon_maiden_anabel.png": {
    "top": 3,
@@ -809,7 +889,8 @@
    "area": 813,
    "dark_outline": 0.637,
    "orphans": 0.224,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.212
   },
   "school_kid_f.png": {
    "top": 14,
@@ -819,7 +900,8 @@
    "area": 706,
    "dark_outline": 0.937,
    "orphans": 0.137,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.099
   },
   "school_kid_m.png": {
    "top": 14,
@@ -829,7 +911,8 @@
    "area": 790,
    "dark_outline": 0.844,
    "orphans": 0.146,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.181
   },
   "sis_and_bro.png": {
    "top": 7,
@@ -839,7 +922,8 @@
    "area": 1427,
    "dark_outline": 0.836,
    "orphans": 0.203,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.078
   },
   "sr_and_jr.png": {
    "top": 8,
@@ -849,7 +933,8 @@
    "area": 1381,
    "dark_outline": 0.856,
    "orphans": 0.224,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.088
   },
   "steven.png": {
    "top": 0,
@@ -859,7 +944,8 @@
    "area": 1075,
    "dark_outline": 0.881,
    "orphans": 0.187,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.071
   },
   "swimmer_f.png": {
    "top": 6,
@@ -869,7 +955,8 @@
    "area": 718,
    "dark_outline": 0.789,
    "orphans": 0.233,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.089
   },
   "swimmer_m.png": {
    "top": 18,
@@ -879,7 +966,8 @@
    "area": 743,
    "dark_outline": 0.763,
    "orphans": 0.19,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.533
   },
   "swimming_triathlete_f.png": {
    "top": 5,
@@ -889,7 +977,8 @@
    "area": 817,
    "dark_outline": 0.825,
    "orphans": 0.18,
-   "colours": 13
+   "colours": 13,
+   "symmetry": 0.14
   },
   "swimming_triathlete_m.png": {
    "top": 4,
@@ -899,7 +988,8 @@
    "area": 1065,
    "dark_outline": 0.881,
    "orphans": 0.135,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.103
   },
   "tuber_f.png": {
    "top": 14,
@@ -909,7 +999,8 @@
    "area": 775,
    "dark_outline": 0.855,
    "orphans": 0.139,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.281
   },
   "tuber_m.png": {
    "top": 19,
@@ -919,7 +1010,8 @@
    "area": 708,
    "dark_outline": 0.916,
    "orphans": 0.175,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.345
   },
   "twins.png": {
    "top": 17,
@@ -929,7 +1021,8 @@
    "area": 1182,
    "dark_outline": 0.79,
    "orphans": 0.172,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.164
   },
   "wally.png": {
    "top": 7,
@@ -939,7 +1032,8 @@
    "area": 755,
    "dark_outline": 0.717,
    "orphans": 0.2,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.225
   },
   "young_couple.png": {
    "top": 8,
@@ -949,7 +1043,8 @@
    "area": 1242,
    "dark_outline": 0.959,
    "orphans": 0.171,
-   "colours": 14
+   "colours": 14,
+   "symmetry": 0.11
   },
   "youngster.png": {
    "top": 15,
@@ -959,7 +1054,8 @@
    "area": 665,
    "dark_outline": 0.843,
    "orphans": 0.159,
-   "colours": 15
+   "colours": 15,
+   "symmetry": 0.108
   }
  }
 }

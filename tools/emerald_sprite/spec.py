@@ -27,6 +27,9 @@ Front-facing art is mostly symmetric, so a frame can be drawn as its left half a
       patches:          # then redraw the asymmetric parts; `_` keeps the pixel underneath
         - {x: 20, y: 30, rows: "KK_K"}
 
+A frame can also be posed with a `rig:` (layered shaded shapes on joints, see rig.py) and then
+finished with `patches:`; this is how trainer pics get organic 3/4 poses.
+
 `palette:` is either the name of a file in palettes/ (shared palettes) or an inline list of up
 to 16 [r, g, b] colours (own-palette art such as trainer pics); index 0 is transparent.
 """
@@ -36,6 +39,8 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 import yaml
+
+from . import rig as rig_mod
 
 # Frame layout of sAnimTable_Standard (src/data/object_events/object_event_anims.h):
 # 0 face down, 1 face up, 2 face left, 3/4 walk down, 5/6 walk up, 7/8 walk left.
@@ -146,6 +151,11 @@ def load(path: str | Path) -> Spec:
         where = f"frame {name}"
         if isinstance(f, str):
             g = _bottom_anchor(_parse_rows(f, legend, w, where), w, h, where)
+        elif "rig" in f:
+            try:
+                g = rig_mod.render(f["rig"], legend, w, h, where)
+            except rig_mod.RigError as e:
+                raise SpecError(str(e)) from None
         elif "half" in f:
             lines = [ln.rstrip() for ln in f["half"].strip("\n").split("\n")]
             half = w // 2
@@ -178,7 +188,7 @@ def load(path: str | Path) -> Spec:
                 for i, row in enumerate(patch):
                     g[py + i] = row
         else:
-            raise SpecError(f"{where}: give a grid, `half:`, `base:` or `mirror_of:`")
+            raise SpecError(f"{where}: give a grid, `rig:`, `half:`, `base:` or `mirror_of:`")
         if isinstance(f, dict):
             for i, pt in enumerate(f.get("patches") or []):
                 px, py = int(pt["x"]), int(pt["y"])

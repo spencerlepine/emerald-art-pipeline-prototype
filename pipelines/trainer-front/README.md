@@ -1,10 +1,14 @@
 # Tool: `trainer-front` (trainer battle pics)
 
-**Status: IN-REVIEW.** Vader mockups (3 poses) are with the owner. Category B1 (93 pics) and
-B4 (professor portrait).
+**Status: IN-REVIEW.** Vader round 2 (four rig-posed 3/4 poses) is with the owner. Category B1
+(93 pics) and B4 (professor portrait).
 
-Reference: `art/trainers/vader.yaml` -> `output/trainers/vader/`; pose variants
-`vader_b.yaml`, `vader_c.yaml`; review sheet `output/trainers/vader-pose-variants.png`.
+**Read [STYLE-GUIDE.md](STYLE-GUIDE.md) first**: pose, perspective and pixel rules from the 93
+vanilla pics, a review checklist, and the owner's feedback log. Getting the pose right is the
+hard part of this category; the format is handled by the tool.
+
+Reference: `art/trainers/vader_p1..p4.yaml` -> `output/trainers/vader_p*/`; review sheets
+`output/trainers/vader-poses-r2.png` (current) and `vader-poses-r1.png` (rejected: front-on).
 
 ## Format (what the game needs)
 
@@ -24,12 +28,14 @@ edges, plenty of single-pixel highlights (orphans 11-23%).
 
 1. Find the asset in `emerald-sw-db/database/pending_art.csv` (`kind = trainers`) and the
    Star Wars character in `swap_map.csv`.
-2. Write `art/trainers/<name>.yaml` (copy `vader.yaml`): `name`, `kit: trainer64`,
+2. Write `art/trainers/<name>.yaml` (copy `vader_p1.yaml`): `name`, `kit: trainer64`,
    `replaces`, inline `palette` (outline, 3-4 step ramp per material, accents), `legend`.
-3. Draw the figure. Most front poses are near-symmetric, so draw the **left half** with
-   `half:` (lines right-aligned to the centre line), add `mirror_shade` so the right half is a
-   step darker (light from the upper left), then draw everything asymmetric with `patches:`
-   (`_` keeps the pixel underneath): face details, chest panels, held items, a raised arm.
+3. Write a one-line pose brief (STYLE-GUIDE section 1), then block the pose with a `rig:`:
+   named joints plus layered `capsule`/`ellipse`/`poly` shapes, back to front, each with a
+   2-3 colour ramp; the tool fills, shades (light from the upper left) and outlines each layer
+   (see `tools/emerald_sprite/rig.py`). Move joints until the silhouette reads. Then add
+   `patches:` (`_` keeps the pixel underneath) for the face, emblems, glints and folds.
+   Do not draw trainer pics with `half:` mirroring: it produces flat front-on figures.
 4. `cd tools && python -m emerald_sprite build ../art/trainers/<name>.yaml`, then **look at**
    `output/trainers/<name>/preview/zoom.png` (8x editor view with coordinates) and
    `battle.png` (in a battle next to the vanilla pic it replaces, 1x and 2x). Fix until it
@@ -42,6 +48,8 @@ edges, plenty of single-pixel highlights (orphans 11-23%).
 
 ## Known gaps
 
-- Lint flags bulk (area) for caped/robed characters and too few single-pixel highlights;
-  both mean "less detailed than vanilla", worth fixing before READY.
+- Lint flags bulk (area) for caped/robed characters and too few single-pixel highlights
+  (rig output is smooth; patch accents in).
+- `symmetry` (share of pixels equal to their mirror) is linted against vanilla's 0.06-0.33;
+  a front-on mirrored figure scores ~0.65.
 - `install` copies the PNG only; nothing else is needed for an existing pic.

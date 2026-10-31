@@ -1,0 +1,66 @@
+name: vader_p3
+kit: trainer64
+replaces: graphics/trainers/front_pics/magma_leader_maxie.png
+# Darth Vader replaces Maxie (emerald-sw-db swap_map: character:maxie -> VADER).
+# Pose 3 "high guard": lunging toward the player, both hands on the hilt above the near
+# shoulder, blade raised up and back. Most aggressive.
+palette:
+  - [115, 197, 164]  # 0 transparent
+  - [16, 16, 24]     # K outline
+  - [24, 24, 40]     # c deepest shadow (inside the cape)
+  - [48, 56, 88]     # d armour shadow
+  - [80, 96, 136]    # m armour base
+  - [136, 160, 208]  # h highlight
+  - [200, 216, 240]  # s sheen
+  - [96, 96, 112]    # g metal dark
+  - [168, 168, 184]  # G metal light
+  - [96, 40, 56]     # l lens
+  - [216, 48, 40]    # r red light
+  - [72, 200, 96]    # e green light
+  - [64, 128, 232]   # b blue light
+  - [248, 64, 48]    # R saber glow
+  - [248, 240, 240]  # W saber core
+legend: {'.': 0, K: 1, c: 2, d: 3, m: 4, h: 5, s: 6, g: 7, G: 8, l: 9, r: 10, e: 11, b: 12, R: 13, W: 14}
+frames:
+  front:
+    rig:
+      joints:
+        head: [26, 10]
+        neck: [28, 18]
+        sh_far: [22, 21]
+        sh_near: [36, 21]
+        el_far: [31, 26]
+        hand_far: [43, 17]
+        el_near: [47, 24]
+        hand_near: [46, 14]
+        hip_far: [26, 38]
+        hip_near: [34, 38]
+        kn_far: [18, 46]
+        ft_far: [14, 58]
+        kn_near: [42, 49]
+        ft_near: [48, 59]
+      layers:
+        - {name: cape, shape: poly, pts: [[21, 18], [37, 18], [48, 30], [58, 48], [60, 62], [36, 62], [30, 46], [19, 42]], ramp: cdm}
+        - {name: far leg, shape: capsule, from: hip_far, to: kn_far, r: [4, 3], ramp: cdm}
+        - {name: far shin, shape: capsule, from: kn_far, to: ft_far, r: [3, 3], ramp: cdm}
+        - {name: far boot, shape: ellipse, at: [12, 60], r: [5, 2.6], ramp: cdm}
+        - {name: near leg, shape: capsule, from: hip_near, to: kn_near, r: [4, 3.5], ramp: dmh}
+        - {name: near shin, shape: capsule, from: kn_near, to: ft_near, r: [3.5, 3], ramp: dmh}
+        - {name: near boot, shape: ellipse, at: [49, 60], r: [5, 2.6], ramp: dmh}
+        - {name: torso, shape: poly, pts: [[21, 19], [37, 19], [37, 30], [36, 38], [26, 38], [24, 30]], ramp: dmh}
+        - {name: belt, shape: poly, pts: [[25, 32], [37, 32], [37, 35], [25, 35]], ramp: gGG}
+        - {name: near arm, shape: capsule, from: sh_near, to: el_near, r: [4, 3], ramp: dmh}
+        - {name: near forearm, shape: capsule, from: el_near, to: hand_near, r: [3, 3], ramp: dmh}
+        - {name: near fist, shape: ellipse, at: hand_near, r: [3, 3], ramp: dmh}
+        - {name: blade, shape: capsule, from: [50, 9], to: [62, 0], r: [1.5, 1.5], ramp: W, outline: R}
+        - {name: hilt, shape: capsule, from: [43, 17], to: [49, 10], r: [1, 1], ramp: gG}
+        - {name: helmet flare, shape: poly, pts: [[17, 12], [36, 11], [40, 20], [34, 22], [21, 21], [16, 18]], ramp: dmh}
+        - {name: helmet dome, shape: ellipse, at: head, r: [8, 6.5], ramp: dmh}
+        - {name: far arm, shape: capsule, from: sh_far, to: el_far, r: [4, 3], ramp: dmh}
+        - {name: far forearm, shape: capsule, from: el_far, to: hand_far, r: [3, 3], ramp: dmh}
+        - {name: far fist, shape: ellipse, at: hand_far, r: [3, 3], ramp: dmh}
+    patches:
+      - {x: 17, y: 9, rows: "__KKKKKKKKKK\n_KllKhKKllllK\nKslllKdKslllK\nKllKKdddKllKK\n_KKdgggdKKd__\n__KdgGggdK___\n__KggGggK____\n___KgggK_____\n____KKK______"}
+      - {x: 21, y: 4, rows: "_ss\ns__"}
+      - {x: 26, y: 22, rows: "KKKKKK\nKGrebK\nKGbrGK\nKKKKKK"}
+      - {x: 28, y: 32, rows: "KKKK\nKsGK\nKGgK\nKKKK"}

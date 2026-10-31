@@ -27,7 +27,7 @@ from .preview import rgba_frame
 
 REPO = Path(__file__).resolve().parents[2]
 CORPUS_FILE = REPO / "corpus" / "trainer64.json"
-KEYS = ("top", "feet", "height", "width", "area", "dark_outline", "orphans", "colours")
+KEYS = ("top", "feet", "height", "width", "area", "dark_outline", "orphans", "colours", "symmetry")
 OPP_TOPLEFT = (144, 8)  # centre (176, 40) - 32 for a size-8 (64x64) pic
 PLAYER_TOPLEFT = (48, 48)  # back pic centre (80, 80)
 
@@ -44,7 +44,21 @@ def read_pic(path: Path) -> tuple[list[list[int]], list[tuple[int, int, int]]]:
 def metrics(g, colours) -> dict:
     m = frame_metrics(g, colours)
     m["colours"] = len({v for row in g for v in row} - {0})
+    m["symmetry"] = symmetry(g)
     return {k: m[k] for k in KEYS if k in m}
+
+
+def symmetry(g) -> float:
+    """Share of opaque pixels whose mirror image (about the art's own centre) has the same index.
+    Vanilla pics are posed in 3/4 view, so this is low; a flat, front-on, mirrored figure scores
+    near 1. The metric that would have caught the first, rejected Vader draft."""
+    px = [(x, y) for y, row in enumerate(g) for x, v in enumerate(row) if v]
+    if not px:
+        return 0.0
+    xs = [x for x, _ in px]
+    c = min(xs) + max(xs)
+    same = sum(1 for x, y in px if 0 <= c - x < len(g[0]) and g[y][c - x] == g[y][x])
+    return round(same / len(px), 3)
 
 
 def load_corpus() -> dict | None:

@@ -166,7 +166,7 @@ the 93 vanilla pics (`corpus/trainer64.json`). The deciding preview is `battle.p
 a rendered Emerald battle (real tall-grass background, player back pic, text box) next to the
 vanilla pic it replaces, at 1x and 2x.
 
-## Trainer prototype 1: Vader battle pic (2026-10-31)
+## Trainer prototype 1: Vader battle pic, round 1 (2026-10-31)
 
 Replaces `magma_leader_maxie.png` (matches the Vader walker that replaces Maxie's). Three pose
 variants on one body: A saber lit and held down at his side, B Force choke with the arm raised,
@@ -175,3 +175,30 @@ All three round-trip through gbagfx (2048 bytes + 32-byte palette). A first draf
 tent-shaped cape and a 50 px wide helmet was discarded before review: it read as a box. Known
 gaps: still bulkier than vanilla (area 1,822 vs p95 1,534, cape) and fewer single-pixel
 highlights than Emerald artists use.
+
+Owner review of round 1: "about 60%... very flat, looks very unnatural in this perspective...
+they're not gonna be standing perfectly straight up facing the camera... I like the lightsaber
+on A". Round 1 specs were removed (sheet kept as `output/trainers/vader-poses-r1.png`).
+
+## D12. Trainer pics are posed with a rig, then hand-patched; `half:` is not for trainers (2026-10-31)
+
+Vanilla trainer pics are 3/4 views in organic poses (lint `symmetry` 0.06-0.33); writing 4,096
+cells by hand pushed the LLM to a mirrored, front-on figure (0.65) that the owner rejected.
+A frame can now be a `rig:`: named joints plus layered capsule/ellipse/poly shapes, each
+filled, shaded from the upper left with its 2-3 colour ramp and outlined, back to front, so
+overlapping near limbs get Emerald's interior lines for free. The LLM then hand-places the
+identity details with `patches:`. This keeps D2 (the LLM writes data, the tool cannot leave the
+palette) while letting a pose be changed by moving a few joints, which is what owner iteration
+on poses needs. The judgement that the tool cannot make lives in
+`pipelines/trainer-front/STYLE-GUIDE.md` (pose, perspective, craft rules from all 93 vanilla
+pics, review checklist, feedback log). `symmetry` was added to lint so a flat front-on figure
+is flagged before the owner sees it.
+
+## Trainer prototype 1: Vader battle pic, round 2 (2026-10-31)
+
+Four rig-posed 3/4 poses, all turned toward the player: P1 advance with the lit saber angled
+low toward the player (round 1 A's saber, which the owner liked), P2 Force grip with the saber
+low behind, P3 lunging high guard, P4 salute with the blade raised. Sheet:
+`output/trainers/vader-poses-r2.png`. Palette brightened (D7 again: dark armour needs a strong
+blue-grey highlight to separate from the cape). Known gaps: area over vanilla's p95 (the cape),
+few single-pixel accents, rig shading still smoother than hand-pixelled vanilla.

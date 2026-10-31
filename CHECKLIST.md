@@ -159,7 +159,7 @@ Work one tool at a time: build it, show the owner mockups in chat, iterate, mark
 1. [x] Audit every asset category, generate this checklist (2026-10-31).
 2. [x] Restructure the repo: `art/<category>/`, `output/<category>/`, `pipelines/<tool>/`, `catalog/`.
 3. [x] `walker` 16x32 people kit: Vader approved.
-4. [ ] `trainer-front`: tool built; Vader mockups (3 poses) **IN-REVIEW** with the owner.
+4. [ ] `trainer-front`: tool built; Vader round 1 rejected (flat, front-on); round 2 (pose rig, 4 poses) **IN-REVIEW**. Style guide: `pipelines/trainer-front/STYLE-GUIDE.md`.
 5. [ ] `trainer-back`: player throw sheets (needs the player character decided).
 6. [ ] `creature`: battle front (2 frames) + back + shiny palette.
 7. [ ] `icon`: item icons first (218), then berries, decorations, balls, type labels; derive party icons and footprints from creature fronts.
