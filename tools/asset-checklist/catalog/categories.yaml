@@ -1,0 +1,423 @@
+# Every drawable asset category in pokeemerald, and the tool that draws it.
+#
+# This file is the source of truth for CHECKLIST.md: `python -m asset_checklist` (run from tools/asset-checklist/) matches
+# every PNG under pokeemerald's graphics/ and data/tilesets/ against `files` minus `exclude`
+# (first category in this file that matches wins, so specific globs come first), fails if any
+# PNG matches none, and
+# rewrites the generated tables in CHECKLIST.md.
+#
+# Globs are relative to the pokeemerald root; `**` matches any number of directories.
+# Status of a tool: TODO-NEED-TO-BUILD | PENDING | IN-REVIEW | READY  (meaning in CHECKLIST.md). A category
+# may override its tool's status with `status:` when only part of the tool covers it.
+
+tools:
+  sprite-walker-generator:
+    status: READY
+    covers: "16x32 people walkers (9-frame standard sheet)"
+    guide: tools/sprite-walker-generator/README.md
+    note: "Vader approved (helmet variant A). Other walker kits (32x32, 16x16, special sheets: bike, surf, fishing, field move) are TODO inside this tool."
+  sprite-trainer-generator:
+    status: READY
+    covers: "64x64 trainer battle pics with their own 16-colour palette"
+    guide: tools/sprite-trainer-generator/README.md
+    note: "Repaint tool (D13) approved in round 5 (Vader, Boba Fett, Leia, Obi-Wan). B4 (professor portrait) not yet tried."
+  sprite-trainer-back-generator:
+    status: TODO-NEED-TO-BUILD
+    covers: "Player/partner battle back sprites (4-5 frame throw sheets)"
+    guide: tools/sprite-trainer-back-generator/README.md
+  sprite-creature-generator:
+    status: PENDING
+    covers: "Creature (Pokémon) battle front + 2nd anim frame, back, normal/shiny palettes"
+    guide: tools/sprite-creature-generator/README.md
+    note: "D15: drawn by an image model (Stable Diffusion family + LoRA trained on vanilla sprites), our tool as finisher. Waits on a GPU; research and design in tools/sprite-creature-generator/research/. Round 1 hand-drawing fell short."
+  icon:
+    status: TODO-NEED-TO-BUILD
+    covers: "Small fixed-size stills: item icons, berries, decorations, balls, type labels, creature party icons, footprints"
+  obj-anim:
+    status: TODO-NEED-TO-BUILD
+    covers: "Small multi-frame OBJ sprite sheets: field effects, door anims, field objects, weather, battle-anim particles"
+  tileset:
+    status: TODO-NEED-TO-BUILD
+    covers: "Overworld biome/building tile sheets, their palettes, metatiles and tile animations; battle backgrounds"
+  ui-skin:
+    status: TODO-NEED-TO-BUILD
+    covers: "Tile-based screens (tiles + tilemap + palette): menus, windows, battle HUD, minigames"
+  font:
+    status: TODO-NEED-TO-BUILD
+    covers: "Bitmap fonts and glyph sheets"
+  cutscene:
+    status: TODO-NEED-TO-BUILD
+    covers: "Title, intro, legendary/ending scenes, evolution and trade backgrounds"
+  none:
+    status: OUT-OF-SCOPE
+    covers: "Unused vanilla art and Japanese-only leftovers: never shown, not redrawn"
+
+families:
+  A: Creatures
+  B: People
+  C: Items and icons
+  D: Overworld world (biomes, objects, effects)
+  E: Battle
+  F: Screens and UI
+  G: Cutscenes and story screens
+  H: Minigames and facilities
+  X: Not drawn
+
+categories:
+  # ---------------------------------------------------------------- A. Creatures
+  - id: A1
+    family: A
+    name: Creature battle front (2 frames)
+    where: Battle (opponent side), Pokédex, summary
+    format: "front.png 64x64 + anim_front.png 64x128 (2 frames), own palette"
+    tool: sprite-creature-generator
+    files: ["graphics/pokemon/**/front.png", "graphics/pokemon/**/anim_front.png", "graphics/pokemon/**/normal.pal", "graphics/pokemon/**/shiny.pal"]
+  - id: A2
+    family: A
+    name: Creature battle back
+    where: Battle (your side)
+    format: "back.png 64x64, same palette as the front"
+    tool: sprite-creature-generator
+    files: ["graphics/pokemon/**/back.png"]
+  - id: A3
+    family: A
+    name: Creature party/PC icons
+    where: Party menu, PC boxes
+    format: "icon.png 32x64 (2-frame wiggle), one of 3 shared icon palettes"
+    tool: icon
+    files: ["graphics/pokemon/**/icon*.png", "graphics/pokemon/icon_palettes/*"]
+  - id: A4
+    family: A
+    name: Creature footprints
+    where: Pokédex
+    format: "16x16, 1 colour"
+    tool: icon
+    files: ["graphics/pokemon/**/footprint.png"]
+  - id: A5
+    family: A
+    name: Eggs, hatching and special-form extras
+    where: Daycare egg, hatch scene, Spinda spots, Unown/Castform/Deoxys forms
+    format: "egg hatch/shard sheets, spot masks, per-form folders"
+    tool: sprite-creature-generator
+    files: ["graphics/pokemon/egg/**", "graphics/pokemon/spinda/**", "graphics/pokemon/**/*.png"]
+  - id: A6
+    family: A
+    name: Overworld creature walkers
+    where: Overworld (legendaries, follower-style NPC creatures)
+    format: "16x16 to 64x64 frames, shared NPC palettes"
+    tool: sprite-walker-generator
+    status: TODO-NEED-TO-BUILD  # walker kits other than 16x32 people are not built yet
+    files: ["graphics/object_events/pics/pokemon/**"]
+
+  # ---------------------------------------------------------------- B. People
+  - id: B1
+    family: B
+    name: Trainer battle front pics
+    where: Trainer battles, trainer card, Hall of Fame, Battle Frontier
+    format: "64x64, 1 frame, own 16-colour palette taken from the PNG"
+    tool: sprite-trainer-generator
+    files: ["graphics/trainers/front_pics/**"]
+  - id: B2
+    family: B
+    name: Player battle back pics
+    where: Your side when a battle starts (ball throw)
+    format: "64x256/64x320 = 4-5 frames of 64x64, palette in graphics/trainers/palettes"
+    tool: sprite-trainer-back-generator
+    files: ["graphics/trainers/back_pics/**", "graphics/trainers/palettes/*"]
+  - id: B3
+    family: B
+    name: People overworld walkers
+    where: Overworld NPCs, player, rivals
+    format: "16x32 x 9 frames (standard), plus 32x32 big, 16x16 small and special sheets (bike, surf, fish, field move)"
+    tool: sprite-walker-generator
+    status: "READY (16x32 kit); other kits TODO-NEED-TO-BUILD"
+    files: ["graphics/object_events/pics/people/**", "graphics/object_events/palettes/*"]
+  - id: B4
+    family: B
+    name: Professor speech portrait
+    where: New-game intro
+    format: "birch 64x64 still + shadow/unused frames"
+    tool: sprite-trainer-generator
+    files: ["graphics/birch_speech/birch.png", "graphics/birch_speech/shadow.png"]
+
+  # ---------------------------------------------------------------- C. Items and icons
+  - id: C1
+    family: C
+    name: Item icons
+    where: Bag, shops, PC
+    format: "24x24, own palette (graphics/items/icon_palettes)"
+    tool: icon
+    files: ["graphics/items/**"]
+  - id: C2
+    family: C
+    name: Berry pictures
+    where: Berry tag, berry blender
+    format: "48x48, own palette"
+    tool: icon
+    files: ["graphics/berries/**"]
+  - id: C3
+    family: C
+    name: Decoration icons
+    where: Secret base decoration menu
+    format: "24x24"
+    tool: icon
+    files: ["graphics/decorations/**"]
+  - id: C4
+    family: C
+    name: Placed dolls and cushions
+    where: Secret bases
+    format: "16x16 / 32x32 OBJ sprites"
+    tool: sprite-walker-generator
+    status: TODO-NEED-TO-BUILD  # 16x16/32x32 still kits not built yet
+    files: ["graphics/object_events/pics/dolls/**", "graphics/object_events/pics/cushions/**"]
+  - id: C5
+    family: C
+    name: Poké Ball battle sprites
+    where: Throw, send-out, capture
+    format: "16x48 = 3 frames of 16x16"
+    tool: icon
+    files: ["graphics/balls/**"]
+  - id: C6
+    family: C
+    name: Type and contest-category labels
+    where: Summary, Pokédex, move info
+    format: "32x16"
+    tool: icon
+    files: ["graphics/types/**"]
+
+  # ---------------------------------------------------------------- D. Overworld world
+  - id: D1
+    family: D
+    name: Tilesets (biome and building tile sheets)
+    where: Every map
+    format: "tiles.png 128 wide of 8x8 tiles; 16-colour palettes (primary 0-5, secondary 6-12); metatiles.bin + attributes"
+    tool: tileset
+    files: ["data/tilesets/**/*.png", "data/tilesets/**/*.pal"]
+    exclude: ["data/tilesets/**/anim/**"]
+  - id: D2
+    family: D
+    name: Tileset animations
+    where: Water, flowers, waterfalls, lava, TVs, lights
+    format: "frames of tiles swapped into the tileset at runtime"
+    tool: tileset
+    files: ["data/tilesets/**/anim/**"]
+  - id: D3
+    family: D
+    name: Door animations
+    where: Every enterable building
+    format: "16x96 (3 frames of 16x32), some 32-wide"
+    tool: obj-anim
+    files: ["graphics/door_anims/**"]
+  - id: D4
+    family: D
+    name: Field effects
+    where: Grass rustle, ripples, footprints, sand, ash, emote bubbles, Cut, shadows
+    format: "8x8 to 32x32 OBJ frames"
+    tool: obj-anim
+    files: ["graphics/field_effects/**"]
+  - id: D5
+    family: D
+    name: Field objects
+    where: Boulders, Cut trees, breakable rocks, truck, Mirage Tower, rotating gates, berry trees
+    format: "16x16 to 64x64 OBJ frames"
+    tool: obj-anim
+    files: ["graphics/object_events/pics/misc/**", "graphics/object_events/pics/berry_trees/**", "graphics/rotating_gates/**", "graphics/misc/mirage_tower*"]
+  - id: D6
+    family: D
+    name: Weather overlays
+    where: Rain, snow, ash, fog, sandstorm, bubbles
+    format: "OBJ frames + scrolling layers"
+    tool: obj-anim
+    files: ["graphics/weather/**", "graphics/cave_transition/**"]
+  - id: D7
+    family: D
+    name: Map name popups
+    where: Entering a new area
+    format: "80x24 frame styles + outlines"
+    tool: ui-skin
+    files: ["graphics/map_popup/**"]
+  - id: D8
+    family: D
+    name: Region map
+    where: Town map, PokéNav map, Fly, Pokédex area
+    format: "tiles + tilemap, map icons and cursors"
+    tool: ui-skin
+    files: ["graphics/pokenav/region_map/**", "graphics/pokenav/region_map*", "graphics/pokedex/region_map*", "graphics/pokedex/area_*"]
+
+  # ---------------------------------------------------------------- E. Battle
+  - id: E1
+    family: E
+    name: Battle backgrounds
+    where: Behind every battle
+    format: "tiles + tilemap + anim tiles + palette per environment"
+    tool: tileset
+    files: ["graphics/battle_environment/**"]
+  - id: E2
+    family: E
+    name: Battle HUD
+    where: Health boxes, HP/EXP bars, ball tray, status
+    format: "OBJ/BG tiles"
+    tool: ui-skin
+    files: ["graphics/battle_interface/**"]
+  - id: E3
+    family: E
+    name: Move animation sprites and backgrounds
+    where: Every move animation
+    format: "particle sprites, BG overlays, masks (scripts in data/battle_anim_scripts.s are kept)"
+    tool: obj-anim
+    files: ["graphics/battle_anims/unused/**", "graphics/battle_anims/**"]
+  - id: E4
+    family: E
+    name: Battle transitions
+    where: Wild/trainer/leader battle start
+    format: "BG tiles + OBJ pieces"
+    tool: obj-anim
+    files: ["graphics/battle_transitions/**"]
+
+  # ---------------------------------------------------------------- F. Screens and UI
+  - id: F1
+    family: F
+    name: Text windows and frames
+    where: Every dialogue/menu box (20 player-selectable frames)
+    format: "24x24 frame tiles + palette"
+    tool: ui-skin
+    files: ["graphics/text_window/**"]
+  - id: F2
+    family: F
+    name: Fonts
+    where: All text
+    format: "glyph sheets 1-2bpp, Latin + Japanese + Braille"
+    tool: font
+    files: ["graphics/fonts/**"]
+  - id: F3
+    family: F
+    name: Shared interface pieces
+    where: Cursors, scroll arrows, status icons, markings, menu info
+    format: "small OBJ/BG tiles"
+    tool: ui-skin
+    files: ["graphics/interface/**", "graphics/misc/**", "graphics/reset_rtc_screen/**"]
+  - id: F4
+    family: F
+    name: Bag, party and summary screens
+    where: Start menu screens
+    format: "full-screen tiles + tilemap; bag pictures 64x64 x 6 pockets"
+    tool: ui-skin
+    files: ["graphics/bag/**", "graphics/party_menu/**", "graphics/summary_screen/**"]
+  - id: F5
+    family: F
+    name: Pokédex screens
+    where: Pokédex
+    format: "tiles + tilemaps"
+    tool: ui-skin
+    files: ["graphics/pokedex/**"]
+  - id: F6
+    family: F
+    name: PokéNav screens
+    where: PokéNav (condition, match call, ribbons)
+    format: "tiles + tilemaps + OBJ"
+    tool: ui-skin
+    files: ["graphics/pokenav/**"]
+  - id: F7
+    family: F
+    name: PC storage and wallpapers
+    where: PC boxes
+    format: "16 wallpapers (tiles + tilemap) + menus"
+    tool: ui-skin
+    files: ["graphics/pokemon_storage/**"]
+  - id: F8
+    family: F
+    name: Trainer card, Frontier Pass, diploma
+    where: Player ID screens
+    format: "tiles + tilemaps, badge/medal icons"
+    tool: ui-skin
+    files: ["graphics/trainer_card/**", "graphics/frontier_pass/**", "graphics/diploma/**"]
+  - id: F9
+    family: F
+    name: Naming, Easy Chat, shop, mail, misc menus
+    where: Text entry, shops, mail, wall clock, picture frames
+    format: "tiles + tilemaps"
+    tool: ui-skin
+    files: ["graphics/naming_screen/**", "graphics/easy_chat/**", "graphics/shop/**", "graphics/mail/**", "graphics/wallclock/**", "graphics/picture_frame/**", "graphics/trainer_hill/**", "graphics/starter_choose/**"]
+  - id: F10
+    family: F
+    name: Link, wireless and Mystery Gift screens
+    where: Trade/record mixing setup, Union Room chat, Wonder Card/News
+    format: "tiles + tilemaps"
+    tool: ui-skin
+    files: ["graphics/link/**", "graphics/union_room_chat/**", "graphics/wireless_status_screen/**", "graphics/wonder_card/**", "graphics/wonder_news/**", "graphics/berry_fix/**"]
+
+  # ---------------------------------------------------------------- G. Cutscenes
+  - id: G1
+    family: G
+    name: Title screen
+    where: Boot
+    format: "logo, version banner, legendary, clouds"
+    tool: cutscene
+    files: ["graphics/title_screen/**"]
+  - id: G2
+    family: G
+    name: Intro and credits
+    where: Copyright/intro movie, staff roll
+    format: "BG tiles + OBJ actors"
+    tool: cutscene
+    files: ["graphics/intro/**", "graphics/credits/**"]
+  - id: G3
+    family: G
+    name: Legendary story scene
+    where: Rayquaza vs Groudon/Kyogre cutscene
+    format: "BG tiles + large OBJ actors"
+    tool: cutscene
+    files: ["graphics/rayquaza_scene/**"]
+  - id: G4
+    family: G
+    name: Evolution, trade and cable car scenes
+    where: Evolution, trading, cable car ride
+    format: "BG tiles + OBJ"
+    tool: cutscene
+    files: ["graphics/evolution_scene/**", "graphics/trade/**", "graphics/cable_car/**"]
+
+  # ---------------------------------------------------------------- H. Minigames and facilities
+  - id: H1
+    family: H
+    name: Contests
+    where: Contest halls
+    format: "audience, meters, interface tiles"
+    tool: ui-skin
+    files: ["graphics/contest/japanese/**", "graphics/contest/**"]
+  - id: H2
+    family: H
+    name: Berry Blender, Berry Crush, Pokéblocks
+    where: Berry minigames, Pokéblock case/feeding
+    format: "tiles + OBJ"
+    tool: ui-skin
+    files: ["graphics/berry_blender/**", "graphics/berry_crush/**", "graphics/pokeblock/**"]
+  - id: H3
+    family: H
+    name: Link minigames (Dodrio picking, Pokémon Jump)
+    where: Wireless minigames
+    format: "tiles + OBJ actors"
+    tool: ui-skin
+    files: ["graphics/dodrio_berry_picking/**", "graphics/pokemon_jump/**"]
+  - id: H4
+    family: H
+    name: Game Corner (slots, roulette)
+    where: Mauville Game Corner
+    format: "reels, symbols, boards"
+    tool: ui-skin
+    files: ["graphics/slot_machine/**", "graphics/roulette/**"]
+  - id: H5
+    family: H
+    name: Battle Frontier screens
+    where: Frontier facilities
+    format: "Factory rental screen, Arena judgment, Dome tourney"
+    tool: ui-skin
+    files: ["graphics/battle_frontier/**"]
+
+  # ---------------------------------------------------------------- X. Not drawn
+  - id: X1
+    family: X
+    name: Unused vanilla art
+    where: Nowhere (left in the source)
+    format: "-"
+    tool: none
+    files: ["graphics/unused/**", "graphics/birch_speech/unused_*", "graphics/pokemon/**/unused_*"]

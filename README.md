@@ -2,11 +2,10 @@
 
 Tools for drawing every piece of Star Wars replacement art for the pokeemerald fork
 (`spencerlepine/pokeemerald`) with an LLM, so that each image drops into the game unchanged.
-The LLM writes art as grids of palette indices in YAML; the `emerald_sprite` tool turns them
-into the exact indexed PNG the game builds from, lints them against measured Emerald style,
-and renders previews to iterate on with the owner.
+Each art category has its own standalone tool in `tools/`: its own Python package,
+requirements, guide, corpus, art sources and builds. Tools share no code (D16).
 
-![Vader walker](output/walkers/vader/preview/showcase.png)
+![Vader walker](tools/sprite-walker-generator/output/vader/preview/showcase.png)
 
 ## Start here (agents)
 
@@ -14,52 +13,45 @@ and renders previews to iterate on with the owner.
    `docs/EMERALD-ART-REQUIREMENTS.md` (what the game accepts).
 2. Find the asset's category in **[CHECKLIST.md](CHECKLIST.md)**. It lists every category of
    art in the game, the tool that draws it, and that tool's status.
-3. Follow the tool's guide in `pipelines/<tool>/README.md`. Only tools marked **READY** may be
-   used at scale; **PENDING** tools have a researched design waiting on an outside dependency; **IN-REVIEW** tools are still being iterated with the owner;
-   **TODO-NEED-TO-BUILD** tools don't exist yet.
+3. `cd tools/<tool>` and follow its `README.md`. Only tools marked **READY** may be used at
+   scale; **PENDING** tools have a researched design waiting on an outside dependency;
+   **IN-REVIEW** tools are still being iterated with the owner; **TODO-NEED-TO-BUILD** tools
+   don't exist yet.
 4. The per-file mapping (which vanilla file becomes which Star Wars character) is in
    `emerald-sw-db/database/pending_art.csv`.
 
-| I need to draw... | Category | Guide | Status |
+| I need to draw... | Category | Tool | Status |
 | --- | --- | --- | --- |
-| An overworld walker (16x32 person) | B3 | [pipelines/walker](pipelines/walker/README.md) | READY |
-| A trainer battle pic (64x64) | B1 | [pipelines/trainer-front](pipelines/trainer-front/README.md) | READY |
-| A creature battle sprite (64x64 front, 2nd frame, back, shiny) | A1, A2 | [pipelines/creature](pipelines/creature/README.md) | PENDING (image model, needs a GPU) |
+| An overworld walker (16x32 person) | B3 | [tools/sprite-walker-generator](tools/sprite-walker-generator/README.md) | READY |
+| A trainer battle pic (64x64 front) | B1, B4 | [tools/sprite-trainer-generator](tools/sprite-trainer-generator/README.md) | READY |
+| A player battle back pic (throw sheet) | B2 | [tools/sprite-trainer-back-generator](tools/sprite-trainer-back-generator/README.md) | TODO-NEED-TO-BUILD |
+| A creature battle sprite (front, 2nd frame, back, shiny) | A1, A2 | [tools/sprite-creature-generator](tools/sprite-creature-generator/README.md) | PENDING (image model, needs a GPU) |
 | Anything else | see [CHECKLIST.md](CHECKLIST.md) | - | TODO-NEED-TO-BUILD |
 
 ## Layout
 
 | Path | What |
 | --- | --- |
-| `CHECKLIST.md` | Master list: every asset category, its tool, status, remaining work |
-| `catalog/categories.yaml` | Source of the checklist tables (categories, globs into pokeemerald, tools) |
-| `pipelines/<tool>/README.md` | Step-by-step guide for one tool / art category |
-| `art/<category>/<name>.yaml` | Art sources: what the LLM writes |
-| `output/<category>/<name>/` | Built game-ready PNG, `lint.txt`, `metrics.json`, `preview/` |
-| `palettes/` | Copies of Emerald's shared palettes |
-| `corpus/` | Style metrics measured on vanilla art, one file per kit |
-| `tools/emerald_sprite/` | The Python tool (one package, one module per concern) |
-| `docs/` | Decisions and the game's format requirements |
+| `CHECKLIST.md` | Master list: every asset category, its tool, status, remaining work (tables generated) |
+| `docs/` | Repo-wide decision log and the game's format requirements |
+| `tools/<tool>/` | One standalone tool: `README.md`, `requirements.txt`, Python package, `corpus/`, `art/<name>.yaml` (sources the LLM writes), `output/<name>/` (game-ready files, `lint.txt`, `metrics.json`, `preview/`) |
+| `tools/asset-checklist/` | The audit: `catalog/categories.yaml` -> the tables in `CHECKLIST.md` |
 
-## Commands
+## Setup
 
 ```bash
-pip install -r requirements.txt            # pillow, pyyaml
-git clone https://github.com/spencerlepine/pokeemerald ../pokeemerald   # corpus, previews, gbagfx, audit
-cd tools
-python -m emerald_sprite build   ../art/walkers/vader.yaml    # PNG + previews + lint
-python -m emerald_sprite verify  ../art/walkers/vader.yaml    # round-trip through pokeemerald's gbagfx
-python -m emerald_sprite install ../art/walkers/vader.yaml    # copy into ../pokeemerald
-python -m emerald_sprite compare ../output/x.png a.yaml b.yaml # variant review sheet
-python -m emerald_sprite corpus                               # re-measure vanilla walkers
-python -m emerald_sprite audit --write                        # re-count every asset, regenerate CHECKLIST.md
+# pokeemerald next to this repo: corpus, repaint bases, previews, gbagfx, audit
+git clone https://github.com/spencerlepine/pokeemerald ../pokeemerald
+cd tools/<tool> && pip install -r requirements.txt
 ```
 
-`EMERALD_DIR` overrides the pokeemerald path (default `../pokeemerald`).
+`EMERALD_DIR` overrides the pokeemerald path (default `../pokeemerald`, using its `game/`
+folder when it has one). Regenerate the checklist with
+`cd tools/asset-checklist && python -m asset_checklist --write`.
 
 ## Workflow with the owner
 
 The owner reviews and approves in chat; the repo is the checkpoint. For each tool: build it,
 draw 2-4 mockup variants of a Star Wars character, show the `showcase.png`/`compare` sheet,
 iterate, record the pick and the reason in `docs/DECISIONS.md`, then mark the tool READY in
-`catalog/categories.yaml` and run `audit --write`.
+`tools/asset-checklist/catalog/categories.yaml` and regenerate the checklist.

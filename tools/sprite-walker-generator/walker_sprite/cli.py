@@ -1,0 +1,199 @@
+"""walker_sprite CLI (run from tools/sprite-walker-generator/).
+
+    python -m walker_sprite build   art/vader.yaml               # PNG + previews + lint report
+    python -m walker_sprite verify  art/vader.yaml               # round-trip through pokeemerald's gbagfx
+    python -m walker_sprite install art/vader.yaml               # copy into a pokeemerald checkout
+    python -m walker_sprite compare output/x.png a.yaml b.yaml   # side-by-side review sheet
+    python -m walker_sprite lint    path/to/any_sheet.png        # lint an existing sheet
+    python -m walker_sprite corpus                               # re-measure the vanilla walkers
+
+Outputs go to output/<name>/ (name from the spec).
+
+EMERALD_DIR (default: pokeemerald next to this repo) points at a pokeemerald checkout; it is
+read for the style corpus, scene previews and gbagfx, and written only by `install`.
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import re
+import shutil
+import subprocess
+import sys
+import tempfile
+from pathlib import Path
+
+from . import lint as lint_mod
+from . import preview, sheet, spec as spec_mod
+
+TOOL = Path(__file__).resolve().parents[1]
+OUT = TOOL / "output"
+SCENE_NEIGHBOURS = [  # vanilla walkers shown beside ours, same palette family where possible
+    "graphics/object_events/pics/people/steven.png",
+    "graphics/object_events/pics/people/team_aqua/aqua_member_m.png",
+    "graphics/object_events/pics/people/expert_m.png",
+]
+
+
+def out_dir(s) -> Path:
+    return OUT / s.name
+
+
+def emerald_dir() -> Path:
+    """EMERALD_DIR, else the pokeemerald clone next to this repo (its game/ folder if it has one)."""
+    env = os.environ.get("EMERALD_DIR")
+    if env:
+        return Path(env).resolve()
+    root = TOOL.parents[2] / "pokeemerald"
+    return (root / "game" if (root / "game" / "graphics").exists() else root).resolve()
+
+
+def report(errors, warnings, m, corpus=None) -> str:
+    lines = [f"ERROR   {e}" for e in errors] + [f"warning {w}" for w in warnings]
+    corpus = corpus if corpus is not None else lint_mod.load_corpus()
+    lines.append("")
+    lines.append(f"{'metric':<14}{'this':>8}{'Emerald p5':>12}{'median':>8}{'p95':>8}")
+    for k, v in m["summary"].items():
+        if corpus and k in corpus["median"]:
+            lines.append(f"{k:<14}{v:>8}{corpus['p5'][k]:>12}{corpus['median'][k]:>8}{corpus['p95'][k]:>8}")
+        else:
+            lines.append(f"{k:<14}{v:>8}")
+    return "\n".join(lines)
+
+
+def cmd_build(a) -> int:
+    s = spec_mod.load(a.spec)
+    out = out_dir(s)
+    (out / "preview").mkdir(parents=True, exist_ok=True)
+    im = sheet.build_sheet(s)
+    png = out / f"{s.name}.png"
+    im.save(png, optimize=False)
+    colours = sheet.spec_palette(s)
+    errors, warnings, m = lint_mod.lint(s.frames, colours, s.kit)
+    preview.zoom_sheet(s.frames, colours, s.kit, out / "preview" / "zoom.png")
+    preview.walk_gif(s.frames, colours, s.kit, out / "preview" / "walk.gif")
+    em = emerald_dir()
+    if (em / "data/tilesets/primary/general/tiles.png").exists():
+        preview.scene(s.frames, colours, s.kit, out / "preview" / "scene.png", em, SCENE_NEIGHBOURS)
+    else:
+        print(f"note: no pokeemerald at {em}; skipped scene.png (set EMERALD_DIR)")
+    preview.showcase(out / "preview")
+    text = report(errors, warnings, m)
+    (out / "lint.txt").write_text(text + "\n")
+    (out / "metrics.json").write_text(json.dumps(m, indent=1))
+    print(f"wrote {png.relative_to(TOOL)} and previews in {(out / 'preview').relative_to(TOOL)}")
+    print(text)
+    return 1 if errors else 0
+
+
+def cmd_lint(a) -> int:
+    frames, colours = sheet.read_frames(a.png)
+    order = spec_mod.KITS["person16x32"]["order"]
+    errors, warnings, m = lint_mod.lint(dict(zip(order, frames)), colours)
+    print(report(errors, warnings, m))
+    return 1 if errors else 0
+
+
+def cmd_corpus(a) -> int:
+    for what, mod in (("vanilla walkers", lint_mod),):
+        c = mod.build_corpus(emerald_dir())
+        print(f"measured {c['count']} {what} -> {mod.CORPUS_FILE.relative_to(TOOL)}")
+        for k in c["median"]:
+            print(f"  {k:<14} p5 {c['p5'][k]:>7}  median {c['median'][k]:>7}  p95 {c['p95'][k]:>7}")
+    return 0
+
+
+def _gbagfx() -> Path:
+    g = emerald_dir() / "tools/gbagfx/gbagfx"
+    if not g.exists():
+        subprocess.run(["make", "-s", "-C", str(g.parent)], check=True)
+    return g
+
+
+def cmd_verify(a) -> int:
+    """PNG -> .4bpp exactly as pokeemerald's build does, then back to PNG; indices must match."""
+    s = spec_mod.load(a.spec)
+    png = out_dir(s) / f"{s.name}.png"
+    g = _gbagfx()
+    with tempfile.TemporaryDirectory() as t:
+        bpp = Path(t) / "x.4bpp"
+        back = Path(t) / "back.png"
+        subprocess.run([str(g), str(png), str(bpp), "-mwidth", "2", "-mheight", "4"], check=True)
+        pal_file = Path(t) / "p.gbapal"
+        subprocess.run([str(g), str(sheet.PALETTE_DIR / f"{s.palette}.pal"), str(pal_file)], check=True)
+        subprocess.run(
+            [str(g), str(bpp), str(back), "-mwidth", "2", "-mheight", "4", "-width", str(png_w(png) // 8), "-palette", str(pal_file)],
+            check=True,
+        )
+        a_frames, _ = sheet.read_frames(png)
+        b_frames, _ = sheet.read_frames(back)
+        size = bpp.stat().st_size
+    ok = a_frames == b_frames
+    expect = 9 * 256
+    print(f"gbagfx: {png.name} -> {size} bytes of 4bpp (expect {expect} = 9 frames x .size 256); round-trip {'identical' if ok else 'DIFFERS'}")
+    return 0 if ok and size == expect else 1
+
+
+def png_w(p: Path) -> int:
+    from PIL import Image
+
+    return Image.open(p).width
+
+
+def cmd_install(a) -> int:
+    """Copy the sheet over the vanilla file it replaces and point its graphics info at our palette."""
+    s = spec_mod.load(a.spec)
+    if not s.replaces:
+        print("spec has no `replaces:`")
+        return 1
+    em = emerald_dir()
+    shutil.copyfile(out_dir(s) / f"{s.name}.png", em / s.replaces)
+    print(f"copied -> {em / s.replaces}")
+    if s.palette_tag:
+        gi = em / "src/data/object_events/object_event_graphics_info.h"
+        src = gi.read_text()
+        sym = s.meta["graphics_info"]
+        pat = re.compile(rf"(gObjectEventGraphicsInfo_{sym} = \{{.*?\.paletteTag = )(\w+)(,.*?\.paletteSlot = )(\w+)", re.S)
+        slot = s.palette_tag.replace("OBJ_EVENT_PAL_TAG_", "PALSLOT_")
+        new, n = pat.subn(rf"\g<1>{s.palette_tag}\g<3>{slot}", src)
+        if n != 1:
+            print(f"could not find gObjectEventGraphicsInfo_{sym} in {gi}")
+            return 1
+        gi.write_text(new)
+        print(f"set gObjectEventGraphicsInfo_{sym}.paletteTag = {s.palette_tag}, paletteSlot = {slot}")
+    return 0
+
+
+def cmd_compare(a) -> int:
+    """Side-by-side review sheet for variants: python -m walker_sprite compare out.png a.yaml b.yaml ..."""
+    specs = [spec_mod.load(p) for p in a.specs]
+    em = emerald_dir()
+    preview.compare(specs, Path(a.out), em if (em / "data/tilesets").exists() else None)
+    print(f"wrote {a.out}")
+    return 0
+
+
+def main(argv=None) -> int:
+    p = argparse.ArgumentParser(prog="walker_sprite")
+    sub = p.add_subparsers(dest="cmd", required=True)
+    for name, fn, arg in (
+        ("build", cmd_build, "spec"),
+        ("lint", cmd_lint, "png"),
+        ("verify", cmd_verify, "spec"),
+        ("install", cmd_install, "spec"),
+    ):
+        sp = sub.add_parser(name)
+        sp.add_argument(arg)
+        sp.set_defaults(fn=fn)
+    sub.add_parser("corpus").set_defaults(fn=cmd_corpus)
+    cp = sub.add_parser("compare")
+    cp.add_argument("out")
+    cp.add_argument("specs", nargs="+")
+    cp.set_defaults(fn=cmd_compare)
+    a = p.parse_args(argv)
+    try:
+        return a.fn(a)
+    except spec_mod.SpecError as e:
+        print(f"spec error: {e}", file=sys.stderr)
+        return 2

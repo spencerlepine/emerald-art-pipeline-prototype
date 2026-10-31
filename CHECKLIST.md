@@ -4,8 +4,9 @@ Every image pokeemerald draws, grouped into categories, with the tool that will 
 that tool's status. This is the single list of remaining work: update it in the same commit
 as the work.
 
-- The tables between `audit` markers are **generated**. Edit `catalog/categories.yaml`, then
-  run `cd tools && python -m emerald_sprite audit --write`. The audit walks every PNG under
+- The tables between `audit` markers are **generated**. Edit
+  `tools/asset-checklist/catalog/categories.yaml`, then run
+  `cd tools/asset-checklist && python -m asset_checklist --write`. The audit walks every PNG under
   pokeemerald's `graphics/` and `data/tilesets/` and fails if one is in no category, so a
   category cannot be forgotten.
 - Per-file Star Wars mapping (which file becomes which character) stays in
@@ -28,10 +29,10 @@ as the work.
 <!-- audit:tools -->
 | Tool | Status | Covers | Categories | Files | Drawn | Guide |
 | --- | --- | --- | --- | --- | --- | --- |
-| `walker` | **READY** | 16x32 people walkers (9-frame standard sheet) | A6, B3, C4 | 207 | 1 | [pipelines/walker/README.md](pipelines/walker/README.md) |
-| `trainer-front` | **READY** | 64x64 trainer battle pics with their own 16-colour palette | B1, B4 | 95 | 4 | [pipelines/trainer-front/README.md](pipelines/trainer-front/README.md) |
-| `trainer-back` | **TODO-NEED-TO-BUILD** | Player/partner battle back sprites (4-5 frame throw sheets) | B2 | 8 | 0 | - |
-| `creature` | **PENDING** | Creature (Pokémon) battle front + 2nd anim frame, back, normal/shiny palettes | A1, A2, A5 | 1262 | 0 | [pipelines/creature/README.md](pipelines/creature/README.md) |
+| `sprite-walker-generator` | **READY** | 16x32 people walkers (9-frame standard sheet) | A6, B3, C4 | 207 | 1 | [tools/sprite-walker-generator/README.md](tools/sprite-walker-generator/README.md) |
+| `sprite-trainer-generator` | **READY** | 64x64 trainer battle pics with their own 16-colour palette | B1, B4 | 95 | 4 | [tools/sprite-trainer-generator/README.md](tools/sprite-trainer-generator/README.md) |
+| `sprite-trainer-back-generator` | **TODO-NEED-TO-BUILD** | Player/partner battle back sprites (4-5 frame throw sheets) | B2 | 8 | 0 | [tools/sprite-trainer-back-generator/README.md](tools/sprite-trainer-back-generator/README.md) |
+| `sprite-creature-generator` | **PENDING** | Creature (Pokémon) battle front + 2nd anim frame, back, normal/shiny palettes | A1, A2, A5 | 1262 | 0 | [tools/sprite-creature-generator/README.md](tools/sprite-creature-generator/README.md) |
 | `icon` | **TODO-NEED-TO-BUILD** | Small fixed-size stills: item icons, berries, decorations, balls, type labels, creature party icons, footprints | A3, A4, C1, C2, C3, C5, C6 | 1144 | 0 | - |
 | `obj-anim` | **TODO-NEED-TO-BUILD** | Small multi-frame OBJ sprite sheets: field effects, door anims, field objects, weather, battle-anim particles | D3, D4, D5, D6, E3, E4 | 513 | 0 | - |
 | `tileset` | **TODO-NEED-TO-BUILD** | Overworld biome/building tile sheets, their palettes, metatiles and tile animations; battle backgrounds | D1, D2, E1 | 247 | 0 | - |
@@ -50,21 +51,21 @@ as the work.
 
 | # | Category | Where it shows | Format | PNGs | .pal | Drawn | Tool | Tool status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| A1 | Creature battle front (2 frames) | Battle (opponent side), Pokédex, summary | front.png 64x64 + anim_front.png 64x128 (2 frames), own palette | 838 | 783 | 0 | `creature` | PENDING |
-| A2 | Creature battle back | Battle (your side) | back.png 64x64, same palette as the front | 418 |  | 0 | `creature` | PENDING |
+| A1 | Creature battle front (2 frames) | Battle (opponent side), Pokédex, summary | front.png 64x64 + anim_front.png 64x128 (2 frames), own palette | 838 | 783 | 0 | `sprite-creature-generator` | PENDING |
+| A2 | Creature battle back | Battle (your side) | back.png 64x64, same palette as the front | 418 |  | 0 | `sprite-creature-generator` | PENDING |
 | A3 | Creature party/PC icons | Party menu, PC boxes | icon.png 32x64 (2-frame wiggle), one of 3 shared icon palettes | 417 | 3 | 0 | `icon` | TODO-NEED-TO-BUILD |
 | A4 | Creature footprints | Pokédex | 16x16, 1 colour | 387 |  | 0 | `icon` | TODO-NEED-TO-BUILD |
-| A5 | Eggs, hatching and special-form extras | Daycare egg, hatch scene, Spinda spots, Unown/Castform/Deoxys forms | egg hatch/shard sheets, spot masks, per-form folders | 6 |  | 0 | `creature` | PENDING |
-| A6 | Overworld creature walkers | Overworld (legendaries, follower-style NPC creatures) | 16x16 to 64x64 frames, shared NPC palettes | 23 |  | 0 | `walker` | TODO-NEED-TO-BUILD |
+| A5 | Eggs, hatching and special-form extras | Daycare egg, hatch scene, Spinda spots, Unown/Castform/Deoxys forms | egg hatch/shard sheets, spot masks, per-form folders | 6 |  | 0 | `sprite-creature-generator` | PENDING |
+| A6 | Overworld creature walkers | Overworld (legendaries, follower-style NPC creatures) | 16x16 to 64x64 frames, shared NPC palettes | 23 |  | 0 | `sprite-walker-generator` | TODO-NEED-TO-BUILD |
 
 ### B. People
 
 | # | Category | Where it shows | Format | PNGs | .pal | Drawn | Tool | Tool status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| B1 | Trainer battle front pics | Trainer battles, trainer card, Hall of Fame, Battle Frontier | 64x64, 1 frame, own 16-colour palette taken from the PNG | 93 |  | 4 | `trainer-front` | READY |
-| B2 | Player battle back pics | Your side when a battle starts (ball throw) | 64x256/64x320 = 4-5 frames of 64x64, palette in graphics/trainers/palettes | 8 | 6 | 0 | `trainer-back` | TODO-NEED-TO-BUILD |
-| B3 | People overworld walkers | Overworld NPCs, player, rivals | 16x32 x 9 frames (standard), plus 32x32 big, 16x16 small and special sheets (bike, surf, fish, field move) | 133 | 36 | 1 | `walker` | READY (16x32 kit); other kits TODO-NEED-TO-BUILD |
-| B4 | Professor speech portrait | New-game intro | birch 64x64 still + shadow/unused frames | 2 |  | 0 | `trainer-front` | READY |
+| B1 | Trainer battle front pics | Trainer battles, trainer card, Hall of Fame, Battle Frontier | 64x64, 1 frame, own 16-colour palette taken from the PNG | 93 |  | 4 | `sprite-trainer-generator` | READY |
+| B2 | Player battle back pics | Your side when a battle starts (ball throw) | 64x256/64x320 = 4-5 frames of 64x64, palette in graphics/trainers/palettes | 8 | 6 | 0 | `sprite-trainer-back-generator` | TODO-NEED-TO-BUILD |
+| B3 | People overworld walkers | Overworld NPCs, player, rivals | 16x32 x 9 frames (standard), plus 32x32 big, 16x16 small and special sheets (bike, surf, fish, field move) | 133 | 36 | 1 | `sprite-walker-generator` | READY (16x32 kit); other kits TODO-NEED-TO-BUILD |
+| B4 | Professor speech portrait | New-game intro | birch 64x64 still + shadow/unused frames | 2 |  | 0 | `sprite-trainer-generator` | READY |
 
 ### C. Items and icons
 
@@ -73,7 +74,7 @@ as the work.
 | C1 | Item icons | Bag, shops, PC | 24x24, own palette (graphics/items/icon_palettes) | 218 | 253 | 0 | `icon` | TODO-NEED-TO-BUILD |
 | C2 | Berry pictures | Berry tag, berry blender | 48x48, own palette | 43 |  | 0 | `icon` | TODO-NEED-TO-BUILD |
 | C3 | Decoration icons | Secret base decoration menu | 24x24 | 43 | 3 | 0 | `icon` | TODO-NEED-TO-BUILD |
-| C4 | Placed dolls and cushions | Secret bases | 16x16 / 32x32 OBJ sprites | 51 |  | 0 | `walker` | TODO-NEED-TO-BUILD |
+| C4 | Placed dolls and cushions | Secret bases | 16x16 / 32x32 OBJ sprites | 51 |  | 0 | `sprite-walker-generator` | TODO-NEED-TO-BUILD |
 | C5 | Poké Ball battle sprites | Throw, send-out, capture | 16x48 = 3 frames of 16x16 | 13 |  | 0 | `icon` | TODO-NEED-TO-BUILD |
 | C6 | Type and contest-category labels | Summary, Pokédex, move info | 32x16 | 23 | 3 | 0 | `icon` | TODO-NEED-TO-BUILD |
 
@@ -149,7 +150,7 @@ These are not drawn, but a tool has to write them so the art works in game.
 | Palettes (`.pal`, JASC) | next to most PNGs; shared NPC palettes in `graphics/object_events/palettes/` | Each tool writes the palette its art uses (counted in the `.pal` column) |
 | Tilemaps (`.bin`, 435 files) | screens, battle backgrounds, wallpapers, region map | `ui-skin`, `tileset`, `cutscene` (layout kept, tiles redrawn) |
 | Metatiles and attributes (`metatiles.bin`, `metatile_attributes.bin`) | `data/tilesets/**` | `tileset` |
-| OBJ graphics info / pic tables | `src/data/object_events/*.h`, `src/data/graphics/*.h` | `walker` `install` (palette tag), later tools as needed |
+| OBJ graphics info / pic tables | `src/data/object_events/*.h`, `src/data/graphics/*.h` | `sprite-walker-generator` `install` (palette tag), later tools as needed |
 | Move animation scripts | `data/battle_anim_scripts.s` (354 moves; 349 `KEEP_ANIM`) | Kept; only the sprites they draw (E3) change |
 | Map layouts, events, text, music | `data/maps`, `data/layouts`, `src/data/text`, `sound/` | Out of this repo: `emerald-sw-db` and the game fork own them |
 
@@ -158,13 +159,13 @@ These are not drawn, but a tool has to write them so the art works in game.
 Work one tool at a time: build it, show the owner mockups in chat, iterate, mark READY.
 
 1. [x] Audit every asset category, generate this checklist (2026-10-31).
-2. [x] Restructure the repo: `art/<category>/`, `output/<category>/`, `pipelines/<tool>/`, `catalog/`.
-3. [x] `walker` 16x32 people kit: Vader approved.
-4. [x] `trainer-front`: **READY**. Rebuilt as a repaint tool (D13) after the rig drawings were judged 70%; round 5 (Vader, Boba Fett, Leia, Obi-Wan) approved by the owner ("those are perfect"). No image model needed for this category. Style guide: `pipelines/trainer-front/STYLE-GUIDE.md`.
-5. [ ] `trainer-back`: player throw sheets (needs the player character decided).
-6. [ ] `creature`: battle front (2 frames) + back + shiny palette.
+2. [x] Restructure the repo: one standalone folder per tool in `tools/` (D16), each with its own package, requirements, README, corpus, `art/` and `output/`.
+3. [x] `sprite-walker-generator` 16x32 people kit: Vader approved.
+4. [x] `sprite-trainer-generator`: **READY**. Rebuilt as a repaint tool (D13) after the rig drawings were judged 70%; round 5 (Vader, Boba Fett, Leia, Obi-Wan) approved by the owner ("those are perfect"). No image model needed for this category. Style guide: `tools/sprite-trainer-generator/STYLE-GUIDE.md`.
+5. [ ] `sprite-trainer-back-generator`: player throw sheets (needs the player character decided).
+6. [ ] `sprite-creature-generator` (PENDING, needs a GPU, D15): battle front (2 frames) + back + shiny palette.
 7. [ ] `icon`: item icons first (218), then berries, decorations, balls, type labels; derive party icons and footprints from creature fronts.
-8. [ ] `walker` extra kits: 32x32 big, 16x16 small, bike/surf/fish/field-move sheets, creature walkers.
+8. [ ] `sprite-walker-generator` extra kits: 32x32 big, 16x16 small, bike/surf/fish/field-move sheets, creature walkers.
 9. [ ] `tileset`: one biome first (e.g. a desert secondary tileset for Tatooine) with palettes, metatiles and animations; then battle backgrounds.
 10. [ ] `obj-anim`: field effects, doors, field objects, weather, move-animation particles, transitions.
 11. [ ] `ui-skin`: text windows and map popups first (seen constantly), then menus, battle HUD, minigames.

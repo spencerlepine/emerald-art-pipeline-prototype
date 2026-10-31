@@ -34,8 +34,8 @@ General rules for all 4bpp art:
 | Slot | `.paletteTag` and `.paletteSlot` must agree (`OBJ_EVENT_PAL_TAG_NPC_4` + `PALSLOT_NPC_4`) | same |
 | Size | `.size = 256` bytes per frame (16x32 at 4bpp) | same |
 
-Measured style of the 90 vanilla sheets (`corpus/people16x32.json`, rebuilt with
-`python -m emerald_sprite corpus`): art starts on row 10-13 and stands on row 30, is 18-21 px
+Measured style of the 90 vanilla sheets (`tools/sprite-walker-generator/corpus/people16x32.json`, rebuilt with
+`python -m walker_sprite corpus`): art starts on row 10-13 and stands on row 30, is 18-21 px
 tall and 14-16 px wide, ~226 opaque pixels, 10-15 colours, outlined in near-black on almost
 every edge pixel, and a step frame changes ~70% of pixels (the whole body bobs 1 px plus legs
 and arms).
