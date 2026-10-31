@@ -1,0 +1,13 @@
+warning style: feet = 61 is outside Emerald's p5-p95 range [62, 63]
+warning style: symmetry = 0.365 is outside Emerald's p5-p95 range [0.062, 0.33]
+
+metric            this  Emerald p5  median     p95
+top                  7           1       5      17
+feet                61          62      62      63
+height              55          46      58      63
+width               31          29      41      57
+area              1013         718    1075    1534
+dark_outline     0.882       0.611   0.877   0.974
+orphans          0.113        0.11   0.168   0.226
+colours             13          13      15      15
+symmetry         0.365       0.062   0.148    0.33

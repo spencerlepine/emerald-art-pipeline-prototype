@@ -1,0 +1,12 @@
+warning style: dark_outline = 0.496 is outside Emerald's p5-p95 range [0.611, 0.974]
+
+metric            this  Emerald p5  median     p95
+top                  2           1       5      17
+feet                63          62      62      63
+height              62          46      58      63
+width               37          29      41      57
+area               825         718    1075    1534
+dark_outline     0.496       0.611   0.877   0.974
+orphans          0.145        0.11   0.168   0.226
+colours             14          13      15      15
+symmetry         0.078       0.062   0.148    0.33

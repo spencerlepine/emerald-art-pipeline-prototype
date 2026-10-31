@@ -30,7 +30,7 @@ as the work.
 | Tool | Status | Covers | Categories | Files | Drawn | Guide |
 | --- | --- | --- | --- | --- | --- | --- |
 | `sprite-walker-generator` | **READY** | 16x32 people walkers (9-frame standard sheet) | A6, B3, C4 | 207 | 1 | [tools/sprite-walker-generator/README.md](tools/sprite-walker-generator/README.md) |
-| `sprite-trainer-generator` | **READY** | 64x64 trainer battle pics with their own 16-colour palette | B1, B4 | 95 | 5 | [tools/sprite-trainer-generator/README.md](tools/sprite-trainer-generator/README.md) |
+| `sprite-trainer-generator` | **READY** | 64x64 trainer battle pics with their own 16-colour palette | B1, B4 | 95 | 8 | [tools/sprite-trainer-generator/README.md](tools/sprite-trainer-generator/README.md) |
 | `sprite-trainer-back-generator` | **TODO-NEED-TO-BUILD** | Player/partner battle back sprites (4-5 frame throw sheets) | B2 | 8 | 0 | [tools/sprite-trainer-back-generator/README.md](tools/sprite-trainer-back-generator/README.md) |
 | `sprite-creature-generator` | **PENDING** | Creature (Pokémon) battle front + 2nd anim frame, back, normal/shiny palettes | A1, A2, A5 | 1262 | 0 | [tools/sprite-creature-generator/README.md](tools/sprite-creature-generator/README.md) |
 | `icon` | **TODO-NEED-TO-BUILD** | Small fixed-size stills: item icons, berries, decorations, balls, type labels, creature party icons, footprints | A3, A4, C1, C2, C3, C5, C6 | 1144 | 0 | - |
@@ -45,7 +45,7 @@ as the work.
 ## Categories
 
 <!-- audit:categories -->
-**4064 PNGs to draw, 6 drawn** across 48 categories (unused art excluded). 3 `.pal` files sit outside any category (shared UI/misc palettes, owned by the tool that edits that screen).
+**4064 PNGs to draw, 9 drawn** across 48 categories (unused art excluded). 3 `.pal` files sit outside any category (shared UI/misc palettes, owned by the tool that edits that screen).
 
 ### A. Creatures
 
@@ -62,7 +62,7 @@ as the work.
 
 | # | Category | Where it shows | Format | PNGs | .pal | Drawn | Tool | Tool status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| B1 | Trainer battle front pics | Trainer battles, trainer card, Hall of Fame, Battle Frontier | 64x64, 1 frame, own 16-colour palette taken from the PNG | 93 |  | 5 | `sprite-trainer-generator` | READY |
+| B1 | Trainer battle front pics | Trainer battles, trainer card, Hall of Fame, Battle Frontier | 64x64, 1 frame, own 16-colour palette taken from the PNG | 93 |  | 8 | `sprite-trainer-generator` | READY |
 | B2 | Player battle back pics | Your side when a battle starts (ball throw) | 64x256/64x320 = 4-5 frames of 64x64, palette in graphics/trainers/palettes | 8 | 6 | 0 | `sprite-trainer-back-generator` | TODO-NEED-TO-BUILD |
 | B3 | People overworld walkers | Overworld NPCs, player, rivals | 16x32 x 9 frames (standard), plus 32x32 big, 16x16 small and special sheets (bike, surf, fish, field move) | 133 | 36 | 1 | `sprite-walker-generator` | READY (16x32 kit); other kits TODO-NEED-TO-BUILD |
 | B4 | Professor speech portrait | New-game intro | birch 64x64 still + shadow/unused frames | 2 |  | 0 | `sprite-trainer-generator` | READY |

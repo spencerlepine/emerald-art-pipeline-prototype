@@ -1,0 +1,48 @@
+name: luke
+kit: trainer64
+replaces: graphics/trainers/front_pics/wally.png
+# Luke Skywalker replaces Wally (emerald-sw-db pending_art: LUKE SKYWALKER). Repaint of Wally
+# himself: a slim, young, eager figure in a white shirt, one hand raised, which is farm-boy Luke
+# (A New Hope). Changes: green hair -> sandy blond with the top spike trimmed, white shirt ->
+# Tatooine tunic (buttons gone), green trousers -> cream, shoes -> brown boots, a belt, and his
+# father's blue saber lit in the raised hand.
+palette:
+  - [115, 197, 164]  # 0 transparent
+  - [16, 16, 24]     # K outline
+  - [248, 232, 208]  # a skin light
+  - [224, 176, 152]  # b skin base
+  - [184, 136, 104]  # c skin shadow
+  - [248, 248, 248]  # e tunic white
+  - [216, 216, 224]  # f tunic light
+  - [160, 152, 176]  # g tunic shadow
+  - [112, 104, 128]  # h tunic dark
+  - [248, 224, 136]  # i hair light
+  - [216, 176, 88]   # j hair base
+  - [160, 112, 56]   # k hair shadow
+  - [96, 64, 48]     # n brown (boots, belt, skin edge)
+  - [160, 120, 80]   # m boot highlight
+  - [80, 144, 248]   # o saber glow
+  - [232, 248, 248]  # p saber core
+legend: {'.': 0, K: 1, a: 2, b: 3, c: 4, e: 5, f: 6, g: 7, h: 8, i: 9, j: 10, k: 11, n: 12, m: 13, o: 14, p: 15}
+frames:
+  front:
+    repaint:
+      pic: graphics/trainers/front_pics/wally.png
+      # wally: 1/2/3 skin, 4 skin edge, 14/9/5/6 shirt light->dark, 7/8/10/11 green hair and
+      # trousers light->dark, 12 blue buttons and shoes, 15 outline
+      remap: {1: a, 2: b, 3: c, 4: n, 5: g, 6: h, 7: i, 8: j, 9: f, 10: k, 11: k, 12: n, 14: e, 15: K}
+    rig:
+      layers:
+        - {name: hair spike, shape: poly, pts: [[27, 5], [38, 5], [37, 10], [28, 10]], erase: true}
+        - {name: tunic buttons, shape: poly, pts: [[29, 29], [36, 29], [36, 38], [29, 38]], recolour: "n:f"}
+        # trousers cream, boots brown
+        - {name: trousers, shape: poly, pts: [[16, 43], [52, 43], [52, 64], [16, 64]], recolour: "j:f k:g"}
+        - {name: boots, shape: poly, pts: [[16, 56], [52, 56], [52, 64], [16, 64]], recolour: "f:m g:n h:n"}
+        # belt, sloping down toward the near side
+        - {name: belt, shape: pixels, x: 25, y: 41, rows: "_________nnnK\n_____nnnnnnn_\nKnnnnnfn_____"}
+        # selective outline: light hair and cloth edges get a dark edge of their own colour
+        - {name: hair edge, shape: edge, chars: "ij", to: k}
+        - {name: cloth edge, shape: edge, chars: "ef", to: g}
+        # saber raised in the near hand: hilt in the fist, blade up and out to the left
+        - {name: blade, shape: capsule, from: [19, 22], to: [10, 3], r: [1.4, 1.4], ramp: p, outline: o}
+        - {name: hilt, shape: capsule, from: [22, 28], to: [20, 23], r: [1.0, 1.0], ramp: hf}

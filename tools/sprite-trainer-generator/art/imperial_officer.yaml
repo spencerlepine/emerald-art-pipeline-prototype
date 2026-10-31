@@ -1,0 +1,44 @@
+name: imperial_officer
+kit: trainer64
+replaces: graphics/trainers/front_pics/magma_admin.png
+# Imperial officer replaces the Team Magma admin (emerald-sw-db pending_art: IMPERIAL OFFICER,
+# VEERS and other admins). Repaint of the Gentleman: upright, stiff bearing, hand at the brim
+# of his cap, which reads as an Imperial salute. Changes: brown suit -> olive-grey Imperial
+# tunic and cap, tie -> closed high collar, beard and moustache shaved, trousers tucked into
+# black boots, a rank plaque on the chest and a belt with a silver buckle; the cane goes.
+palette:
+  - [115, 197, 164]  # 0 transparent
+  - [16, 16, 24]     # K outline
+  - [248, 224, 200]  # a skin light
+  - [232, 176, 144]  # b skin base
+  - [192, 136, 104]  # c skin shadow
+  - [152, 160, 136]  # d uniform light
+  - [112, 120, 104]  # e uniform base
+  - [80, 88, 72]     # f uniform shadow
+  - [48, 56, 48]     # g uniform dark
+  - [40, 40, 48]     # h boot black
+  - [96, 96, 112]    # i boot light
+  - [216, 56, 48]    # r red
+  - [72, 104, 200]   # u blue
+  - [200, 200, 208]  # s silver
+legend: {'.': 0, K: 1, a: 2, b: 3, c: 4, d: 5, e: 6, f: 7, g: 8, h: 9, i: 10, r: 11, u: 12, s: 13}
+frames:
+  front:
+    repaint:
+      pic: graphics/trainers/front_pics/gentleman.png
+      # gentleman: 1/2/3 skin, 5/6/7 suit and hat light->dark, 4/8 darkest suit edges,
+      # 10/11/14 beard and moustache greys, 12/13 blue tie and cane, 15 outline
+      remap: {1: a, 2: b, 3: c, 4: g, 5: d, 6: e, 7: f, 8: g, 10: s, 11: s, 12: u, 13: u, 14: s, 15: K}
+    rig:
+      layers:
+        - {name: cane, shape: poly, pts: [[41, 42], [48, 42], [48, 64], [41, 64]], erase: true}
+        - {name: shave, shape: poly, pts: [[29, 17], [42, 17], [42, 25], [29, 25]], recolour: "s:b"}
+        - {name: mouth, shape: pixels, x: 34, y: 21, rows: "cccc"}
+        - {name: collar, shape: poly, pts: [[30, 22], [37, 22], [37, 31], [30, 31]], recolour: "u:e s:d"}
+        - {name: boots, shape: poly, pts: [[18, 52], [48, 52], [48, 64], [18, 64]], recolour: "d:i e:i f:h g:h"}
+        - {name: rank plaque, shape: pixels, x: 36, y: 29, rows: "Kruus\n_KKKK"}
+        - {name: belt, shape: pixels, x: 24, y: 41, rows: "_______________gg\n__________ggsgggg\nggggggggggg_______"}
+        # bowler crown -> flat-topped Imperial cap with a silver badge
+        - {name: crown, shape: poly, pts: [[26, 4], [45, 4], [45, 8], [26, 8]], erase: true}
+        - {name: cap top, shape: pixels, x: 27, y: 7, rows: "_KKKKKKKKKKKKKK_\nKddddddeeeeeeffK\n_Kdddeeeeeeeffg_"}
+        - {name: cap badge, shape: pixels, x: 33, y: 10, rows: "sKs"}

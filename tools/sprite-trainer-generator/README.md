@@ -9,9 +9,10 @@ vanilla pics, a review checklist, and the owner's feedback log. Getting the pose
 hard part of this category; the format is handled by the tool.
 
 Reference specs (repaints): `art/vader.yaml` (base Drake), `boba.yaml` (Pyramid King
-Brandon), `leia.yaml` (Glacia), `obiwan.yaml` (Expert M), plus the later mockups listed in
-STYLE-GUIDE's feedback log. Review sheets: `output/style-check-r5.png` and
-`repaint-bases-r5.png` (approved round), `style-check-r4.png` and `vader-poses-r*.png` (rig
+Brandon), `leia.yaml` (Glacia), `obiwan.yaml` (Expert M). Round 6 (fresh characters, in
+review): `stormtrooper.yaml` (base Magma grunt M), `maul.yaml` (Sidney), `luke.yaml` (Wally),
+`imperial_officer.yaml` (Gentleman), sheet `output/fresh-characters-r6.png`. Review sheets:
+`output/style-check-r5.png` and `repaint-bases-r5.png` (approved round), `style-check-r4.png` and `vader-poses-r*.png` (rig
 drawings, rejected, kept for comparison). Back pics (category B2) are out of scope for this tool.
 
 ## Setup

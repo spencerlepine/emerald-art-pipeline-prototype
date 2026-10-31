@@ -38,7 +38,7 @@ frames:
         - {name: forearm, shape: poly, pts: [[16, 23], [24, 23], [24, 31], [16, 31]], recolour: "a:d f:c"}
         # hood and face -> stormtrooper helmet (dome, brow, lenses, nose ridge, grill, cheek tubes)
         - {name: old head, shape: poly, pts: [[21, 5], [43, 5], [43, 15], [40, 16], [40, 27], [23, 27], [21, 16]], erase: true}
-        - {name: helmet, shape: pixels, x: 23, y: 7, rows: "_____KKKKKKK______\n___KKeeeeeeddKK___\n__KeeeeeeeeddddK__\n_KeeeeeeeeedddddK_\n_KeeeeeeeedddddcK_\nKeeeeeeeddddddcccK\nKeeeeeeddddddccccK\nKdddddddddddccccbK\nKdddddddddcccccbbK\nKeeKKKKeedddKKKKbK\nKdeKKKKKeddKKKKcbK\nKddeKKKdgddKKKdcbK\nKdddeKddgdddKddcbK\nKddddddcgcdddddcbK\nKeidiiKdddKiiddcbK\nKdidKKgKgKgKKdicbK\n_KddKgKgKgKgKdccK_\n_KdddKKKKKKKddcbK_\n__KddddddddddcbK__\n_KcbKKddddddKKbcK_\n_KKK_fKKKKKKf_KKK_"}
+        - {name: helmet, shape: pixels, x: 23, y: 7, rows: "_____KKKKKKK______\n___KKeeeeeeddKK___\n__KeeeeeeeeddddK__\n_KeeeeeeeeedddddK_\n_KeeeeeeeedddddcK_\nKeeeeeeeddddddcccK\nKeeeeeeddddddccccK\nKdddddddddddccccbK\nKdddddddddcccccbbK\nKeeKKKKeedddKKKKbK\nKdeKKKKKeddKKKKcbK\nKddeKKKdgddKKKdcbK\nKdddeKddgdddKddcbK\nKddddddcgcdddddcbK\nKdddddKdddKdddccbK\nKdiddKgKgKgKddicbK\n_KdidKKKKKKdicbK__\n_KdddddddddddccbK_\n__KddddddddddcbK__\n_KcbKKddddddKKbcK_\n_KKK_fKKKKKKf_KKK_"}
         # hoodie collar under the helmet -> chest plate shadow, then restore the silhouette outline
         - {name: chest, shape: poly, pts: [[25, 28], [40, 28], [40, 35], [25, 35]], recolour: "K:c f:b a:b"}
         - {name: chest outline, shape: edge, chars: "bc", to: K}
