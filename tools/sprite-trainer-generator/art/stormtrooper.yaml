@@ -6,6 +6,8 @@ replaces: graphics/trainers/front_pics/magma_grunt_m.png
 # already has a helmet's dome. Changes: red hoodie and grey trousers -> white armour with
 # blue-grey shadows, skin -> black body glove, face -> helmet face plate (lenses, grill,
 # cheek tubes), Poke Ball -> E-11 blaster held up in the far hand.
+# Accepted lint: 9 colours (vanilla 13-15) because white armour needs one ramp, not several;
+# dark_outline is high because the armour is outlined in black all round, as the films show.
 palette:
   - [115, 197, 164]  # 0 transparent
   - [16, 16, 24]     # K outline
@@ -36,9 +38,13 @@ frames:
         - {name: near glove, shape: poly, pts: [[7, 28], [15, 28], [15, 36], [7, 36]], recolour: "e:a d:a c:f b:f"}
         # forearm between the sleeve and the glove: white armour, not bare body glove
         - {name: forearm, shape: poly, pts: [[16, 23], [24, 23], [24, 31], [16, 31]], recolour: "a:d f:c"}
-        # hood and face -> stormtrooper helmet (dome, brow, lenses, nose ridge, grill, cheek tubes)
+        # hood and face -> stormtrooper helmet in 3/4 view: face plate (lenses, nose ridge, grill,
+        # cheek tube) on the left, side of the helmet with the ear cap on the right
         - {name: old head, shape: poly, pts: [[21, 5], [43, 5], [43, 15], [40, 16], [40, 27], [23, 27], [21, 16]], erase: true}
-        - {name: helmet, shape: pixels, x: 23, y: 7, rows: "_____KKKKKKK______\n___KKeeeeeeddKK___\n__KeeeeeeeeddddK__\n_KeeeeeeeeedddddK_\n_KeeeeeeeedddddcK_\nKeeeeeeeddddddcccK\nKeeeeeeddddddccccK\nKdddddddddddccccbK\nKdddddddddcccccbbK\nKeeKKKKeedddKKKKbK\nKdeKKKKKeddKKKKcbK\nKddeKKKdgddKKKdcbK\nKdddeKddgdddKddcbK\nKddddddcgcdddddcbK\nKdddddKdddKdddccbK\nKdiddKgKgKgKddicbK\n_KdidKKKKKKdicbK__\n_KdddddddddddccbK_\n__KddddddddddcbK__\n_KcbKKddddddKKbcK_\n_KKK_fKKKKKKf_KKK_"}
+        - {name: hood edge, shape: poly, pts: [[18, 15], [23, 15], [23, 22], [18, 22]], erase: true}
+        - {name: helmet, shape: pixels, x: 23, y: 9, rows: "_____KKKKK_______\n___KKeeeeedKK____\n__KeeeeeeeeddcK__\n_KeeeeeeeedddccK_\nKeeeeeeeedddcccbK\nKddddddddddcccbbK\nKccccccccdcccccbK\n_KdKKdKKKKccKKKbK\n_KdKKdKKKKcKedKbK\n_KddKdgKKdcKddKbK\n__KddegddKccKKcbK\n__KdcbcbdcKccccbK\n__KKbcbcKcKcccbbK\n___KdKKKdKcccbbbK\n____KKKKKcccccbbK\n_____KccccccccbbK\n____KcbbbbbbbbbK_\n_____KKKKKKKKKK__"}
+        # body-glove neck behind the helmet's snout (fills only what the erase left empty)
+        - {name: neck, shape: capsule, from: [24, 25], to: [36, 27], r: [2.5, 2.5], ramp: fa, behind: true}
         # hoodie collar under the helmet -> chest plate shadow, then restore the silhouette outline
         - {name: chest, shape: poly, pts: [[25, 28], [40, 28], [40, 35], [25, 35]], recolour: "K:c f:b a:b"}
         - {name: chest outline, shape: edge, chars: "bc", to: K}

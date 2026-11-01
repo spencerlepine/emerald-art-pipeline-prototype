@@ -140,11 +140,16 @@ built from rig shapes are not allowed (D9).
 - **2026-10-31, round 5 (repaint)**: Vader from Drake, Boba Fett from Pyramid King Brandon,
   Leia from Glacia, Obi-Wan from Expert M. Owner: "those are perfect. You nailed it. Ship that
   tool!" Lesson: repaint a close vanilla base; this is the reference style. Tool marked READY.
-- **2026-10-31, round 6 (fresh characters, awaiting review)**: Stormtrooper from the Magma
-  grunt M (white armour ramp, helmet hand-placed as `pixels`), Darth Maul from Sidney, Luke
-  from Wally, an Imperial officer from the Gentleman (hat tip -> salute). Self-review: Maul,
-  Luke and the officer read at 1x; the Stormtrooper helmet is the weakest part (front-on and
-  boxy next to the 3/4 body, because the whole head had to be redrawn).
+- **2026-10-31, round 6 (fresh characters)**: Stormtrooper from the Magma grunt M, Darth Maul
+  from Sidney, Luke from Wally, an Imperial officer from the Gentleman (hat tip -> salute).
+  Owner: "Nice! Just take another pass at the storm trooper helmet." Maul, Luke and the officer
+  approved as they are. The helmet had been redrawn front-on and boxy on a 3/4 body.
+- **2026-11-01, round 7 (Stormtrooper helmet)**: helmet redrawn in 3/4 to match the body:
+  smaller, round dome, face plate on the far side narrowing to the grill snout, the ear cap on
+  the near side, separate teardrop lenses, grey (not black) grill teeth, no black brow band.
+  Lesson: a redrawn head must turn with the base's body and keep vanilla head proportions
+  (~14 px tall); a front-on face on a turned body reads as a mask. Sheet:
+  `output/stormtrooper-helmet-r7.png`.
 
 ## Contact sheet of the vanilla pics
 

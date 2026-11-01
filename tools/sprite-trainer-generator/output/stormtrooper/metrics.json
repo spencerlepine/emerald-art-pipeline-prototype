@@ -1,11 +1,11 @@
 {
- "top": 7,
+ "top": 8,
  "feet": 62,
- "height": 56,
+ "height": 55,
  "width": 48,
- "area": 1180,
+ "area": 1126,
  "dark_outline": 0.992,
- "orphans": 0.096,
- "colours": 10,
- "symmetry": 0.176
+ "orphans": 0.106,
+ "colours": 9,
+ "symmetry": 0.155
 }
